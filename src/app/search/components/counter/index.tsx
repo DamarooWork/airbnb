@@ -5,7 +5,10 @@ interface CountIconProps {
 }
 export const CountIcon = ({ icon, onClick }: CountIconProps) => {
   return (
-    <button onClick={onClick}>
+    <button
+      className="border rounded-full w-5 h-5 flex items-center justify-center"
+      onClick={onClick}
+    >
       <span>{icon}</span>
     </button>
   )
@@ -20,7 +23,7 @@ export default function Counter({ label }: CounterProps) {
     <>
       <section className="flex justify-between">
         <p className="font-bold">{label}</p>
-        <div className="fkex items-center gap-x-1">
+        <div className="flex items-center gap-x-1">
           {count > 0 && (
             <CountIcon icon="-" onClick={() => setCount((prev) => prev - 1)} />
           )}

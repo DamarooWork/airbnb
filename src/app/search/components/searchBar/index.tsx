@@ -38,7 +38,7 @@ export default function SearchBar() {
           tabIndex={2}
           className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
         >
-          <Counter label={'label'} />
+          <Counter label="Adults" />
         </div>
       </section>
     </section>
