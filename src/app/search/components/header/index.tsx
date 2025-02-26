@@ -10,7 +10,7 @@ export default function Header() {
     setIsExpanded((prev) => !prev)
   }
   return (
-    <header className="container flex justify-between h-10 border-b bg-white z-50 sticky top-0 left-0 w-full">
+    <header className=" flex justify-between h-10 border-b bg-transparent z-50 sticky top-0 left-0 w-full ">
       <section className="text-red-500">Airbnb</section>
 
       {isExpanded ? (
@@ -20,13 +20,13 @@ export default function Header() {
           onClick={toggleExpanded}
           className="search-container flex gap-3 rounded-lg"
         >
-          <div className="input border-r">
+          <div className=" border-r">
             <p>Anywhere</p>
           </div>
-          <div className="input border-r">
+          <div className=" border-r">
             <p>Any Date</p>
           </div>
-          <div className="input border-r">
+          <div className=" border-r">
             <p>Add Guests</p>
           </div>
           <div className="search-btn">Search</div>
