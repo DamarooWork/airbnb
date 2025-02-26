@@ -24,5 +24,12 @@ export default function CalendarComponent() {
       }
     }
   }
-  return <DateRangePicker ranges={[selectionRange]} onChange={handleSelect} />
+  return (
+    <DateRangePicker
+      rangeColors={['#FF385C']}
+      minDate={new Date()}
+      ranges={[selectionRange]}
+      onChange={handleSelect}
+    />
+  )
 }

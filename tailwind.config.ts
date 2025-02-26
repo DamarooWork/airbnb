@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import { DEFAULT_CIPHERS } from 'tls'
 
 export default {
   content: [
@@ -11,6 +12,10 @@ export default {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        primary: '#FF385C',
+      },
+      borderColor: {
+        DEFAULT: '#DDDDDD',
       },
     },
   },
