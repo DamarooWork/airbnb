@@ -8,7 +8,7 @@ export default function SearchLayout({
   return (
     <>
       <Header />
-      <main className=" mx-auto pt-4 px-10">{children}</main>
+      <main className=" mx-auto p-4 px-10">{children}</main>
     </>
   )
 }
