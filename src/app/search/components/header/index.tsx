@@ -5,6 +5,7 @@ import SearchBar from './searchBar'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 export default function Header() {
   const [isExpanded, setIsExpanded] = useState(false)
@@ -12,15 +13,54 @@ export default function Header() {
   const toggleExpanded = () => {
     setIsExpanded((prev) => !prev)
   }
+
+  const searchContainerVariants = {
+    initial: {
+      opacity: 1,
+      height: 'auto',
+      y: 0,
+      scale: 1,
+    },
+    hidden: {
+      opacity: 0,
+      height: 0,
+      y: 100,
+      scale: 2,
+    },
+    enter: {
+      opacity: 1,
+      height: 'auto',
+      y: 0,
+      scale: 1,
+    },
+  }
+  const tabVariants = {
+    hidden: {
+      opacity: 0,
+      height: 0,
+      y: -100,
+      scale: 0,
+    },
+    enter: {
+      opacity: 1,
+      height: 'auto',
+      y: 25,
+      scale: 1,
+    },
+    exit: {
+      opacity: 0,
+      height: 0,
+      y: -100,
+      scale: 0,
+    },
+  }
   return (
     <>
       <header
         className={`border-b bg-white z-50 sticky top-0 left-0 w-full flex justify-between items-center`}
       >
         <section
-          className={`${
-            isExpanded ? 'h-[9rem]' : 'h-[7.5rem]'
-          }    flex justify-between items-center bg-transparent px-10 w-full`}
+          className={` h-[7.5rem]   flex justify-between items-center bg-transparent px-10 w-full`}
         >
           <Link href={'/'}>
             <Image
@@ -31,12 +71,26 @@ export default function Header() {
             />
           </Link>
 
-          {isExpanded ? (
-            <SearchBar toggleExpanded={toggleExpanded}/>
-          ) : (
-            <button
+          <section className="flex flex-col ">
+            <motion.div
+              className="flex justify-center items-center h-full  "
+              initial="hidden"
+              animate={isExpanded ? 'enter' : 'exit'}
+              exit="exit"
+              transition={{ type: 'linear' }}
+              variants={tabVariants}
+            >
+              <SearchBar toggleExpanded={toggleExpanded} />
+            </motion.div>
+
+            <motion.button
+              initial="initial"
+              animate={isExpanded ? 'hidden' : 'enter'}
+              exit="exit"
+              transition={{ type: 'linear' }}
               onClick={toggleExpanded}
-              className={`search-container flex p-4 justify-center items-center rounded-full border drop-shadow-md bg-background ${
+              variants={searchContainerVariants}
+              className={` flex p-4 justify-center items-center rounded-full  border drop-shadow-md bg-background ${
                 isExpanded ? 'border-b-8' : 'border-b-0'
               } `}
             >
@@ -52,9 +106,8 @@ export default function Header() {
               <div className="mx-4 search-btn px-4 rounded-full bg-primary h-10 w-10 relative ">
                 <MagnifyingGlassIcon className="w-5 h-5 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 " />
               </div>
-            </button>
-          )}
-
+            </motion.button>
+          </section>
           <section>
             <Image
               src={'/images/user.svg'}
