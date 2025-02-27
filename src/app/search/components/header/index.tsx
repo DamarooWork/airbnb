@@ -1,19 +1,22 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import SearchBar from './searchBar'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { useClickAway } from 'react-use'
 
 export default function Header() {
   const [isExpanded, setIsExpanded] = useState(false)
-
+  const headerRef = useRef(null)
   const toggleExpanded = () => {
     setIsExpanded((prev) => !prev)
   }
-
+  useClickAway(headerRef, () => {
+    toggleExpanded()
+  })
   const searchContainerVariants = {
     initial: {
       opacity: 1,
@@ -57,6 +60,7 @@ export default function Header() {
   return (
     <>
       <header
+        ref={headerRef}
         className={`border-b bg-white z-50 sticky top-0 left-0 w-full flex justify-between items-center`}
       >
         <section
@@ -71,9 +75,9 @@ export default function Header() {
             />
           </Link>
 
-          <section className="flex flex-col ">
-            <motion.div
-              className="flex justify-center items-center h-full  "
+          <section className="flex flex-col">
+            <motion.section
+              className="flex justify-center items-center"
               initial="hidden"
               animate={isExpanded ? 'enter' : 'exit'}
               exit="exit"
@@ -81,7 +85,7 @@ export default function Header() {
               variants={tabVariants}
             >
               <SearchBar toggleExpanded={toggleExpanded} />
-            </motion.div>
+            </motion.section>
 
             <motion.button
               initial="initial"
@@ -119,10 +123,9 @@ export default function Header() {
         </section>
       </header>
       <div
-        onClick={() => setIsExpanded((prev) => !prev)}
         className={`${
           isExpanded ? 'block opacity-100' : 'hidden opacity-0'
-        } absolute top-0 left-0 w-full h-full z-40 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out`}
+        } fixed top-0 left-0 w-full h-full z-40 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out`}
       ></div>
     </>
   )

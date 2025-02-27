@@ -22,7 +22,9 @@ export default function SearchInput() {
             }
           />
         ) : (
-          <p className="text-slate-600">Search destinations</p>
+          <p className="text-slate-600">
+            {locationInput ? locationInput : 'Search destinations'}
+          </p>
         )}
       </button>
     </>
