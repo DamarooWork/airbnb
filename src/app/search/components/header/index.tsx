@@ -17,7 +17,7 @@ export default function Header() {
       <section
         className={`${
           isExpanded ? 'h-[13rem]' : 'h-[7.5rem]'
-        }  container m-auto flex justify-between items-center px-10 `}
+        }    flex justify-between items-center bg-transparent px-10 w-full`}
       >
         <section className="text-red-500">Airbnb</section>
 
