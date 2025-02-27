@@ -12,35 +12,41 @@ export default function Header() {
   }
   return (
     <header
-      className={`${
-        isExpanded ? 'h-[13rem]' : 'h-[7.5rem]'
-      } container m-auto flex justify-between items-center  border-b bg-transparent z-50 sticky top-0 left-0 w-full `}
+      className={`border-b bg-transparent z-50 sticky top-0 left-0 w-full flex justify-between items-center`}
     >
-      <section className="text-red-500">Airbnb</section>
+      <section
+        className={`${
+          isExpanded ? 'h-[13rem]' : 'h-[7.5rem]'
+        }  container m-auto flex justify-between items-center px-10 `}
+      >
+        <section className="text-red-500">Airbnb</section>
 
-      {isExpanded ? (
-        <SearchBar />
-      ) : (
-        <button
-          onClick={toggleExpanded}
-          className="search-container flex gap-3 rounded-lg"
-        >
-          <div className=" border-r">
-            <p>Anywhere</p>
-          </div>
-          <div className=" border-r">
-            <p>Any Date</p>
-          </div>
-          <div className=" border-r">
-            <p>Add Guests</p>
-          </div>
-          <div className="search-btn px-4 rounded-full bg-primary h-10 w-10 relative">
-            <MagnifyingGlassIcon className="w-5 h-5 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-          </div>
-        </button>
-      )}
+        {isExpanded ? (
+          <SearchBar />
+        ) : (
+          <button
+            onClick={toggleExpanded}
+            className={`search-container flex p-4 justify-center items-center rounded-full border drop-shadow-md bg-background ${
+              isExpanded ? 'border-b-8' : 'border-b-0'
+            } `}
+          >
+            <div className="flex justify-center items-center border-r px-4">
+              <p>Anywhere</p>
+            </div>
+            <div className="flex justify-center items-center border-r px-4">
+              <p>Any Date</p>
+            </div>
+            <div className="flex justify-center items-center border-r px-4">
+              <p>Add Guests</p>
+            </div>
+            <div className="mx-4 search-btn px-4 rounded-full bg-primary h-10 w-10 relative ">
+              <MagnifyingGlassIcon className="w-5 h-5 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 " />
+            </div>
+          </button>
+        )}
 
-      <section>user</section>
+        <section>user</section>
+      </section>
     </header>
   )
 }

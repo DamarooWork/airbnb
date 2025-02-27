@@ -1,12 +1,16 @@
 import { useState } from 'react'
+import Link from 'next/link'
 import Counter from '../counter'
 import CalendarComponent from './CalendarComponent'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 export default function SearchBar() {
   const [isSearchFocused, setIsSearchFocused] = useState(false)
   return (
-    <section className="flex self-center rounded-full border p-2 mt-8 w-3/4">
-      <button onClick={() => setIsSearchFocused(true)}>
+    <section className="flex self-center rounded-full border p-2 mt-8 ">
+      <button
+        className="border-r px-4 text-left"
+        onClick={() => setIsSearchFocused(true)}
+      >
         <p className="font-bold">Where</p>
         {isSearchFocused ? (
           <input
@@ -37,15 +41,19 @@ export default function SearchBar() {
         </label>
         <div
           tabIndex={2}
-          className="dropdown-content menu  rounded-box z-[1] w-52 p-2 shadow"
+          className="dropdown-content menu   rounded-box z-[1] w-52 p-2 shadow"
         >
           <Counter label="Adults" />
         </div>
       </section>
-      <button className="px-4 text-white rounded-full bg-primary p-4 flex justify-center gap-3 items-center">
+
+      <Link
+        href={'/search/results'}
+        className="px-4 text-white rounded-full bg-primary p-4 flex justify-center gap-3 items-center"
+      >
         <MagnifyingGlassIcon className="w-5 h-5" />
         <span>Search</span>
-      </button>
+      </Link>
     </section>
   )
 }

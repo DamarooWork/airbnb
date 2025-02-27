@@ -1,4 +1,4 @@
-import Header from "./components/header"
+import Header from './components/header'
 
 export default function SearchLayout({
   children,
@@ -7,8 +7,8 @@ export default function SearchLayout({
 }>) {
   return (
     <>
-      <Header/>
-      {children}
+      <Header />
+      <main className="container mx-auto pt-4 px-10">{children}</main>
     </>
   )
 }
