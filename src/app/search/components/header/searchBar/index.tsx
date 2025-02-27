@@ -1,27 +1,22 @@
-import { useState } from 'react'
 import Link from 'next/link'
-import Counter from './counter'
+import Counter from './Counter'
 import CalendarComponent from './CalendarComponent'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
-export default function SearchBar() {
-  const [isSearchFocused, setIsSearchFocused] = useState(false)
+import SearchInput from './SearchInput'
+import { useRouter } from 'next/navigation'
+export default function SearchBar({
+  toggleExpanded,
+}: {
+  toggleExpanded: () => void
+}) {
+  const router = useRouter()
+  const handleSearchClick = () => {
+    toggleExpanded()
+    router.push('/search/results')
+  }
   return (
-    <section className="flex self-center rounded-full border p-2 mt-8 ">
-      <button
-        className="border-r px-4 text-left"
-        onClick={() => setIsSearchFocused(true)}
-      >
-        <p className="font-bold">Where</p>
-        {isSearchFocused ? (
-          <input
-            className="text-slate-800 bg-transparent border-none outline-none"
-            type="text"
-            placeholder="Search destinations"
-          />
-        ) : (
-          <p className="text-slate-600">Search destinations</p>
-        )}
-      </button>
+    <section className="flex self-center rounded-full border p-2  ">
+      <SearchInput />
       <section className="dropdown dropdown-end px-4 border-r">
         <label tabIndex={1} htmlFor="">
           <p className="font-bold">Dates</p>
@@ -47,13 +42,13 @@ export default function SearchBar() {
         </div>
       </section>
 
-      <Link
-        href={'/search/results'}
+      <button
+        onClick={handleSearchClick}
         className="px-4 text-white rounded-full bg-primary p-4 flex justify-center gap-3 items-center"
       >
         <MagnifyingGlassIcon className="w-5 h-5" />
         <span>Search</span>
-      </Link>
+      </button>
     </section>
   )
 }

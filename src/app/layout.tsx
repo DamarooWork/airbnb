@@ -14,6 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <title>Airbnb by Damaroo</title>
+        <link rel="icon/png" href="icon.png" />
+      </head>
       <body>{children}</body>
     </html>
   )

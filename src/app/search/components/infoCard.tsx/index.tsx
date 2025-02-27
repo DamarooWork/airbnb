@@ -9,14 +9,17 @@ import Image from 'next/image'
 export default function InfoCard({ listing }: { listing: IListing }) {
   const [isFav, setIsFav] = useState(false)
   return (
-    <li className=" max-w-md mx-auto shadow-md rounded-md overflow-hidden group cursor-pointer relative">
-      <Image
-        className="w-full h-48 object-cover transition-transform duration-300 transform group-hover:scale-110 overflow-hidden"
-        src={listing.image}
-        alt={listing.name}
-        width={1000}
-        height={1000}
-      />
+    <li className=" w-[400px] mx-auto shadow-md rounded-md overflow-hidden group cursor-pointer relative">
+      <section className="w-full h-48 overflow-hidden ">
+        <Image
+          className="transition-transform duration-300 transform group-hover:scale-110 "
+          src={listing.image}
+          alt={listing.name}
+          width={1000}
+          height={1000}
+        />
+      </section>
+
       <section className="p-4">
         <header className="flex items-center justify-between mb-2">
           <h3 className="font-semibold text-xl">{listing.name}</h3>
