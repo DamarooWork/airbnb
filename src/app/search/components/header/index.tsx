@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import SearchBar from '../searchBar'
+import SearchBar from './searchBar'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 
 export default function Header() {

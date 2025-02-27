@@ -7,7 +7,7 @@ import { StarIcon } from '@heroicons/react/24/solid'
 import { IListing } from '@/app/api/search/route'
 import Image from 'next/image'
 export default function InfoCard({ listing }: { listing: IListing }) {
-  const [] = useState()
+  const [isFav, setIsFav] = useState(false)
   return (
     <li className=" max-w-md mx-auto shadow-md rounded-md overflow-hidden group cursor-pointer relative">
       <Image
@@ -17,7 +17,7 @@ export default function InfoCard({ listing }: { listing: IListing }) {
         width={1000}
         height={1000}
       />
-      <section className=" p-4">
+      <section className="p-4">
         <header className="flex items-center justify-between mb-2">
           <h3 className="font-semibold text-xl">{listing.name}</h3>
           <section className="flex justify-center gap-1 items-center">
@@ -29,8 +29,15 @@ export default function InfoCard({ listing }: { listing: IListing }) {
         <footer>
           <p className="text-gray-600 mb-4">{listing.description}</p>
         </footer>
-        <button className="absolute bottom-4 right-4 p-2 -z-30">
-          <HeartIcon className="text-primary w-5 h-5" />
+        <button
+          onClick={() => setIsFav((prev) => !prev)}
+          className="absolute bottom-4 right-4  z-30"
+        >
+          {isFav ? (
+            <FilledHeartIcon className="text-primary w-5 h-5" />
+          ) : (
+            <HeartIcon className="text-primary w-5 h-5" />
+          )}
         </button>
       </section>
     </li>

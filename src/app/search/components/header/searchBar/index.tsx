@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
-import Counter from '../counter'
+import Counter from './counter'
 import CalendarComponent from './CalendarComponent'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 export default function SearchBar() {
