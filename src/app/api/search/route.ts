@@ -10,6 +10,6 @@ export interface IListing {
   price: number
   rating: number
 }
-export async function GET(_req: IListing[]) {
+export async function GET() {
   return NextResponse.json(listingData)
 }
