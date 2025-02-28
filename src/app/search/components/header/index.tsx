@@ -7,6 +7,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useClickAway } from 'react-use'
+import MobileNav from './mobileNav'
 
 export default function Header() {
   const [isExpanded, setIsExpanded] = useState(false)
@@ -15,7 +16,9 @@ export default function Header() {
     setIsExpanded((prev) => !prev)
   }
   useClickAway(headerRef, () => {
-    toggleExpanded()
+    if (isExpanded) {
+      toggleExpanded()
+    }
   })
   const searchContainerVariants = {
     initial: {
@@ -66,7 +69,7 @@ export default function Header() {
         <section
           className={` h-[7.5rem]   flex justify-between items-center bg-transparent px-10 w-full`}
         >
-          <Link href={'/'}>
+          <Link className="hidden md:flex" href={'/'}>
             <Image
               src={'/images/logo.png'}
               height={50}
@@ -75,7 +78,7 @@ export default function Header() {
             />
           </Link>
 
-          <section className="flex flex-col">
+          <section className="hidden md:flex flex-col">
             <motion.section
               className="flex justify-center items-center"
               initial="hidden"
@@ -112,7 +115,8 @@ export default function Header() {
               </div>
             </motion.button>
           </section>
-          <section>
+          <MobileNav />
+          <section className="ml-4">
             <Image
               src={'/images/user.svg'}
               height={30}
