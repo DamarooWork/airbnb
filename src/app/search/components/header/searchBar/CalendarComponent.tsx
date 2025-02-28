@@ -1,12 +1,16 @@
 import 'react-date-range/dist/styles.css' // main style file
 import 'react-date-range/dist/theme/default.css' // theme css file
-import { DateRangePicker, RangeKeyDict } from 'react-date-range'
+import { DateRangePicker, RangeKeyDict, DateRange } from 'react-date-range'
 import { useSearchStore } from '@/store/SearchStore'
 
 export default function CalendarComponent({
   handleSelect,
+  classNames = '',
+  definedRange = false,
 }: {
   handleSelect: (startDate: Date, endDate: Date) => void
+  classNames?: string
+  definedRange?: boolean
 }) {
   const startDate = useSearchStore((state) => state.dates[0])
   const endDate = useSearchStore((state) => state.dates[1])
@@ -24,11 +28,24 @@ export default function CalendarComponent({
     }
   }
   return (
-    <DateRangePicker
-      rangeColors={['#FF385C']}
-      minDate={new Date()}
-      ranges={[selectionRange]}
-      onChange={handleSelectCalendar}
-    />
+    <>
+      {definedRange ? (
+        <DateRangePicker
+          className={classNames}
+          rangeColors={['#FF385C']}
+          minDate={new Date()}
+          ranges={[selectionRange]}
+          onChange={handleSelectCalendar}
+        />
+      ) : (
+        <DateRange
+          className={classNames}
+          rangeColors={['#FF385C']}
+          minDate={new Date()}
+          ranges={[selectionRange]}
+          onChange={handleSelectCalendar}
+        />
+      )}
+    </>
   )
 }

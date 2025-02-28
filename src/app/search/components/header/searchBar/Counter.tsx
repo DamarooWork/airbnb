@@ -23,15 +23,13 @@ export default function Counter({ label }: CounterProps) {
   const decreaseCount = useSearchStore((state) => state.decreaseGuests)
 
   return (
-    <>
-      <section className="flex justify-between">
-        <p className="font-bold">{label}</p>
-        <div className="flex items-center gap-x-1">
-          {count > 0 && <CountIcon icon="-" onClick={decreaseCount} />}
-          <span>{count}</span>
-          <CountIcon icon="+" onClick={increaseCount} />
-        </div>
-      </section>
-    </>
+    <section className="flex justify-between ">
+      <p className="font-bold">{label}</p>
+      <div className="flex items-center gap-x-1">
+        {count > 0 && <CountIcon icon="-" onClick={decreaseCount} />}
+        <span>{count}</span>
+        <CountIcon icon="+" onClick={increaseCount} />
+      </div>
+    </section>
   )
 }

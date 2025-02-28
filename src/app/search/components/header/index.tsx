@@ -8,10 +8,12 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useClickAway } from 'react-use'
 import MobileNav from './mobileNav'
+import { useSearchStore } from '@/store/SearchStore'
 
 export default function Header() {
   const [isExpanded, setIsExpanded] = useState(false)
   const headerRef = useRef(null)
+  const location = useSearchStore((state) => state.location)
   const toggleExpanded = () => {
     setIsExpanded((prev) => !prev)
   }
@@ -102,7 +104,13 @@ export default function Header() {
               } `}
             >
               <div className="flex justify-center items-center border-r px-4">
-                <p>Anywhere</p>
+                <p>
+                  {location ? (
+                    <span className="font-bold"> {location}</span>
+                  ) : (
+                    'Anywhere'
+                  )}
+                </p>
               </div>
               <div className="flex justify-center items-center border-r px-4">
                 <p>Any Date</p>
