@@ -1,8 +1,10 @@
+import { useSearchStore } from '@/store/SearchStore'
 import CalendarComponent from './CalendarComponent'
 import { useState } from 'react'
 
 export default function DatesInput() {
   const [dateRangeLabel, setDateRangeLabel] = useState('Select dates')
+  
   const handleSelect = (startDate: Date, endDate: Date) => {
     setDateRangeLabel(`${startDate.toDateString()} - ${endDate.toDateString()}`)
   }

@@ -6,7 +6,7 @@ interface CountIconProps {
 export const CountIcon = ({ icon, onClick }: CountIconProps) => {
   return (
     <button
-      className="border rounded-full w-5 h-5 flex items-center justify-center"
+      className="border rounded-full w-8 h-8 flex items-center justify-center"
       onClick={onClick}
     >
       <span>{icon}</span>
@@ -23,9 +23,9 @@ export default function Counter({ label }: CounterProps) {
   const decreaseCount = useSearchStore((state) => state.decreaseGuests)
 
   return (
-    <section className="flex justify-between ">
+    <section className="flex justify-between items-center max-md:mt-2 text-xl">
       <p className="font-bold">{label}</p>
-      <div className="flex items-center gap-x-1">
+      <div className="flex items-center gap-2">
         {count > 0 && <CountIcon icon="-" onClick={decreaseCount} />}
         <span>{count}</span>
         <CountIcon icon="+" onClick={increaseCount} />
