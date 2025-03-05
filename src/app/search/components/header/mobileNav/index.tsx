@@ -42,7 +42,6 @@ export default function MobileNav() {
                 : 'Any week'}
             </span>
             <span>
-              {' '}
               {count && count !== 0
                 ? count === 1
                   ? `${count} guest`

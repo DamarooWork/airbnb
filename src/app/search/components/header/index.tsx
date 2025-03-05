@@ -14,6 +14,9 @@ export default function Header() {
   const [isExpanded, setIsExpanded] = useState(false)
   const headerRef = useRef(null)
   const location = useSearchStore((state) => state.location)
+  const startDate = useSearchStore((state) => state.dates[0])
+  const endDate = useSearchStore((state) => state.dates[1])
+  const count = useSearchStore((state) => state.guests)
   const toggleExpanded = () => {
     setIsExpanded((prev) => !prev)
   }
@@ -113,10 +116,21 @@ export default function Header() {
                 </p>
               </div>
               <div className="flex justify-center items-center border-r px-4">
-                <p>Any Date</p>
+                <p>
+                  {' '}
+                  {startDate !== new Date() || endDate !== new Date()
+                    ?  <span className="font-bold">{startDate.toDateString()} - {endDate.toDateString()}</span>
+                    : 'Any Date'}
+                </p>
               </div>
               <div className="flex justify-center items-center border-r px-4">
-                <p>Add Guests</p>
+                <p>
+                  {count && count !== 0
+                    ? count === 1
+                      ?  <span className="font-bold">{count} guest</span>
+                      :  <span className="font-bold">{count} guests</span>
+                    : 'Add Guests'}
+                </p>
               </div>
               <div className="mx-4 search-btn px-4 rounded-full bg-primary h-10 w-10 relative ">
                 <MagnifyingGlassIcon className="w-5 h-5 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 " />
