@@ -13,24 +13,15 @@ export default function MobileNav() {
   const startDate = useSearchStore((state) => state.dates[0])
   const endDate = useSearchStore((state) => state.dates[1])
   const count = useSearchStore((state) => state.guests)
+  const removeAllFilters = useSearchStore((state) => state.removeAllFilters)
   const router = useRouter()
-  const MobileMenu: { label: string; content?: ReactNode }[] = [
+  const MobileMenu: { label: string; content: ReactNode }[] = [
     { label: 'Where?', content: <DestinationInput /> },
     { label: 'When?', content: <DatesInput /> },
     { label: 'Who?', content: <Counter label={'Adults'} /> },
   ]
-  const handleCurrentUpdate = (tabIndex: number) => {
-    setCurrentTab(tabIndex)
-  }
   const handleSearchClick = () => {
     router.push('/search/results')
-  }
-  const handleClearAllClick = () => {
-    useSearchStore.setState({
-      location: '',
-      dates: [new Date(), new Date()],
-      guests: 0,
-    })
   }
 
   return (
@@ -73,7 +64,7 @@ export default function MobileNav() {
                   isCurrent={currentTab === i ? true : false}
                   title={item.label}
                   index={i}
-                  handleCurrentUpdate={handleCurrentUpdate}
+                  handleCurrentUpdate={() => setCurrentTab(i)}
                 >
                   {item.content ? item.content : <p>Children</p>}
                 </CollapseCard>
@@ -88,7 +79,7 @@ export default function MobileNav() {
             <XMarkIcon className="w-5 h-5 text-gray-400" />
           </label>
           <footer className="flex pr-3 py-2 justify-between items-center">
-            <button onClick={handleClearAllClick} className="underline">
+            <button onClick={removeAllFilters} className="underline">
               Clear All
             </button>
             <label
