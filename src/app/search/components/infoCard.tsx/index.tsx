@@ -1,13 +1,60 @@
 'use client'
-
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { HeartIcon } from '@heroicons/react/24/outline'
 import { HeartIcon as FilledHeartIcon } from '@heroicons/react/24/solid'
 import { StarIcon } from '@heroicons/react/24/solid'
 import { IListing } from '@/app/api/search/route'
 import Image from 'next/image'
+import { motion, useAnimate } from 'framer-motion'
+import { useReward } from 'react-rewards'
+
+const rewardConfigs = {
+  lifetime: 100,
+  spread: 90,
+  decay: 0.8,
+  elementCount: 12,
+  elementSize: 10,
+  emoji: ['❤️', '💖', '💝'],
+}
+
 export default function InfoCard({ listing }: { listing: IListing }) {
   const [isFav, setIsFav] = useState(false)
+  const [scope, animate] = useAnimate()
+  const { reward, isAnimating } = useReward(
+    `reward_${listing.id}`,
+    'emoji',
+    rewardConfigs
+  )
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout
+    if (isFav) {
+      animate(
+        'svg',
+        {
+          scale: [0, 1],
+        },
+        {
+          duration: 0.5,
+          type: 'spring',
+        }
+      )
+      timeoutId = setTimeout(() => reward(), 200)
+    } else {
+      animate(
+        'svg',
+        {
+          scale: [1, 0],
+        },
+        {
+          duration: 0.5,
+          type: 'spring',
+        }
+      )
+    }
+    return () => {
+      clearTimeout(timeoutId)
+    }
+  }, [isFav])
   return (
     <li className="w-full shadow-md rounded-md overflow-hidden group cursor-pointer relative">
       <section className="w-full h-48 overflow-hidden ">
@@ -36,12 +83,13 @@ export default function InfoCard({ listing }: { listing: IListing }) {
           onClick={() => setIsFav((prev) => !prev)}
           className="absolute bottom-4 right-4  z-30"
         >
-          {isFav ? (
-            <FilledHeartIcon className="text-primary w-5 h-5" />
-          ) : (
+          <span id={`reward_${listing.id}`}>
             <HeartIcon className="text-primary w-5 h-5" />
-          )}
+          </span>
         </button>
+        <div ref={scope} className="absolute bottom-4 right-4  z-20">
+          <FilledHeartIcon className="text-primary w-5 h-5 scale-0" />
+        </div>
       </section>
     </li>
   )
