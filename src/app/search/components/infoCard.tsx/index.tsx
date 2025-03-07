@@ -5,7 +5,7 @@ import { HeartIcon as FilledHeartIcon } from '@heroicons/react/24/solid'
 import { StarIcon } from '@heroicons/react/24/solid'
 import { IListing } from '@/app/api/search/route'
 import Image from 'next/image'
-import { motion, useAnimate } from 'framer-motion'
+import { useAnimate } from 'framer-motion'
 import { useReward } from 'react-rewards'
 
 const rewardConfigs = {
@@ -20,7 +20,7 @@ const rewardConfigs = {
 export default function InfoCard({ listing }: { listing: IListing }) {
   const [isFav, setIsFav] = useState(false)
   const [scope, animate] = useAnimate()
-  const { reward, isAnimating } = useReward(
+  const { reward } = useReward(
     `reward_${listing.id}`,
     'emoji',
     rewardConfigs
@@ -54,7 +54,7 @@ export default function InfoCard({ listing }: { listing: IListing }) {
     return () => {
       clearTimeout(timeoutId)
     }
-  }, [isFav])
+  }, [isFav, animate, reward])
   return (
     <li className="w-full shadow-md rounded-md overflow-hidden group cursor-pointer relative">
       <section className="w-full h-48 overflow-hidden ">
