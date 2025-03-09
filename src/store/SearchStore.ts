@@ -12,7 +12,7 @@ export interface SearchAction {
 }
 const initialState: SearchState = {
   location: '',
-  dates: [new Date(), new Date()],
+  dates: [new Date(1), new Date(1)],
   guests: 0,
 }
 

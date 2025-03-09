@@ -4,11 +4,9 @@ import { DateRangePicker, RangeKeyDict, DateRange } from 'react-date-range'
 import { useSearchStore } from '@/store/SearchStore'
 
 export default function CalendarComponent({
-  handleSelect,
   classNames = '',
   definedRange = false,
 }: {
-  handleSelect: (startDate: Date, endDate: Date) => void
   classNames?: string
   definedRange?: boolean
 }) {
@@ -24,7 +22,6 @@ export default function CalendarComponent({
       useSearchStore.setState({
         dates: [ranges.selection.startDate, ranges.selection.endDate],
       })
-      handleSelect(ranges.selection.startDate, ranges.selection.endDate)
     }
   }
   return (

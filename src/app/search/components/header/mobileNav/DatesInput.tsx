@@ -1,15 +1,14 @@
-import { useState } from 'react'
+import getPlaceholderDates from '@/lib/utils/getPlaceholderDates'
 import CalendarComponent from '../searchBar/CalendarComponent'
 
 export default function DatesInput() {
-  const [dateRangeLabel, setDateRangeLabel] = useState('Select dates')
-  const handleSelect = (startDate: Date, endDate: Date) => {
-    setDateRangeLabel(`${startDate.toDateString()} - ${endDate.toDateString()}`)
-  }
+  const dates = getPlaceholderDates()
   return (
     <section>
-      <p className="mb-2">{dateRangeLabel}</p>
-      <CalendarComponent classNames={'w-full'} handleSelect={handleSelect} />
+      <p className="mb-2">
+      {dates}
+      </p>
+      <CalendarComponent classNames={'w-full'} />
     </section>
   )
 }

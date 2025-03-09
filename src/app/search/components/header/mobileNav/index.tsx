@@ -6,12 +6,11 @@ import { useSearchStore } from '@/store/SearchStore'
 import DatesInput from './DatesInput'
 import Counter from '../searchBar/Counter'
 import { useRouter } from 'next/navigation'
+import getPlaceholderDates from '@/lib/utils/getPlaceholderDates'
 
 export default function MobileNav() {
   const [currentTab, setCurrentTab] = useState(0)
   const location = useSearchStore((state) => state.location)
-  const startDate = useSearchStore((state) => state.dates[0])
-  const endDate = useSearchStore((state) => state.dates[1])
   const count = useSearchStore((state) => state.guests)
   const removeAllFilters = useSearchStore((state) => state.removeAllFilters)
   const router = useRouter()
@@ -23,7 +22,7 @@ export default function MobileNav() {
   const handleSearchClick = () => {
     router.push('/search/results')
   }
-
+const dates = getPlaceholderDates()
   return (
     <section className="md:hidden flex-grow">
       <label
@@ -36,11 +35,7 @@ export default function MobileNav() {
             {location ? location : 'Anywhere'}
           </h2>
           <section className="flex gap-2 text-gray-500 font-normal">
-            <span className="border-r-2">
-              {startDate !== new Date() || endDate !== new Date()
-                ? `${startDate.toDateString()} - ${endDate.toDateString()}`
-                : 'Any week'}
-            </span>
+            <span className="border-r-2 pr-2">{dates}</span>
             <span>
               {count && count !== 0
                 ? count === 1

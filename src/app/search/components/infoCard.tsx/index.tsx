@@ -20,11 +20,7 @@ const rewardConfigs = {
 export default function InfoCard({ listing }: { listing: IListing }) {
   const [isFav, setIsFav] = useState(false)
   const [scope, animate] = useAnimate()
-  const { reward } = useReward(
-    `reward_${listing.id}`,
-    'emoji',
-    rewardConfigs
-  )
+  const { reward } = useReward(`reward_${listing.id}`, 'emoji', rewardConfigs)
   useEffect(() => {
     let timeoutId: NodeJS.Timeout
     if (isFav) {
@@ -56,14 +52,14 @@ export default function InfoCard({ listing }: { listing: IListing }) {
     }
   }, [isFav, animate, reward])
   return (
-    <li className="w-full shadow-md rounded-md overflow-hidden group cursor-pointer relative">
-      <section className="w-full h-48 overflow-hidden ">
+    <li className="w-full  shadow-md rounded-md overflow-hidden group cursor-pointer relative">
+      <section className="relative w-full h-48  overflow-hidden ">
         <Image
-          className="transition-transform duration-300 transform group-hover:scale-110 "
+          className=" object-cover transition-transform duration-300 transform group-hover:scale-110 will-change-transform"
           src={listing.image}
           alt={listing.name}
-          width={1000}
-          height={1000}
+          fill
+          priority
         />
       </section>
 

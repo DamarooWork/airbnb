@@ -1,8 +1,8 @@
-import { IListing } from '../api/search/route'
-import ResultsList from './results/components/resultsList'
+'use client'
+import useFetch from '@/lib/hooks/fetch/useFetch'
+import ResultsList from './results/components/ResultsList'
 
-export default async function Search() {
-  const res = await fetch('http://localhost:3000/api/search')
-  const data: IListing[] = await res.json()
-  return <ResultsList data={data} />
+export default function Search() {
+  const { data, isLoading } = useFetch()
+  return <ResultsList data={data} isLoading={isLoading} />
 }

@@ -9,14 +9,14 @@ import { motion } from 'framer-motion'
 import { useClickAway } from 'react-use'
 import MobileNav from './mobileNav'
 import { useSearchStore } from '@/store/SearchStore'
+import getPlaceholderDates from '@/lib/utils/getPlaceholderDates'
 
 export default function Header() {
   const [isExpanded, setIsExpanded] = useState(false)
   const headerRef = useRef(null)
   const location = useSearchStore((state) => state.location)
-  const startDate = useSearchStore((state) => state.dates[0])
-  const endDate = useSearchStore((state) => state.dates[1])
   const count = useSearchStore((state) => state.guests)
+  const dates = getPlaceholderDates()
   const toggleExpanded = () => {
     setIsExpanded((prev) => !prev)
   }
@@ -76,6 +76,7 @@ export default function Header() {
         >
           <Link className="hidden md:flex" href={'/'}>
             <Image
+              className="w-[172px] h-auto"
               src={'/images/logo.png'}
               height={50}
               width={172}
@@ -116,20 +117,19 @@ export default function Header() {
                 </p>
               </div>
               <div className="flex justify-center items-center border-r px-4">
-                <p>
-                  {' '}
-                  {startDate !== new Date() || endDate !== new Date()
-                    ?  <span className="font-bold">{startDate.toDateString()} - {endDate.toDateString()}</span>
-                    : 'Any Date'}
-                </p>
+                <p>{dates}</p>
               </div>
               <div className="flex justify-center items-center border-r px-4">
                 <p>
-                  {count && count !== 0
-                    ? count === 1
-                      ?  <span className="font-bold">{count} guest</span>
-                      :  <span className="font-bold">{count} guests</span>
-                    : 'Add Guests'}
+                  {count && count !== 0 ? (
+                    count === 1 ? (
+                      <span className="font-bold">{count} guest</span>
+                    ) : (
+                      <span className="font-bold">{count} guests</span>
+                    )
+                  ) : (
+                    'Add Guests'
+                  )}
                 </p>
               </div>
               <div className="mx-4 search-btn px-4 rounded-full bg-primary h-10 w-10 relative ">

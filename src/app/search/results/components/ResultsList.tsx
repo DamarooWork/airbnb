@@ -1,7 +1,15 @@
 import { IListing } from '@/app/api/search/route'
 import InfoCard from '@/app/search/components/infoCard.tsx'
+import Loader from '@/ui/Loader'
 
-export default function ResultsList({ data }: { data: IListing[] }) {
+export default function ResultsList({
+  data,
+  isLoading,
+}: {
+  data: IListing[]
+  isLoading?: boolean
+}) {
+  if (isLoading) return <Loader/>
   return (
     <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8 mt-4 ">
       {data.map((listing: IListing) => (

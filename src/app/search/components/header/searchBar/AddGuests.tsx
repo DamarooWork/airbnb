@@ -7,12 +7,16 @@ export default function AddGuests() {
     <section className="dropdown dropdown-end px-4 ">
       <label className="" tabIndex={2} htmlFor="">
         <p className="font-bold">Who</p>
-        <p className="text-slate-600">
-          {count && count !== 0
-            ? count === 1
-              ? `${count} guest`
-              : `${count} guests`
-            : 'Add Guests'}
+        <p className="text-slate-600 cursor-pointer">
+          {count && count !== 0 ? (
+            count === 1 ? (
+              <span className="font-bold"> {count} guest</span>
+            ) : (
+              <span className="font-bold">{count} guests</span>
+            )
+          ) : (
+            'Add Guests'
+          )}
         </p>
       </label>
       <div
