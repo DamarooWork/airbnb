@@ -72,8 +72,8 @@ export default function InfoCard({ listing }: { listing: IListing }) {
         ) : (
           <Image
             className="object-cover transition-transform duration-300 transform group-hover:scale-110 will-change-transform"
-            onLoad={(e) => setImageStatus('Loaded')}
-            onError={(e) => setImageStatus('Error')}
+            onLoad={() => setImageStatus('Loaded')}
+            onError={() => setImageStatus('Error')}
             src={listing.image}
             alt={listing.name}
             fill

@@ -1,6 +1,6 @@
 import { useSearchStore } from '@/store/SearchStore'
 
-export default function getPlaceholderDates() {
+export default function useGetPlaceholderDates() {
   const startDate = useSearchStore((state) => state.dates[0])
   const endDate = useSearchStore((state) => state.dates[1])
   return (

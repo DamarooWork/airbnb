@@ -1,13 +1,11 @@
-import getPlaceholderDates from '@/lib/utils/getPlaceholderDates'
+import useGetPlaceholderDates from '@/lib/hooks/useGetPlaceholderDates'
 import CalendarComponent from '../searchBar/CalendarComponent'
 
 export default function DatesInput() {
-  const dates = getPlaceholderDates()
+  const dates = useGetPlaceholderDates()
   return (
     <section>
-      <p className="mb-2">
-      {dates}
-      </p>
+      <p className="mb-2">{dates}</p>
       <CalendarComponent classNames={'w-full'} />
     </section>
   )

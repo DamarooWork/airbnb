@@ -9,14 +9,14 @@ import { motion } from 'framer-motion'
 import { useClickAway } from 'react-use'
 import MobileNav from './mobileNav'
 import { useSearchStore } from '@/store/SearchStore'
-import getPlaceholderDates from '@/lib/utils/getPlaceholderDates'
+import useGetPlaceholderDates from '@/lib/hooks/useGetPlaceholderDates'
 
 export default function Header() {
   const [isExpanded, setIsExpanded] = useState(false)
   const headerRef = useRef(null)
   const location = useSearchStore((state) => state.location)
   const count = useSearchStore((state) => state.guests)
-  const dates = getPlaceholderDates()
+  const dates = useGetPlaceholderDates()
   const toggleExpanded = () => {
     setIsExpanded((prev) => !prev)
   }

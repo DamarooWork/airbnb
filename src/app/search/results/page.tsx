@@ -3,7 +3,7 @@ import Link from 'next/link'
 import ResultsList from './components/ResultsList'
 import useFetch from '@/lib/hooks/fetch/useFetch'
 import { IListing } from '@/app/api/search/route'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useSearchStore } from '@/store/SearchStore'
 import { useDebounce } from 'react-use'
 
@@ -11,19 +11,19 @@ export default function Results() {
   const { data, isLoading } = useFetch()
   const location = useSearchStore((state) => state.location)
   const [filteredData, setFilteredData] = useState<IListing[]>([])
-  const filterData = () => {
+  const filterData = useCallback(() => {
     setFilteredData(
       data.filter((list) =>
         list.name.toLowerCase().includes(location.toLowerCase())
       )
     )
-  }
+  }, [data, location])
   const [isReady] = useDebounce(filterData, 500, [location, data])
   useEffect(() => {
     if (isReady()) {
       filterData()
     }
-  }, [isReady()])
+  }, [isReady, filterData])
   return (
     <>
       <section

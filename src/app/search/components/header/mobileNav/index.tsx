@@ -6,7 +6,7 @@ import { useSearchStore } from '@/store/SearchStore'
 import DatesInput from './DatesInput'
 import Counter from '../searchBar/Counter'
 import { useRouter } from 'next/navigation'
-import getPlaceholderDates from '@/lib/utils/getPlaceholderDates'
+import useGetPlaceholderDates from '@/lib/hooks/useGetPlaceholderDates'
 
 export default function MobileNav() {
   const [currentTab, setCurrentTab] = useState(0)
@@ -22,7 +22,7 @@ export default function MobileNav() {
   const handleSearchClick = () => {
     router.push('/search/results')
   }
-const dates = getPlaceholderDates()
+  const dates = useGetPlaceholderDates()
   return (
     <section className="md:hidden flex-grow">
       <label

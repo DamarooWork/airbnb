@@ -14,7 +14,7 @@ export default function useFetch() {
         const json = await getDataFromFetch()
         setData(json)
       } catch (e) {
-        setIsError('An error occurred')
+        setIsError('An error occurred' + e)
       } finally {
         setIsLoading(false)
       }

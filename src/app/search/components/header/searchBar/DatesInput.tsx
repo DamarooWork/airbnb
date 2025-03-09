@@ -1,8 +1,8 @@
 import CalendarComponent from './CalendarComponent'
-import getPlaceholderDates from '@/lib/utils/getPlaceholderDates'
+import useGetPlaceholderDates from '@/lib/hooks/useGetPlaceholderDates'
 
 export default function DatesInput() {
-  const dates = getPlaceholderDates()
+  const dates = useGetPlaceholderDates()
   return (
     <section className="dropdown dropdown-end px-4 border-r ">
       <label tabIndex={1} htmlFor="">
