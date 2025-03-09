@@ -74,13 +74,17 @@ export default function Header() {
         <section
           className={` h-[7.5rem]   flex justify-between items-center bg-transparent px-10 w-full`}
         >
-          <Link className="hidden md:flex" href={'/'}>
+          <Link
+            className="hidden md:flex relative w-[172px] h-[60px]"
+            href={'/'}
+          >
             <Image
-              className="w-[172px] h-auto"
+              className="object-cover"
               src={'/images/logo.png'}
-              height={50}
-              width={172}
+              fill
+              sizes="172px 60px"
               alt="Airbnb logo"
+              priority
             />
           </Link>
 

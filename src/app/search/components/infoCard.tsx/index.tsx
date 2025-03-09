@@ -7,6 +7,8 @@ import { IListing } from '@/app/api/search/route'
 import Image from 'next/image'
 import { useAnimate } from 'framer-motion'
 import { useReward } from 'react-rewards'
+import Loader from '@/ui/Loader'
+import { imageLoaderSrc } from '@/lib/constants/imageLoaderSrc'
 
 const rewardConfigs = {
   lifetime: 100,
@@ -20,6 +22,9 @@ const rewardConfigs = {
 export default function InfoCard({ listing }: { listing: IListing }) {
   const [isFav, setIsFav] = useState(false)
   const [scope, animate] = useAnimate()
+  const [imageStatus, setImageStatus] = useState<
+    'Loading' | 'Error' | 'Loaded'
+  >('Loaded')
   const { reward } = useReward(`reward_${listing.id}`, 'emoji', rewardConfigs)
   useEffect(() => {
     let timeoutId: NodeJS.Timeout
@@ -53,14 +58,29 @@ export default function InfoCard({ listing }: { listing: IListing }) {
   }, [isFav, animate, reward])
   return (
     <li className="w-full  shadow-md rounded-md overflow-hidden group cursor-pointer relative">
-      <section className="relative w-full h-48  overflow-hidden ">
-        <Image
-          className=" object-cover transition-transform duration-300 transform group-hover:scale-110 will-change-transform"
-          src={listing.image}
-          alt={listing.name}
-          fill
-          priority
-        />
+      <section className="relative w-full h-48 overflow-hidden">
+        {imageStatus === 'Loading' && <Loader />}
+        {imageStatus === 'Error' ? (
+          <Image
+            className="object-cover transition-transform duration-300 transform group-hover:scale-110 will-change-transform"
+            src={imageLoaderSrc}
+            alt={imageStatus}
+            fill
+            loading="lazy"
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, (max-width: 1536) 25vw, 20vw"
+          />
+        ) : (
+          <Image
+            className="object-cover transition-transform duration-300 transform group-hover:scale-110 will-change-transform"
+            onLoad={(e) => setImageStatus('Loaded')}
+            onError={(e) => setImageStatus('Error')}
+            src={listing.image}
+            alt={listing.name}
+            fill
+            priority
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, (max-width: 1536) 25vw, 20vw"
+          />
+        )}
       </section>
 
       <section className="p-4">
@@ -90,3 +110,5 @@ export default function InfoCard({ listing }: { listing: IListing }) {
     </li>
   )
 }
+
+

@@ -46,5 +46,197 @@
     "image": "https://images.unsplash.com/photo-1620332372374-f108c53d2e03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1772&q=80",
     "price": 180,
     "rating": 4.4
+  },
+  {
+    "id": 7,
+    "name": "Desert Oasis",
+    "description": "A beautiful oasis in the middle of the desert.",
+    "image": "https://images.unsplash.com/photo-1527736848781-72dc3b2ee00f?q=80&w=2017&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "price": 250,
+    "rating": 4.9
+  },
+  {
+    "id": 8,
+    "name": "Charming Chalet",
+    "description": "A charming chalet perfect for winter getaways.",
+    "image": "https://images.unsplash.com/photo-1553958787-63b859eed8fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1772&q=80",
+    "price": 220,
+    "rating": 4.6
+  },
+  {
+    "id": 9,
+    "name": "Urban Loft",
+    "description": "A stylish loft with a creative atmosphere.",
+    "image": "https://images.unsplash.com/photo-1623035929619-5c5604f2c00f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80",
+    "price": 210,
+    "rating": 4.3
+  },
+  {
+    "id": 10,
+    "name": "Beach Bungalow",
+    "description": "A cozy bungalow right on the beach.",
+    "image": "https://images.unsplash.com/photo-1575689799300-8c0c470d8db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80",
+    "price": 190,
+    "rating": 4.7
+  },
+  {
+    "id": 11,
+    "name": "Tropical Paradise",
+    "description": "Experience a relaxing stay in a tropical paradise.",
+    "image": "https://images.unsplash.com/photo-1542027381-361d2f0e81d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80",
+    "price": 350,
+    "rating": 5
+  },
+  {
+    "id": 12,
+    "name": "Countryside Escape",
+    "description": "A charming escape in the countryside.",
+    "image": "https://images.unsplash.com/photo-1598532217462-4b5a65793c14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80",
+    "price": 160,
+    "rating": 4.4
+  },
+  {
+    "id": 13,
+    "name": "Artistic Haven",
+    "description": "A haven for art lovers in a historic building.",
+    "image": "https://images.unsplash.com/photo-1598854438882-ebefa3b0a38f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80",
+    "price": 275,
+    "rating": 4.8
+  },
+  {
+    "id": 14,
+    "name": "Rustic Lodge",
+    "description": "A rustic lodge in the heart of the forest.",
+    "image": "https://images.unsplash.com/photo-1574617055227-5c23100b9a80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80",
+    "price": 130,
+    "rating": 4.5
+  },
+  {
+    "id": 15,
+    "name": "Lakeside Cabin",
+    "description": "A peaceful cabin by the lake.",
+    "image": "https://images.unsplash.com/photo-1558708834-6e8504c7363b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80",
+    "price": 150,
+    "rating": 4.6
+  },
+  {
+    "id": 16,
+    "name": "Pine Forest Retreat",
+    "description": "A retreat surrounded by stunning pine forests.",
+    "image": "https://images.unsplash.com/photo-1561781852-763c9edbc647?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80",
+    "price": 140,
+    "rating": 4.7
+  },
+  {
+    "id": 17,
+    "name": "Modern Farmhouse",
+    "description": "A sleek farmhouse with modern amenities.",
+    "image": "https://images.unsplash.com/photo-1615669830540-512aa9f3e67c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80",
+    "price": 210,
+    "rating": 4.8
+  },
+  {
+    "id": 18,
+    "name": "Casual Getaway",
+    "description": "A casual getaway for relaxed vacations.",
+    "image": "https://images.unsplash.com/photo-1599042187243-bd71ief0e64e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80",
+    "price": 160,
+    "rating": 4.5
+  },
+  {
+    "id": 19,
+    "name": "Skyscraper View",
+    "description": "A modern apartment with the best city views.",
+    "image": "https://images.unsplash.com/photo-1582060124161-bc00544d7014?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80",
+    "price": 250,
+    "rating": 4.9
+  },
+  {
+    "id": 20,
+    "name": "Gardenside Retreat",
+    "description": "A serene retreat surrounded by gardens.",
+    "image": "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80",
+    "price": 180,
+    "rating": 4.4
+  },
+  {
+    "id": 21,
+    "name": "Vintage Retreat",
+    "description": "A vintage retreat with a touch of nostalgia.",
+    "image": "https://images.unsplash.com/photo-1512958533280-ec6a228a30f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80",
+    "price": 190,
+    "rating": 4.5
+  },
+  {
+    "id": 22,
+    "name": "Oceanfront Escape",
+    "description": "An escape right on the oceanfront.",
+    "image": "https://images.unsplash.com/photo-1612250853123-45ec8f1daa74?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80",
+    "price": 330,
+    "rating": 4.8
+  },
+  {
+    "id": 23,
+    "name": "Chic Urban Retreat",
+    "description": "A chic retreat in the heart of the city.",
+    "image": "https://images.unsplash.com/photo-1516056792349-0f11c5f3a831?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80",
+    "price": 275,
+    "rating": 4.7
+  },
+  {
+    "id": 24,
+    "name": "Mysterious Island",
+    "description": "An adventurous getaway on a mysterious island.",
+    "image": "https://images.unsplash.com/photo-1552207985-5ca3ff42662e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80",
+    "price": 400,
+    "rating": 5
+  },
+  {
+    "id": 25,
+    "name": "Envoy of Nature",
+    "description": "Experience the beauty of nature at this retreat.",
+    "image": "https://images.unsplash.com/photo-1522152915602-b87671df69ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80",
+    "price": 290,
+    "rating": 4.9
+  },
+  {
+    "id": 26,
+    "name": "Aesthetic Loft",
+    "description": "An aesthetically pleasing loft for your stay.",
+    "image": "https://images.unsplash.com/photo-1606093993090-ecc36255ea5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80",
+    "price": 220,
+    "rating": 4.8
+  },
+  {
+    "id": 27,
+    "name": "Scenic Overlook",
+    "description": "Enjoy the beautiful views from the overlook.",
+    "image": "https://images.unsplash.com/photo-1470672857734-1c491d4a54e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80",
+    "price": 260,
+    "rating": 4.7
+  },
+  {
+    "id": 28,
+    "name": "Cultural Retreat",
+    "description": "Experience art and culture in this unique retreat.",
+    "image": "https://images.unsplash.com/photo-1590878258519-73ac0f6423bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80",
+    "price": 310,
+    "rating": 4.9
+  },
+  {
+    "id": 29,
+    "name": "Forest Cabin",
+    "description": "A cozy cabin deep in the forest.",
+    "image": "https://images.unsplash.com/photo-1613133356039-7c5f5d66d609?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80",
+    "price": 175,
+    "rating": 4.6
+  },
+  {
+    "id": 30,
+    "name": "Bayside Escape",
+    "description": "A relaxing escape by the bay.",
+    "image": "https://images.unsplash.com/photo-1571294387989-f9d6a3077d92?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80",
+    "price": 200,
+    "rating": 4.8
   }
 ]
