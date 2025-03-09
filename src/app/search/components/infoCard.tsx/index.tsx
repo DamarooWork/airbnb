@@ -110,5 +110,3 @@ export default function InfoCard({ listing }: { listing: IListing }) {
     </li>
   )
 }
-
-
