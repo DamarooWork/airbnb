@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 interface useDebounceProps {
-value: Value
-delay?: number
+  value: Value
+  delay?: number
 }
-type Value = string | number | [] | {}
+type Value = unknown
 
-export function useDebounce({value, delay = 300}: useDebounceProps): Value {
+export function useDebounce({ value, delay = 300 }: useDebounceProps): Value {
   const [debounced, setDebounced] = useState(value)
 
   useEffect(() => {
