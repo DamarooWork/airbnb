@@ -6,11 +6,13 @@ import { IListing } from '@/app/api/search/route'
 import { useCallback, useEffect, useState } from 'react'
 import { useSearchStore } from '@/store/SearchStore'
 import { useDebounce } from 'react-use'
+import Head from 'next/head'
 
 export default function Results() {
   const { data, isLoading } = useFetch()
   const location = useSearchStore((state) => state.location)
   const [filteredData, setFilteredData] = useState<IListing[]>([])
+
   const filterData = useCallback(() => {
     setFilteredData(
       data.filter((list) =>
@@ -24,8 +26,12 @@ export default function Results() {
       filterData()
     }
   }, [isReady, filterData])
+
   return (
-    <>
+    <section>
+      <Head>
+        <title>123312</title>
+      </Head>
       <section
         className="flex items-center justify-center w-full h-48 bg-cover bg-center 
       bg-[url(/images/booking-website-hero.png)] "
@@ -41,6 +47,6 @@ export default function Results() {
         data={location !== '' ? filteredData : data}
         isLoading={!isReady() || isLoading}
       />
-    </>
+    </section>
   )
 }
