@@ -9,6 +9,7 @@ import { useAnimate } from 'framer-motion'
 import { useReward } from 'react-rewards'
 import Loader from '@/ui/Loader'
 import { imageLoaderSrc } from '@/lib/constants/imageLoaderSrc'
+import { PrismaListing } from '@/lib/hooks/fetch/useFetch'
 
 const rewardConfigs = {
   lifetime: 100,
@@ -19,7 +20,7 @@ const rewardConfigs = {
   emoji: ['❤️', '💖', '💝'],
 }
 
-export default function InfoCard({ listing }: { listing: IListing }) {
+export default function InfoCard({ listing }: { listing: PrismaListing }) {
   const [isFav, setIsFav] = useState(false)
   const [scope, animate] = useAnimate()
   const [imageStatus, setImageStatus] = useState<
@@ -60,7 +61,7 @@ export default function InfoCard({ listing }: { listing: IListing }) {
     <li className="w-full  shadow-md rounded-md overflow-hidden group cursor-pointer relative">
       <section className="relative w-full h-48 overflow-hidden">
         {imageStatus === 'Loading' && <Loader />}
-        {imageStatus === 'Error' ? (
+        {imageStatus === 'Error' || listing.image === null ? (
           <Image
             className="object-cover transition-transform duration-300 transform group-hover:scale-110 will-change-transform"
             src={imageLoaderSrc}
@@ -75,7 +76,7 @@ export default function InfoCard({ listing }: { listing: IListing }) {
             onLoad={() => setImageStatus('Loaded')}
             onError={() => setImageStatus('Error')}
             src={listing.image}
-            alt={listing.name}
+            alt={listing.title}
             fill
             priority
             sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, (max-width: 1536) 25vw, 20vw"
@@ -85,7 +86,7 @@ export default function InfoCard({ listing }: { listing: IListing }) {
 
       <section className="p-4">
         <header className="flex items-center justify-between mb-2">
-          <h3 className="font-semibold text-xl">{listing.name}</h3>
+          <h3 className="font-semibold text-xl">{listing.title}</h3>
           <section className="flex justify-center gap-1 items-center">
             <StarIcon className="h-5 w-5 text-yellow-500" />
             <span className=" text-gray-800">{listing.rating}</span>

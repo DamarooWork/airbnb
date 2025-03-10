@@ -1,17 +1,13 @@
-'use client'
-import { useRouter } from 'next/navigation'
+import { prisma } from '../../db/prisma'
+import ButtonLink from './components/ButtonLink'
 
-export default function Home() {
-  const router = useRouter()
+export default async function Home() {
+  const listing = await prisma.listing.findMany()
+  console.log(listing)
+
   return (
     <main className="flex justify-center items-center w-screen h-screen bg-purple-100">
-      <h1
-        className="text-6xl italic  font-bold p-10 cursor-pointer border-[4px] rounded-full text-purple-800 border-purple-800 
-         hover:bg-purple-200 hover:scale-[1.02] hover:-translate-y-2 active:bg-purple-300 transition-all duration-300 ease-in-out active:scale-[0.98] will-change-transform text-center max-w-[95vw] max-sm:p-4"
-        onClick={() => router.push('/search')}
-      >
-        GO TO SEARCH PAGE
-      </h1>
+      <ButtonLink link={'/search'} text={'GO TO SEARCH PAGE'} />
     </main>
   )
 }

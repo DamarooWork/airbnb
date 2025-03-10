@@ -1,8 +1,5 @@
-'use server'
-
-import { BASE_URL } from '@/lib/utils/getUrl'
+import { prisma } from '../../../../db/prisma'
 
 export default async function getDataFromFetch() {
-  const response = await fetch(`${BASE_URL}/api/search`)
-  return await response.json()
+  return await prisma.listing.findMany()
 }

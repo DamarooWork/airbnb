@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import ResultsList from './components/ResultsList'
-import useFetch from '@/lib/hooks/fetch/useFetch'
+import useFetch, { PrismaListing } from '@/lib/hooks/fetch/useFetch'
 import { IListing } from '@/app/api/search/route'
 import { useCallback, useEffect, useState } from 'react'
 import { useSearchStore } from '@/store/SearchStore'
@@ -11,12 +11,12 @@ import Head from 'next/head'
 export default function Results() {
   const { data, isLoading } = useFetch()
   const location = useSearchStore((state) => state.location)
-  const [filteredData, setFilteredData] = useState<IListing[]>([])
+  const [filteredData, setFilteredData] = useState<PrismaListing[]>([])
 
   const filterData = useCallback(() => {
     setFilteredData(
       data.filter((list) =>
-        list.name.toLowerCase().includes(location.toLowerCase())
+        list.title.toLowerCase().includes(location.toLowerCase())
       )
     )
   }, [data, location])
