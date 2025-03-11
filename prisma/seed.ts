@@ -1,15 +1,14 @@
 import { PrismaClient } from '@prisma/client'
+import { data } from './listingData'
 const prisma = new PrismaClient()
 async function main() {
   console.log('starting to seed...')
-  const alice = await prisma.user.upsert({
-    where: { email: 'alice@prisma.io' },
+  const upsertPromises = data.map(listing=> prisma.listing.upsert({
+    where: {id: listing.id},
     update: {},
-    create: {
-      email: 'alice@prisma.io',
-      name: 'Alice',
-    },
-  })
+    create: listing
+  }))
+  await Promise.all(upsertPromises)
   console.log('Successfully seeded')
 }
 main()

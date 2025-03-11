@@ -1,7 +1,7 @@
 'use client'
-import { IListing } from '@/app/api/search/route'
 import { useEffect, useState } from 'react'
 import getDataFromFetch from './getDataFromFetch'
+import { Prisma } from '@prisma/client'
 export interface PrismaListing {
   id: number
   title: string
@@ -21,13 +21,12 @@ export default function useFetch() {
     const fetchAData = async () => {
       try {
         setIsLoading(true)
-        const listing = await getDataFromFetch()
-        setData(listing)
+        const listings = await getDataFromFetch()
+        setData(listings)
       } catch (e) {
         setIsError('An error occurred' + e)
-      } finally {
-        setIsLoading(false)
       }
+      setIsLoading(false)
     }
     fetchAData()
   }, [])
