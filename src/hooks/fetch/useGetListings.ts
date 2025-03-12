@@ -1,5 +1,5 @@
 'use client'
-import { memo, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import FetchListings from './FetchListings'
 export interface Listing {
   id: number

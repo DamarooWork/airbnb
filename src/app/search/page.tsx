@@ -5,12 +5,11 @@ import useGetListings from '@/hooks/fetch/useGetListings'
 
 export default function Search() {
   const params = useMemo(() => {
-    let param = {
+    return {
       orderBy: {
         id: 'asc',
       },
     }
-    return param
   }, [])
   const { data, isLoading, isError } = useGetListings({ params })
   return <ListingList data={data} isLoading={isLoading} isError={isError} />

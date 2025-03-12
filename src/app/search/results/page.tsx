@@ -9,12 +9,11 @@ import Head from 'next/head'
 
 export default function Results() {
   const params = useMemo(() => {
-    let param = {
+    return {
       orderBy: {
         id: 'asc',
       },
     }
-    return param
   }, [])
   const { data, isLoading, isError } = useGetListings({
     params,
