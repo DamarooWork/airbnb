@@ -11,6 +11,13 @@ interface ListProps {
 }
 
 export default function List({ data, isLoading, isError }: ListProps) {
+  const memoizedCards = useMemo(
+    () =>
+      data.map((listing: Listing) => {
+        return <Card key={listing.id} listing={listing} />
+      }),
+    [data]
+  )
   if (isLoading) return <Loader />
 
   if (isError) {
@@ -34,14 +41,6 @@ export default function List({ data, isLoading, isError }: ListProps) {
       </div>
     )
   }
-
-  const memoizedCards = useMemo(
-    () =>
-      data.map((listing: Listing) => {
-        return <Card key={listing.id} listing={listing} />
-      }),
-    [data]
-  )
 
   return (
     <ul

@@ -1,5 +1,5 @@
 'use client'
-import { EventHandler, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { HeartIcon } from '@heroicons/react/24/outline'
 import { HeartIcon as FilledHeartIcon } from '@heroicons/react/24/solid'
 import { StarIcon } from '@heroicons/react/24/solid'
@@ -61,8 +61,7 @@ export default function Card({ listing }: { listing: Listing }) {
       clearTimeout(timeoutId)
     }
   }, [isFav, animate, reward])
-  const handleHeartClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault()
+  const handleHeartClick = () => {
     setIsFav((prev) => !prev)
   }
   return (
@@ -81,11 +80,13 @@ export default function Card({ listing }: { listing: Listing }) {
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, (max-width: 1536) 25vw, 20vw"
         />
       </section>
-
-      <section className="p-4">
-        <header className="flex items-center justify-between mb-2">
-          <h3 className="font-semibold text-xl">{listing.title}</h3>
-          <section className="flex justify-center gap-1 items-center">
+      <section
+        onClick={() => router.push(`/rooms/${listing.id}`)}
+        className="p-4 cursor-pointer"
+      >
+        <header className="flex items-center justify-between mb-2 text-xl leading-5">
+          <h3 className="font-semibold ">{listing.title}</h3>
+          <section className="flex justify-center gap-1 items-center ">
             <StarIcon className="h-5 w-5 text-yellow-500" />
             <span className=" text-gray-800">
               {listing.rating ? listing.rating : 0}
@@ -96,18 +97,18 @@ export default function Card({ listing }: { listing: Listing }) {
         <footer>
           <p className="text-gray-600 mb-4">{listing.description}</p>
         </footer>
-        <button
-          onClick={handleHeartClick}
-          className="absolute bottom-4 right-4 z-30"
-        >
-          <span id={`reward_${listing.id}`}>
-            <HeartIcon className="text-primary w-5 h-5" />
-          </span>
-        </button>
-        <div ref={scope} className="absolute bottom-4 right-4  z-20">
-          <FilledHeartIcon className="text-primary w-5 h-5 scale-0" />
-        </div>
       </section>
+      <button
+        onClick={handleHeartClick}
+        className="absolute bottom-4 right-4 z-30"
+      >
+        <span id={`reward_${listing.id}`}>
+          <HeartIcon className="text-primary w-5 h-5" />
+        </span>
+      </button>
+      <div ref={scope} className="absolute bottom-4 right-4  z-20">
+        <FilledHeartIcon className="text-primary w-5 h-5 scale-0" />
+      </div>
     </li>
   )
 }

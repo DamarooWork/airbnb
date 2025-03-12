@@ -1,8 +1,7 @@
 'use client'
 import { useParams } from 'next/navigation'
 
-interface pageProps {}
-export default function RoomPage({}: pageProps) {
+export default function RoomPage() {
   const params = useParams()
   console.log(params)
 

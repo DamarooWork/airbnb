@@ -13,17 +13,17 @@ export interface Listing {
   location: string | null
 }
 export interface useFetchProps {
-  params: Object
+  params: object
 }
 export default function useGetListings(props: useFetchProps) {
   const [data, setData] = useState<Listing[]>([])
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const [isError, setIsError] = useState<Error | null>(null)
   useEffect(() => {
     let isMounted = true
-    const fetchData = async () => {
+    const useFetchData = async () => {
+      setIsLoading(true)
       try {
-        setIsLoading(true)
         const resp = await useFetchListings(props)
         if (isMounted) setData(resp)
       } catch (e: unknown) {
@@ -34,7 +34,7 @@ export default function useGetListings(props: useFetchProps) {
         if (isMounted) setIsLoading(false)
       }
     }
-    fetchData()
+    useFetchData()
     return () => {
       isMounted = false
     }
