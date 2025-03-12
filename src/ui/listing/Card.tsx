@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { EventHandler, useEffect, useState } from 'react'
 import { HeartIcon } from '@heroicons/react/24/outline'
 import { HeartIcon as FilledHeartIcon } from '@heroicons/react/24/solid'
 import { StarIcon } from '@heroicons/react/24/solid'
@@ -7,8 +7,9 @@ import Image from 'next/image'
 import { useAnimate } from 'framer-motion'
 import { useReward } from 'react-rewards'
 import Loader from '@/ui/Loader'
-import { imageLoaderSrc } from '@/lib/constants/imageLoaderSrc'
-import { PrismaListing } from '@/lib/hooks/fetch/useFetch'
+import { imagePlaceholder } from '@/lib/constants/imagePlaceholder'
+import { Listing } from '@/hooks/fetch/useGetListings'
+import { useRouter } from 'next/navigation'
 
 const rewardConfigs = {
   lifetime: 100,
@@ -19,8 +20,12 @@ const rewardConfigs = {
   emoji: ['❤️', '💖', '💝'],
 }
 
-export default function InfoCard({ listing }: { listing: PrismaListing }) {
+export default function Card({ listing }: { listing: Listing }) {
+  const router = useRouter()
   const [isFav, setIsFav] = useState(false)
+  const [image, setImage] = useState<string>(
+    listing.image ? listing.image : imagePlaceholder
+  )
   const [scope, animate] = useAnimate()
   const [imageStatus, setImageStatus] = useState<
     'Loading' | 'Error' | 'Loaded'
@@ -56,31 +61,25 @@ export default function InfoCard({ listing }: { listing: PrismaListing }) {
       clearTimeout(timeoutId)
     }
   }, [isFav, animate, reward])
+  const handleHeartClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    setIsFav((prev) => !prev)
+  }
   return (
-    <li className="w-full  shadow-md rounded-md overflow-hidden group cursor-pointer relative">
+    <li className="w-full shadow-md rounded-md overflow-hidden group relative">
       <section className="relative w-full h-48 overflow-hidden">
         {imageStatus === 'Loading' && <Loader />}
-        {imageStatus === 'Error' || listing.image === null ? (
-          <Image
-            className="object-cover transition-transform duration-300 transform group-hover:scale-110 will-change-transform"
-            src={imageLoaderSrc}
-            alt={imageStatus}
-            fill
-            loading="lazy"
-            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, (max-width: 1536) 25vw, 20vw"
-          />
-        ) : (
-          <Image
-            className="object-cover transition-transform duration-300 transform group-hover:scale-110 will-change-transform"
-            onLoad={() => setImageStatus('Loaded')}
-            onError={() => setImageStatus('Error')}
-            src={listing.image}
-            alt={listing.title}
-            fill
-            priority
-            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, (max-width: 1536) 25vw, 20vw"
-          />
-        )}
+        <Image
+          onClick={() => router.push(`/rooms/${listing.id}`)}
+          className="object-cover transition-transform duration-300 transform group-hover:scale-110 will-change-transform cursor-pointer"
+          onLoad={() => setImageStatus('Loaded')}
+          onError={() => setImage(imagePlaceholder)}
+          src={image}
+          alt={listing.title}
+          fill
+          priority
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, (max-width: 1536) 25vw, 20vw"
+        />
       </section>
 
       <section className="p-4">
@@ -98,8 +97,8 @@ export default function InfoCard({ listing }: { listing: PrismaListing }) {
           <p className="text-gray-600 mb-4">{listing.description}</p>
         </footer>
         <button
-          onClick={() => setIsFav((prev) => !prev)}
-          className="absolute bottom-4 right-4  z-30"
+          onClick={handleHeartClick}
+          className="absolute bottom-4 right-4 z-30"
         >
           <span id={`reward_${listing.id}`}>
             <HeartIcon className="text-primary w-5 h-5" />

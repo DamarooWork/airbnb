@@ -1,16 +1,22 @@
 'use client'
 import Link from 'next/link'
-import ResultsList from './components/ResultsList'
-import useFetch, { PrismaListing } from '@/lib/hooks/fetch/useFetch'
+import ListingList from '../../../ui/listing/List'
+import useGetListings, { Listing } from '@/hooks/fetch/useGetListings'
 import { useCallback, useEffect, useState } from 'react'
 import { useSearchStore } from '@/store/SearchStore'
 import { useDebounce } from 'react-use'
 import Head from 'next/head'
 
 export default function Results() {
-  const { data, isLoading } = useFetch()
+  const { data, isLoading, isError } = useGetListings({
+    params: {
+      orderBy: {
+        id: 'asc',
+      },
+    },
+  })
   const location = useSearchStore((state) => state.location)
-  const [filteredData, setFilteredData] = useState<PrismaListing[]>([])
+  const [filteredData, setFilteredData] = useState<Listing[]>([])
 
   const filterData = useCallback(() => {
     setFilteredData(
@@ -19,7 +25,7 @@ export default function Results() {
       )
     )
   }, [data, location])
-  const [isReady] = useDebounce(filterData, 500, [location, data])
+  const [isReady] = useDebounce(filterData, 800, [location, data])
   useEffect(() => {
     if (isReady()) {
       filterData()
@@ -42,9 +48,10 @@ export default function Results() {
           Reload
         </Link>
       </section>
-      <ResultsList
+      <ListingList
         data={location !== '' ? filteredData : data}
         isLoading={!isReady() || isLoading}
+        isError={isError}
       />
     </section>
   )

@@ -6,7 +6,7 @@ import { useSearchStore } from '@/store/SearchStore'
 import DatesInput from './DatesInput'
 import Counter from '../searchBar/Counter'
 import { useRouter } from 'next/navigation'
-import useGetPlaceholderDates from '@/lib/hooks/useGetPlaceholderDates'
+import useGetPlaceholderDates from '@/hooks/useGetPlaceholderDates'
 
 export default function MobileNav() {
   const [currentTab, setCurrentTab] = useState(0)

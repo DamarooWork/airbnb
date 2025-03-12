@@ -1,6 +1,6 @@
-import { PrismaListing } from '@/lib/hooks/fetch/useFetch'
+import { Listing } from '@/hooks/fetch/useGetListings'
 
-export const data: PrismaListing[] = [
+export const data: Listing[] = [
   {
     id: 1,
     title: 'Cozy Cottage',

@@ -1,4 +1,4 @@
-import useGetPlaceholderDates from '@/lib/hooks/useGetPlaceholderDates'
+import useGetPlaceholderDates from '@/hooks/useGetPlaceholderDates'
 import CalendarComponent from '../searchBar/CalendarComponent'
 
 export default function DatesInput() {

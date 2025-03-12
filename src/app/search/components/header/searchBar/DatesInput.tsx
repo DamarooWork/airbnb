@@ -1,5 +1,5 @@
 import CalendarComponent from './CalendarComponent'
-import useGetPlaceholderDates from '@/lib/hooks/useGetPlaceholderDates'
+import useGetPlaceholderDates from '@/hooks/useGetPlaceholderDates'
 
 export default function DatesInput() {
   const dates = useGetPlaceholderDates()

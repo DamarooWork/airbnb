@@ -9,7 +9,7 @@ import { motion } from 'framer-motion'
 import { useClickAway } from 'react-use'
 import MobileNav from './mobileNav'
 import { useSearchStore } from '@/store/SearchStore'
-import useGetPlaceholderDates from '@/lib/hooks/useGetPlaceholderDates'
+import useGetPlaceholderDates from '@/hooks/useGetPlaceholderDates'
 
 export default function Header() {
   const [isExpanded, setIsExpanded] = useState(false)
