@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import getDataFromFetch from './getDataFromFetch'
+import { prisma } from '../../../../db/prisma'
 export interface PrismaListing {
   id: number
   title: string
@@ -20,8 +21,9 @@ export default function useFetch() {
     const fetchAData = async () => {
       try {
         setIsLoading(true)
-        const listings = await getDataFromFetch()
-        setData(listings)
+        const resp = await prisma.listing.findMany()
+        console.log(resp)
+        setData(resp)
       } catch (e) {
         setIsError('An error occurred' + e)
       }
