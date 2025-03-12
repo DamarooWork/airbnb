@@ -1,6 +1,6 @@
 'use client'
-import { useEffect, useState } from 'react'
-import useFetchListings from './useFetchListings'
+import { memo, useEffect, useState } from 'react'
+import FetchListings from './FetchListings'
 export interface Listing {
   id: number
   title: string
@@ -12,19 +12,19 @@ export interface Listing {
   rating: number | null
   location: string | null
 }
-export interface useFetchProps {
+export interface FetchProps {
   params: object
 }
-export default function useGetListings(props: useFetchProps) {
+function useGetListings({ params }: FetchProps) {
   const [data, setData] = useState<Listing[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [isError, setIsError] = useState<Error | null>(null)
   useEffect(() => {
     let isMounted = true
-    const useFetchData = async () => {
+    const getData = async () => {
       setIsLoading(true)
       try {
-        const resp = await useFetchListings(props)
+        const resp = await FetchListings({ params })
         if (isMounted) setData(resp)
       } catch (e: unknown) {
         if (e instanceof Error) {
@@ -34,11 +34,13 @@ export default function useGetListings(props: useFetchProps) {
         if (isMounted) setIsLoading(false)
       }
     }
-    useFetchData()
+    getData()
     return () => {
       isMounted = false
     }
-  }, [])
+  }, [params])
 
   return { data, isLoading, isError }
 }
+
+export default useGetListings

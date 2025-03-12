@@ -2,18 +2,22 @@
 import Link from 'next/link'
 import ListingList from '../../../ui/listing/List'
 import useGetListings, { Listing } from '@/hooks/fetch/useGetListings'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useSearchStore } from '@/store/SearchStore'
 import { useDebounce } from 'react-use'
 import Head from 'next/head'
 
 export default function Results() {
-  const { data, isLoading, isError } = useGetListings({
-    params: {
+  const params = useMemo(() => {
+    let param = {
       orderBy: {
         id: 'asc',
       },
-    },
+    }
+    return param
+  }, [])
+  const { data, isLoading, isError } = useGetListings({
+    params,
   })
   const location = useSearchStore((state) => state.location)
   const [filteredData, setFilteredData] = useState<Listing[]>([])

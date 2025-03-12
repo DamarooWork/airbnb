@@ -10,8 +10,10 @@ import { useClickAway } from 'react-use'
 import MobileNav from './mobileNav'
 import { useSearchStore } from '@/store/SearchStore'
 import useGetPlaceholderDates from '@/hooks/useGetPlaceholderDates'
+import { useRouter } from 'next/navigation'
 
 export default function Header() {
+  const router = useRouter()
   const [isExpanded, setIsExpanded] = useState(false)
   const headerRef = useRef(null)
   const location = useSearchStore((state) => state.location)
@@ -142,7 +144,10 @@ export default function Header() {
             </motion.button>
           </section>
           <MobileNav />
-          <section className="ml-4">
+          <section
+            onClick={() => router.push('/sign-in')}
+            className="ml-4 cursor-pointer"
+          >
             <Image
               src={'/images/user.svg'}
               height={30}
