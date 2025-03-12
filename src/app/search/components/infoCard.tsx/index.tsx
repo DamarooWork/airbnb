@@ -88,7 +88,9 @@ export default function InfoCard({ listing }: { listing: PrismaListing }) {
           <h3 className="font-semibold text-xl">{listing.title}</h3>
           <section className="flex justify-center gap-1 items-center">
             <StarIcon className="h-5 w-5 text-yellow-500" />
-            <span className=" text-gray-800">{listing.rating}</span>
+            <span className=" text-gray-800">
+              {listing.rating ? listing.rating : 0}
+            </span>
           </section>
         </header>
 
