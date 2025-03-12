@@ -1,7 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
 import getDataFromFetch from './getDataFromFetch'
-import { Prisma } from '@prisma/client'
 export interface PrismaListing {
   id: number
   title: string

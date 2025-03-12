@@ -1,4 +1,3 @@
-import { IListing } from '@/app/api/search/route'
 import InfoCard from '@/app/search/components/infoCard.tsx'
 import { PrismaListing } from '@/lib/hooks/fetch/useFetch'
 import Loader from '@/ui/Loader'

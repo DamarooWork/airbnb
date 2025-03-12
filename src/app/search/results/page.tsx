@@ -2,7 +2,6 @@
 import Link from 'next/link'
 import ResultsList from './components/ResultsList'
 import useFetch, { PrismaListing } from '@/lib/hooks/fetch/useFetch'
-import { IListing } from '@/app/api/search/route'
 import { useCallback, useEffect, useState } from 'react'
 import { useSearchStore } from '@/store/SearchStore'
 import { useDebounce } from 'react-use'
