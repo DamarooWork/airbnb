@@ -6,7 +6,7 @@ export interface Listing {
   title: string
   description: string | null
   published: boolean
-  ownerId: number
+  ownerId: string
   image: string | null
   price: number
   rating: number | null
