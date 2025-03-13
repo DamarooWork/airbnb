@@ -18,7 +18,7 @@ export default function List({ data, isLoading, isError }: ListProps) {
       }),
     [data]
   )
-  if (isLoading) return <Loader />
+  if (isLoading) return <Loader size={100}/>
 
   if (isError) {
     console.error('Error fetching listings:', isError)

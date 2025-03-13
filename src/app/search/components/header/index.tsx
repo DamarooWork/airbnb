@@ -11,6 +11,8 @@ import MobileNav from './mobileNav'
 import { useSearchStore } from '@/store/SearchStore'
 import useGetPlaceholderDates from '@/hooks/useGetPlaceholderDates'
 import { useRouter } from 'next/navigation'
+import Auth from '../../../../ui/auth'
+import HeaderLogo from '@/ui/header/headerLogo'
 
 export default function Header() {
   const router = useRouter()
@@ -71,28 +73,17 @@ export default function Header() {
     <>
       <header
         ref={headerRef}
-        className={`border-b bg-white z-50 sticky top-0 left-0 w-full flex justify-between items-center`}
+        className={`border-b bg-white z-50 sticky top-0 left-0 w-full`}
       >
         <section
-          className={` h-[7.5rem]   flex justify-between items-center bg-transparent px-10 w-full`}
+          className={`h-[7.5rem] flex justify-between items-center  px-4 sm:px-10 w-full gap-2`}
         >
-          <Link
-            className="hidden md:flex relative w-[172px] h-[60px]"
-            href={'/'}
-          >
-            <Image
-              className="object-cover"
-              src={'/images/logo.png'}
-              fill
-              sizes="172px 60px"
-              alt="Airbnb logo"
-              priority
-            />
-          </Link>
-
-          <section className="hidden md:flex flex-col">
+          <div className="hidden md:flex">
+            <HeaderLogo />
+          </div>
+          <section className="hidden md:flex flex-col justify-center h-[8.5rem] flex-1">
             <motion.section
-              className="flex justify-center items-center"
+              className="flex justify-center items-center mx-auto max-w-[1000px]"
               initial="hidden"
               animate={isExpanded ? 'enter' : 'exit'}
               exit="exit"
@@ -109,7 +100,7 @@ export default function Header() {
               transition={{ type: 'linear' }}
               onClick={toggleExpanded}
               variants={searchContainerVariants}
-              className={` flex p-4 justify-center items-center rounded-full  border drop-shadow-md bg-background ${
+              className={` flex p-4 justify-center items-center rounded-full  border drop-shadow-md max-w-[1000px] mx-auto bg-background ${
                 isExpanded ? 'border-b-8' : 'border-b-0'
               } `}
             >
@@ -144,17 +135,13 @@ export default function Header() {
             </motion.button>
           </section>
           <MobileNav />
-          <section
-            onClick={() => router.push('/sign-in')}
-            className="ml-4 cursor-pointer"
+          <button
+            onClick={() => router.push('/host/create-listing')}
+            className="text-slate-800 p-3 flex items-center hover:bg-slate-200 rounded-full"
           >
-            <Image
-              src={'/images/user.svg'}
-              height={30}
-              width={30}
-              alt="user logo"
-            />
-          </section>
+            Airbnb your home
+          </button>
+          <Auth />
         </section>
       </header>
       <div

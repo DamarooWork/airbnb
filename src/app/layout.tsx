@@ -6,7 +6,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        variables: {
+          colorPrimary: '#FF385C',
+          colorText: 'black',
+        },
+      }}
+    >
       <html lang="en">
         <head>
           <title>Airbnb by Damaroo</title>
