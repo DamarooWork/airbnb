@@ -10,7 +10,7 @@ export const data: Listing[] = [
     price: 100,
     rating: 4.5,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -22,7 +22,7 @@ export const data: Listing[] = [
     price: 300,
     rating: 5,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -34,7 +34,7 @@ export const data: Listing[] = [
     price: 150,
     rating: 4.8,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -46,7 +46,7 @@ export const data: Listing[] = [
     price: 120,
     rating: 4.2,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -54,11 +54,11 @@ export const data: Listing[] = [
     title: 'City Apartment',
     description: 'A modern apartment in the heart of the city.',
     image:
-      'https://images.unsplash.com/photo-1559599189-fe84dea4eb79?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80',
+      'https://images.unsplash.com/photo-1559599189-fe84dea4eb79?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80',
     price: 200,
     rating: 4.7,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -66,11 +66,11 @@ export const data: Listing[] = [
     title: 'Rustic Farmhouse',
     description: 'A charming farmhouse surrounded by nature.',
     image:
-      'https://images.unsplash.com/photo-1620332372374-f108c53d2e03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1772&q=80',
+      'https://images.unsplash.com/photo-1620332372374-f108c53d2e03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1772&q=80',
     price: 180,
     rating: 4.4,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -78,11 +78,11 @@ export const data: Listing[] = [
     title: 'Desert Oasis',
     description: 'A beautiful oasis in the middle of the desert.',
     image:
-      'https://images.unsplash.com/photo-1546401285-4a79d59083c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1800&q=80',
+      'https://images.unsplash.com/photo-1546401285-4a79d59083c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1800&q=80',
     price: 250,
     rating: 4.9,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -90,11 +90,11 @@ export const data: Listing[] = [
     title: 'Charming Chalet',
     description: 'A charming chalet perfect for winter getaways.',
     image:
-      'https://images.unsplash.com/photo-1553958787-63b859eed8fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1772&q=80',
+      'https://images.unsplash.com/photo-1553958787-63b859eed8fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1772&q=80',
     price: 220,
     rating: 4.6,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -102,11 +102,11 @@ export const data: Listing[] = [
     title: 'Urban Loft',
     description: 'A stylish loft with a creative atmosphere.',
     image:
-      'https://images.unsplash.com/photo-1623035929619-5c5604f2c00f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80',
+      'https://images.unsplash.com/photo-1623035929619-5c5604f2c00f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80',
     price: 210,
     rating: 4.3,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -114,11 +114,11 @@ export const data: Listing[] = [
     title: 'Beach Bungalow',
     description: 'A cozy bungalow right on the beach.',
     image:
-      'https://images.unsplash.com/photo-1575689799300-8c0c470d8db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80',
+      'https://images.unsplash.com/photo-1575689799300-8c0c470d8db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80',
     price: 190,
     rating: 4.7,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -126,11 +126,11 @@ export const data: Listing[] = [
     title: 'Tropical Paradise',
     description: 'Experience a relaxing stay in a tropical paradise.',
     image:
-      'https://images.unsplash.com/photo-1542027381-361d2f0e81d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80',
+      'https://images.unsplash.com/photo-1542027381-361d2f0e81d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80',
     price: 350,
     rating: 5,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -138,11 +138,11 @@ export const data: Listing[] = [
     title: 'Countryside Escape',
     description: 'A charming escape in the countryside.',
     image:
-      'https://images.unsplash.com/photo-1598532217462-4b5a65793c14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80',
+      'https://images.unsplash.com/photo-1598532217462-4b5a65793c14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80',
     price: 160,
     rating: 4.4,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -150,11 +150,11 @@ export const data: Listing[] = [
     title: 'Artistic Haven',
     description: 'A haven for art lovers in a historic building.',
     image:
-      'https://images.unsplash.com/photo-1598854438882-ebefa3b0a38f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80',
+      'https://images.unsplash.com/photo-1598854438882-ebefa3b0a38f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80',
     price: 275,
     rating: 4.8,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -162,11 +162,11 @@ export const data: Listing[] = [
     title: 'Rustic Lodge',
     description: 'A rustic lodge in the heart of the forest.',
     image:
-      'https://images.unsplash.com/photo-1574617055227-5c23100b9a80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80',
+      'https://images.unsplash.com/photo-1574617055227-5c23100b9a80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80',
     price: 130,
     rating: 4.5,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -174,11 +174,11 @@ export const data: Listing[] = [
     title: 'Lakeside Cabin',
     description: 'A peaceful cabin by the lake.',
     image:
-      'https://images.unsplash.com/photo-1558708834-6e8504c7363b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80',
+      'https://images.unsplash.com/photo-1558708834-6e8504c7363b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80',
     price: 150,
     rating: 4.6,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -186,11 +186,11 @@ export const data: Listing[] = [
     title: 'Pine Forest Retreat',
     description: 'A retreat surrounded by stunning pine forests.',
     image:
-      'https://images.unsplash.com/photo-1561781852-763c9edbc647?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80',
+      'https://images.unsplash.com/photo-1561781852-763c9edbc647?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80',
     price: 140,
     rating: 4.7,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -198,11 +198,11 @@ export const data: Listing[] = [
     title: 'Modern Farmhouse',
     description: 'A sleek farmhouse with modern amenities.',
     image:
-      'https://images.unsplash.com/photo-1615669830540-512aa9f3e67c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80',
+      'https://images.unsplash.com/photo-1615669830540-512aa9f3e67c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80',
     price: 210,
     rating: 4.8,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -214,7 +214,7 @@ export const data: Listing[] = [
     price: 160,
     rating: 4.5,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -226,7 +226,7 @@ export const data: Listing[] = [
     price: 250,
     rating: 4.9,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -238,7 +238,7 @@ export const data: Listing[] = [
     price: 180,
     rating: 4.4,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -250,7 +250,7 @@ export const data: Listing[] = [
     price: 190,
     rating: 4.5,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -262,7 +262,7 @@ export const data: Listing[] = [
     price: 330,
     rating: 4.8,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -274,7 +274,7 @@ export const data: Listing[] = [
     price: 275,
     rating: 4.7,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -286,7 +286,7 @@ export const data: Listing[] = [
     price: 400,
     rating: 5,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -294,11 +294,11 @@ export const data: Listing[] = [
     title: 'Envoy of Nature',
     description: 'Experience the beauty of nature at this retreat.',
     image:
-      'https://images.unsplash.com/photo-1522152915602-b87671df69ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80',
+      'https://images.unsplash.com/photo-1522152915602-b87671df69ff?ixlib=rb-4.0.3&ixidx=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80',
     price: 290,
     rating: 4.9,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -310,7 +310,7 @@ export const data: Listing[] = [
     price: 220,
     rating: 4.8,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -322,7 +322,7 @@ export const data: Listing[] = [
     price: 260,
     rating: 4.7,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -330,11 +330,11 @@ export const data: Listing[] = [
     title: 'Cultural Retreat',
     description: 'Experience art and culture in this unique retreat.',
     image:
-      'https://images.unsplash.com/photo-1590878258519-73ac0f6423bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80',
+      'https://images.unsplash.com/photo-1590878258519-73ac0f6423bb?ixid=M3wxMjA3fDB8MHxpaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2369&q=80',
     price: 310,
     rating: 4.9,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -346,7 +346,7 @@ export const data: Listing[] = [
     price: 175,
     rating: 4.6,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
   {
@@ -358,7 +358,7 @@ export const data: Listing[] = [
     price: 200,
     rating: 4.8,
     published: true,
-    ownerId: 1,
+    ownerId: '1',
     location: null,
   },
 ]
