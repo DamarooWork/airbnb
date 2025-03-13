@@ -82,10 +82,12 @@ export default function Card({ listing }: { listing: Listing }) {
       </section>
       <section
         onClick={() => router.push(`/rooms/${listing.id}`)}
-        className="p-4 cursor-pointer"
+        className="p-4 cursor-pointer min-h-20"
       >
         <header className="flex items-center justify-between mb-2 text-xl leading-5">
-          <h3 className="font-semibold ">{listing.title}</h3>
+          <h3 className="font-semibold max-w-[90%] overflow-hidden whitespace-nowrap overflow-ellipsis">
+            {listing.title}
+          </h3>
           <section className="flex justify-center gap-1 items-center ">
             <StarIcon className="h-5 w-5 text-yellow-500" />
             <span className=" text-gray-800">

@@ -13,14 +13,15 @@ export default function Input({
   required = false,
 }: InputProps) {
   return (
-    <div className="flex flex-col gap-1">
-      <label className="font-semibold" htmlFor={name}>
+    <div className="flex flex-col gap-1 ">
+      <label className="font-semibold text-primary" htmlFor={name}>
         {name.split('')[0].toUpperCase()}
         {name.slice(1, name.length)}
+        {required && '*'}
       </label>
       {textarea ? (
         <textarea
-          className="bg-transparent text-black outline-none border-[1px] border-purple-300 rounded-lg p-1"
+          className="bg-transparent text-black outline-none border-[1px] border-red-300 rounded-lg p-2"
           name={name}
           id={name}
           placeholder={placeholder}
@@ -29,7 +30,7 @@ export default function Input({
       ) : (
         <input
           required={required}
-          className="bg-transparent text-black outline-none p-1"
+          className="bg-transparent text-black outline-none border-[1px] border-red-300 rounded-lg p-2"
           type={type}
           name={name}
           id={name}
