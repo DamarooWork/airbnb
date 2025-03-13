@@ -2,8 +2,7 @@ import Input from './Input'
 import { prisma } from '../../../../../db/prisma'
 import { auth } from '@clerk/nextjs/server'
 
-interface FormCreateListingProps {}
-export default function FormCreateListing({}: FormCreateListingProps) {
+export default function FormCreateListing() {
   const submitListing = async (formData: FormData) => {
     'use server'
     const { userId } = await auth()

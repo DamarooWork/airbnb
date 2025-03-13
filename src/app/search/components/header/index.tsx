@@ -3,8 +3,6 @@
 import { useRef, useState } from 'react'
 import SearchBar from './searchBar'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
-import Image from 'next/image'
-import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useClickAway } from 'react-use'
 import MobileNav from './mobileNav'

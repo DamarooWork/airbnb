@@ -1,5 +1,4 @@
 import { useSearchStore } from '@/store/SearchStore'
-import { useState } from 'react'
 
 export default function SearchInput() {
   const locationInput = useSearchStore((state) => state.location)
