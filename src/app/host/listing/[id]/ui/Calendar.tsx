@@ -1,12 +1,12 @@
 'use client'
 import { Prisma } from '@prisma/client'
 
-// @ts-nocheck
+/* eslint-disable */
 const listingSelect = {
   id: true,
   availabilities: true,
 } satisfies Prisma.ListingSelect
-
+/* eslint-enable */
 type ListingPayload = Prisma.ListingGetPayload<{ select: typeof listingSelect }>
 
 interface CalendarProps {
