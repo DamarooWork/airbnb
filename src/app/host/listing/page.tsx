@@ -4,6 +4,8 @@ import { useEffect } from 'react'
 
 export default function NoIdListingPage() {
   const router = useRouter()
-  router.push('/host/listings')
+  useEffect(() => {
+    router.push('/host/listings')
+  }, [])
   return <></>
 }
