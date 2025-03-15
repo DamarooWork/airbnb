@@ -1,6 +1,6 @@
 import { auth } from '@clerk/nextjs/server'
 import { prisma } from '../../../../../db/prisma'
-import { notFound, useParams } from 'next/navigation'
+import { notFound } from 'next/navigation'
 import { MapPinIcon, StarIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import Calendar from './ui/Calendar'

@@ -1,6 +1,6 @@
 'use client'
 import { Prisma } from '@prisma/client'
-// @ts-expect-error
+// @ts-expect-error listingSelect is using only for type, that's it
 const listingSelect = {
   id: true,
   availabilities: true,
