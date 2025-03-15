@@ -7,14 +7,13 @@ import Calendar from './ui/Calendar'
 export default async function ListingPage({
   params,
 }: {
-  params: {
-    id: string
-  }
+  params: Promise<{ id: string }>
 }) {
   const { userId } = await auth()
+  const { id } = await params
   const listing = await prisma.listing.findUnique({
     where: {
-      id: parseInt(params.id),
+      id: parseInt(id),
     },
     include: { availabilities: true },
   })
@@ -23,10 +22,7 @@ export default async function ListingPage({
     notFound()
   }
   return (
-    <section
-    // style={{ '--image-url': `url(${listing.image})` } as React.CSSProperties}
-    // className="bg-[image:var(--image-url)]"
-    >
+    <section>
       {listing.image && (
         <Image
           className=" object-cover w-full max-h-[300px] rounded-2xl "
