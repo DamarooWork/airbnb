@@ -16,18 +16,21 @@ export default function Card({ listing }: CardProps) {
       key={listing.id}
     >
       <Image
-        className="object-cover transition-transform duration-300 transform group-hover:scale-[1.05] will-change-transform cursor-pointer -z-30 rounded-2xl opacity-70"
+        className="object-cover transition-transform duration-300 transform group-hover:scale-[1.05] will-change-transform cursor-pointer -z-30 rounded-2xl opacity-90"
         onError={() => setImage(imagePlaceholder)}
         src={image}
         alt={listing.title}
         fill
       />
-      <Link className="hover:underline p-2" href={`/rooms/${listing.id}`}>
+      <Link
+        className="hover:underline p-1 text-black bg-white/80 w-fit rounded"
+        href={`/rooms/${listing.id}`}
+      >
         <h2 className="font-bold">{listing.title}</h2>
-        <p className="text-gray-200">{listing.description}</p>
+        <p className="text-gray-600">{listing.description}</p>
       </Link>
       <Link
-        className="hover:underline p-2"
+        className="hover:underline p-1 text-black bg-white/80 w-fit rounded"
         href={`/host/listing/${listing.id}`}
       >
         Edit the listing

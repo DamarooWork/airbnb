@@ -7,7 +7,7 @@ export default function LayoutHost({ children }: LayoutHostProps) {
   return (
     <>
       <BasicHeader />
-      <main className="mx-auto p-4  sm:px-10">{children}</main>
+      <main className="relative mx-auto p-4 sm:px-10">{children}</main>
     </>
   )
 }

@@ -3,6 +3,7 @@ import Input from './Input'
 import BtnSubmit from './BtnSubmit'
 import actionFormCreateListing from '@/lib/actions/actionFormCreateListing'
 import { useState } from 'react'
+import Loader from '@/ui/Loader'
 
 export default function FormCreateListing() {
   const [disabled, setDisabled] = useState(false)
@@ -36,7 +37,6 @@ export default function FormCreateListing() {
           required
         />
         <Input placeholder="Paste link to the image" name="image" />
-
         <BtnSubmit disabled={disabled} />
       </form>
     </>

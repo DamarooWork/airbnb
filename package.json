@@ -28,7 +28,7 @@
     "@eslint/eslintrc": "^3",
     "@types/node": "^20.17.24",
     "@types/react": "^19",
-    "@types/react-date-range": "^1.4.9",
+    "@types/react-date-range": "^1.4.10",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
