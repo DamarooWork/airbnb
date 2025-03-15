@@ -2,13 +2,15 @@
 
 import useGetListings from '@/hooks/fetch/useGetListings'
 import Loader from '@/ui/Loader'
-import Link from 'next/link'
-import { useMemo } from 'react'
 
+import { useMemo, useState } from 'react'
+
+import Card from './Card'
 interface ListProps {
   userId: string | null
 }
 export default function List({ userId }: ListProps) {
+  
   const params = useMemo(() => {
     return {
       where: {
@@ -25,16 +27,9 @@ export default function List({ userId }: ListProps) {
       {isLoading ? (
         <Loader size={100} />
       ) : (
-        <ul>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8 mt-4">
           {data.map((listing) => (
-            <li className="flex flex-col gap-2" key={listing.id}>
-              <p className="font-bold">Title</p>
-              <Link className="" href={`/rooms/${listing.id}`}>
-                {listing.title}
-              </Link>
-              <p className="font-bold">Edit link</p>
-              <Link href={`/host/listing/${listing.id}`}>{listing.id}</Link>
-            </li>
+            <Card key={listing.id} listing={listing}/>
           ))}
         </ul>
       )}

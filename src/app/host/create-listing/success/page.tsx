@@ -11,10 +11,16 @@ export default function SuccessPage() {
         </h1>
       </header>
       <section className="flex gap-2 font-semibold justify-center items-center">
-        <Link href={'/host/create-listing'} className="px-4 text-white rounded-full bg-primary p-4">
+        <Link
+          href={'/host/create-listing'}
+          className="px-4 text-white rounded-full bg-primary p-4"
+        >
           Add another
         </Link>
-        <Link className="text-primary  p-4 mt-2 underline" href={'/'}>
+        <Link
+          className="text-primary  p-4 mt-2 underline"
+          href={'/host/listings'}
+        >
           Browse your listings
         </Link>
       </section>
