@@ -1,6 +1,6 @@
 'use client'
 import { Prisma } from '@prisma/client'
-
+// @typescript-eslint/no-unused-vars
 const listingSelect = {
   id: true,
   availabilities: true,
