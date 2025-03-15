@@ -1,6 +1,6 @@
 'use client'
 import { Prisma } from '@prisma/client'
-//@ts-ignore
+// @ts-expect-error
 const listingSelect = {
   id: true,
   availabilities: true,
