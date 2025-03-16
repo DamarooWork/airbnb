@@ -5,7 +5,6 @@ import useGetListings, { Listing } from '@/hooks/fetch/useGetListings'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useSearchStore } from '@/store/SearchStore'
 import { useDebounce } from 'react-use'
-import Head from 'next/head'
 
 export default function Results() {
   const params = useMemo(() => {

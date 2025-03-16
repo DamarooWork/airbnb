@@ -1,7 +1,7 @@
 'use server'
 import { prisma } from '../../../db/prisma'
 import { revalidatePath } from 'next/cache'
-import { Prisma, PrismaClient } from '@prisma/client'
+import { Prisma } from '@prisma/client'
 
 export default async function actionSubmitBookingDates(
   listingId: number,

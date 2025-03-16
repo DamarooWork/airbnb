@@ -16,7 +16,7 @@ export default function List({ userId }: ListProps) {
         ownerId: userId,
       },
     }
-  }, [])
+  }, [userId])
   const { data, isLoading, isError } = useGetListings({
     params,
   })
