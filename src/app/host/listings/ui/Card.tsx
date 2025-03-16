@@ -12,7 +12,7 @@ export default function Card({ listing }: CardProps) {
   )
   return (
     <li
-      className="card gap-4 shadow-gray-300 shadow-xl p-4 text-xl transition-transform duration-300 ease-in-out group hover:scale-[1.02] will-change-transform "
+      className="card justify-between gap-4 shadow-gray-300 shadow-xl p-4 text-xl transition-transform duration-300 ease-in-out group hover:scale-[1.02] will-change-transform "
       key={listing.id}
     >
       <Image

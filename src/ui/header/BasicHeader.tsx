@@ -1,5 +1,5 @@
 'use client'
-import Auth from '@/ui/auth'
+import Auth from '@/ui/header/auth'
 import HeaderLogo from '@/ui/header/headerLogo'
 
 export default function BasicHeader() {

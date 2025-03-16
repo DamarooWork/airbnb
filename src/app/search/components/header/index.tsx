@@ -9,7 +9,7 @@ import MobileNav from './mobileNav'
 import { useSearchStore } from '@/store/SearchStore'
 import useGetPlaceholderDates from '@/hooks/useGetPlaceholderDates'
 import { useRouter } from 'next/navigation'
-import Auth from '../../../../ui/auth'
+import Auth from '../../../../ui/header/auth'
 import HeaderLogo from '@/ui/header/headerLogo'
 
 export default function Header() {
