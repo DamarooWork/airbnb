@@ -1,7 +1,7 @@
 'use client'
 import Input from './Input'
 import BtnSubmit from './BtnSubmit'
-import actionFormCreateListing from '@/lib/actions/actionFormCreateListing'
+import actionFormCreateListing from '@/lib/actions/formCreateListing'
 import { useState } from 'react'
 
 export default function FormCreateListing() {

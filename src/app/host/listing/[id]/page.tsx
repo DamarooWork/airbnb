@@ -22,15 +22,16 @@ export default async function ListingPage({
     notFound()
   }
   return (
-    <section>
+    <section className="">
       {listing.image && (
-        <Image
-          className=" object-cover w-full max-h-[300px] rounded-2xl "
-          src={listing.image}
-          alt={listing.title}
-          width={500}
-          height={500}
-        />
+        <div className="relative w-full max-h-[300px] h-[300px] rounded-2xl ">
+          <Image
+            className="object-cover rounded-2xl  "
+            src={listing.image}
+            alt={listing.title}
+            fill
+          />
+        </div>
       )}
 
       <header className="mt-4">

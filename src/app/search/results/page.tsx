@@ -37,9 +37,6 @@ export default function Results() {
 
   return (
     <section>
-      <Head>
-        <title>123312</title>
-      </Head>
       <section
         className="flex items-center justify-center w-full h-48 bg-cover bg-center 
       bg-[url(/images/booking-website-hero.png)] "

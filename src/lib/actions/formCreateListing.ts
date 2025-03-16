@@ -4,7 +4,7 @@ import { prisma } from '../../../db/prisma'
 import { redirect } from 'next/navigation'
 export default async function actionFormCreateListing(formData: FormData) {
   const { userId } = await auth()
-
+  
   const title = formData.get('title') as string
   const description = formData.get('description') as string
   const location = formData.get('location') as string
