@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation'
 import { MapPinIcon, StarIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import { prisma } from '../../../../db/prisma'
-import Calendar from '@/app/host/listing/[id]/ui/AvailabilitiesCalendar'
 import BookingCalendar from './ui/BookingCalendar'
 export default async function RoomPage({
   params,

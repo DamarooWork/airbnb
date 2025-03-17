@@ -10,5 +10,5 @@ export default async function actionCreateUserBooking(
       ...bookingInfo,
     },
   })
-  revalidatePath('/rooms/')
+  if (createBooking) revalidatePath('/rooms/')
 }
