@@ -17,7 +17,6 @@ export default async function ListingPage({
     },
     include: { availabilities: true },
   })
-
   if (listing?.ownerId !== userId) {
     notFound()
   }
