@@ -7,13 +7,11 @@ import { useClickAway } from 'react-use'
 import MobileNav from './mobileNav'
 import { useSearchStore } from '@/store/SearchStore'
 import useGetPlaceholderDates from '@/hooks/useGetPlaceholderDates'
-import { useRouter } from 'next/navigation'
 import Auth from '../../../../ui/header/auth'
 import HeaderLogo from '@/ui/header/headerLogo'
 import CreateBookingBtn from '@/ui/header/CreateBookingBtn'
 
 export default function Header() {
-  const router = useRouter()
   const [isExpanded, setIsExpanded] = useState(false)
   const headerRef = useRef(null)
   const location = useSearchStore((state) => state.location)

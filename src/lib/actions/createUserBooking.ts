@@ -10,5 +10,5 @@ export default async function actionCreateUserBooking(
       ...bookingInfo,
     },
   })
-  console.log(createBooking)
+  revalidatePath('/rooms/')
 }
