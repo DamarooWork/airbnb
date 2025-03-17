@@ -1,5 +1,4 @@
 'use client'
-
 import { useRef, useState } from 'react'
 import SearchBar from './searchBar'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
@@ -11,6 +10,7 @@ import useGetPlaceholderDates from '@/hooks/useGetPlaceholderDates'
 import { useRouter } from 'next/navigation'
 import Auth from '../../../../ui/header/auth'
 import HeaderLogo from '@/ui/header/headerLogo'
+import CreateBookingBtn from '@/ui/header/CreateBookingBtn'
 
 export default function Header() {
   const router = useRouter()
@@ -133,12 +133,7 @@ export default function Header() {
             </motion.button>
           </section>
           <MobileNav />
-          <button
-            onClick={() => router.push('/host/create-listing')}
-            className="text-slate-800 p-3 flex items-center hover:bg-slate-200 rounded-full"
-          >
-            Airbnb your home
-          </button>
+          <CreateBookingBtn/>
           <Auth />
         </section>
       </header>

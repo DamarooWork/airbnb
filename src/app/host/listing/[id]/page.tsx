@@ -28,7 +28,9 @@ export default async function ListingPage({
             className="object-cover rounded-2xl  "
             src={listing.image}
             alt={listing.title}
+            priority
             fill
+            sizes="100vw"
           />
         </div>
       )}

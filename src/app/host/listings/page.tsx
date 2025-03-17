@@ -12,7 +12,7 @@ export default async function ListingsPage() {
         <h1 className="text-3xl font-extrabold text-primary">Your listings</h1>
       </header>
       <Suspense key={userId} fallback={<Loader size={100} />}>
-        <List userId={userId} />{' '}
+        <List userId={userId} />
       </Suspense>
     </section>
   )

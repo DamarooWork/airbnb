@@ -3,7 +3,7 @@ import { useMemo } from 'react'
 import ListingList from '../../ui/listing/List'
 import useGetListings from '@/hooks/fetch/useGetListings'
 
-export default function Search() {
+export default function SearchPage() {
   const params = useMemo(() => {
     return {
       orderBy: {

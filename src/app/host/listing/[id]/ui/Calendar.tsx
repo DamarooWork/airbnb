@@ -1,5 +1,6 @@
 'use client'
 import actionSubmitBookingDates from '@/lib/actions/submitBookingDates'
+import Loader from '@/ui/Loader'
 import { Prisma } from '@prisma/client'
 import { addDays } from 'date-fns'
 import { useState } from 'react'
@@ -153,13 +154,17 @@ export default function Calendar({ listing }: CalendarProps) {
             className="border"
           />
           <footer className="flex items-center justify-between mt-4 w-full px-2">
-            <button
-              onClick={handleSubmitChanges}
-              className="btn bg-green-600 hover:bg-green-700 text-white border-none  will-change-transform"
-              disabled={disabled}
-            >
-              Save Changes
-            </button>
+            {disabled ? (
+              <Loader size={30} />
+            ) : (
+              <button
+                onClick={handleSubmitChanges}
+                className="btn bg-green-600 hover:bg-green-700 text-white border-none  will-change-transform"
+                disabled={disabled}
+              >
+                Save Changes
+              </button>
+            )}
             <button
               onClick={() => setShowModal(false)}
               className="btn bg-primary hover:bg-red-500 text-white border-none  will-change-transform"

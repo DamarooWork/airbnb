@@ -16,7 +16,7 @@ export default async function actionSubmitBookingDates(
     },
     data: {
       availabilities: {
-        deleteMany: [],
+        deleteMany: {},
         create: dateranges,
       },
     },

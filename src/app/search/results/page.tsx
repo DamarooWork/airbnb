@@ -6,7 +6,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useSearchStore } from '@/store/SearchStore'
 import { useDebounce } from 'react-use'
 
-export default function Results() {
+export default function ResultsPage() {
   const params = useMemo(() => {
     return {
       orderBy: {
