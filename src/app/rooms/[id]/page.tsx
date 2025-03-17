@@ -1,9 +1,58 @@
-'use client'
-import { useParams } from 'next/navigation'
-
-export default function RoomPage() {
-  const params = useParams()
-  console.log(params)
-
-  return <></>
+import { auth } from '@clerk/nextjs/server'
+import { notFound } from 'next/navigation'
+import { MapPinIcon, StarIcon } from '@heroicons/react/24/solid'
+import Image from 'next/image'
+import { prisma } from '../../../../db/prisma'
+import Calendar from '@/app/host/listing/[id]/ui/AvailabilitiesCalendar'
+import BookingCalendar from './ui/BookingCalendar'
+export default async function RoomPage({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}) {
+  const { userId } = await auth()
+  const { id } = await params
+  const listing = await prisma.listing.findUnique({
+    where: {
+      id: parseInt(id),
+    },
+    include: { availabilities: true },
+  })
+  if (!userId || !listing) {
+    notFound()
+  }
+  return (
+    <section className="">
+      {listing.image && (
+        <div className="relative w-full max-h-[300px] h-[300px] rounded-2xl ">
+          <Image
+            className="object-cover rounded-2xl  "
+            src={listing.image}
+            alt={listing.title}
+            priority
+            fill
+            sizes="100vw"
+          />
+        </div>
+      )}
+      <section className=" flex justify-center gap-2">
+        <section className="text-xl">
+          <header className="mt-4">
+            <h1 className="text-4xl font-bold">{listing?.title}</h1>
+          </header>
+          <p>{listing.description}</p>
+          <p>Price - {listing.price}$ per day</p>
+          <section className="flex gap-2  items-center">
+            <StarIcon className="w-8 h-auto text-primary" />
+            <p>{listing.rating ?? 0}</p>
+          </section>
+          <section className="flex gap-2  items-center">
+            <MapPinIcon className="w-8 h-auto text-primary" />
+            <p>{listing.location ?? 'No location'}</p>
+          </section>
+        </section>
+        <BookingCalendar listing={listing} userId={userId} />
+      </section>
+    </section>
+  )
 }

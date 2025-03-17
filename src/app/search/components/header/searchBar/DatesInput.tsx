@@ -1,4 +1,4 @@
-import CalendarComponent from './CalendarComponent'
+import SearchCalendar from './SearchCalendar'
 import useGetPlaceholderDates from '@/hooks/useGetPlaceholderDates'
 
 export default function DatesInput() {
@@ -13,7 +13,7 @@ export default function DatesInput() {
         tabIndex={1}
         className="dropdown-content menu rounded-box z-[1]  w-52 p-2 shadow"
       >
-        <CalendarComponent definedRange={true} />
+        <SearchCalendar definedRange={true} />
       </div>
     </section>
   )

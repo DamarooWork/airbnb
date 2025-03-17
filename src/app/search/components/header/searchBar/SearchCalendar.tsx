@@ -3,7 +3,7 @@ import 'react-date-range/dist/theme/default.css' // theme css file
 import { DateRangePicker, RangeKeyDict, DateRange } from 'react-date-range'
 import { useSearchStore } from '@/store/SearchStore'
 
-export default function CalendarComponent({
+export default function SearchCalendar({
   classNames = '',
   definedRange = false,
 }: {

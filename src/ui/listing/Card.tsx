@@ -66,7 +66,7 @@ export default function Card({ listing }: { listing: Listing }) {
   }
   return (
     <li className="w-full shadow-md rounded-md overflow-hidden group relative">
-      <section className="relative w-full h-48 overflow-hidden">
+      <section className="relative w-full h-80 overflow-hidden">
         {imageStatus === 'Loading' && <Loader />}
         <Image
           onClick={() => router.push(`/rooms/${listing.id}`)}

@@ -3,7 +3,7 @@ import { prisma } from '../../../../../db/prisma'
 import { notFound } from 'next/navigation'
 import { MapPinIcon, StarIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
-import Calendar from './ui/Calendar'
+import AvailabilitiesCalendar from './ui/AvailabilitiesCalendar'
 export default async function ListingPage({
   params,
 }: {
@@ -52,7 +52,7 @@ export default async function ListingPage({
           <MapPinIcon className="w-5 h-auto text-primary" />
           <p>{listing.location}</p>
         </section>
-        <Calendar listing={listing} />
+        <AvailabilitiesCalendar listing={listing} />
       </section>
     </section>
   )

@@ -43,7 +43,7 @@ const defaultDateRange = {
     autofocus: false,
   },
 }
-export default function Calendar({ listing }: CalendarProps) {
+export default function AvailabilitiesCalendar({ listing }: CalendarProps) {
   const [showModal, setShowModal] = useState(false)
   const [disabled, setDisabled] = useState(false)
   const initialDateRange =
