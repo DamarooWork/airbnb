@@ -43,11 +43,11 @@ export default async function RoomPage({
           <p>Price - {listing.price}$ per day</p>
           <section className="flex gap-2  items-center">
             <StarIcon className="w-8 h-auto text-primary" />
-            <p>{listing.rating ?? 0}</p>
+            <p>{listing.rating || '0'}</p>
           </section>
           <section className="flex gap-2  items-center">
             <MapPinIcon className="w-8 h-auto text-primary" />
-            <p>{listing.location ?? 'No location'}</p>
+            <p>{listing.location || 'No info about location'}</p>
           </section>
         </section>
         <BookingCalendar listing={listing} userId={userId} />

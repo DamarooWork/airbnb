@@ -35,23 +35,21 @@ export default async function ListingPage({
         </div>
       )}
 
-      <header className="mt-4">
-        <h1>{listing?.title}</h1>
-      </header>
-      <section>
+      <section className="text-xl">
+        <header className="mt-4">
+          <h1 className="text-4xl font-bold">{listing?.title}</h1>
+        </header>
         <p>{listing.description}</p>
-        <p>{listing.price}$ per day</p>
-        {listing.rating && (
-          <section className="flex gap-2  items-center">
-            <StarIcon className="w-5 h-auto text-primary" />
-            <p>{listing.rating}</p>
-          </section>
-        )}
-
+        <p>Price - {listing.price}$ per day</p>
         <section className="flex gap-2  items-center">
-          <MapPinIcon className="w-5 h-auto text-primary" />
-          <p>{listing.location}</p>
+          <StarIcon className="w-8 h-auto text-primary" />
+          <p>{listing.rating || '0'}</p>
         </section>
+        <section className="flex gap-2  items-center">
+          <MapPinIcon className="w-8 h-auto text-primary" />
+          <p>{listing.location || 'No info about location'}</p>
+        </section>
+
         <AvailabilitiesCalendar listing={listing} />
       </section>
     </section>
