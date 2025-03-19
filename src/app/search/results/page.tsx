@@ -10,7 +10,7 @@ export default function ResultsPage() {
   const params = useMemo(() => {
     return {
       orderBy: {
-        id: 'asc',
+        id: 'desc',
       },
     }
   }, [])

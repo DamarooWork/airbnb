@@ -7,7 +7,7 @@ export default function SearchPage() {
   const params = useMemo(() => {
     return {
       orderBy: {
-        id: 'asc',
+        id: 'desc',
       },
     }
   }, [])

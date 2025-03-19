@@ -21,7 +21,10 @@ export default async function ListingPage({
     notFound()
   }
   return (
-    <section className="">
+    <section className="flex flex-col gap-4">
+      <header className="">
+        <h1 className="text-4xl font-bold">{listing?.title}</h1>
+      </header>
       {listing.image && (
         <div className="relative w-full max-h-[300px] h-[300px] rounded-2xl ">
           <Image
@@ -35,10 +38,7 @@ export default async function ListingPage({
         </div>
       )}
 
-      <section className="text-xl">
-        <header className="mt-4">
-          <h1 className="text-4xl font-bold">{listing?.title}</h1>
-        </header>
+      <section className="text-2xl">
         <p>{listing.description}</p>
         <p>Price - {listing.price}$ per day</p>
         <section className="flex gap-2  items-center">

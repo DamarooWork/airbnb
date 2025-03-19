@@ -101,13 +101,13 @@ export default function AvailabilitiesCalendar({ listing }: CalendarProps) {
   }
 
   return (
-    <section>
-      <h2>Available Dates</h2>
+    <section className="text-xl">
+      <h2>Available Dates:</h2>
       {!listing.availabilities || listing.availabilities.length === 0 ? (
         <>
-          <p>No Available Dates</p>
+          <p className="text-gray-600">No Available Dates</p>
           <button
-            className="btn btn-primary"
+            className="btn btn-error bg-primary text-white  mt-2"
             onClick={() => setShowModal(true)}
           >
             Add Availability
@@ -132,7 +132,7 @@ export default function AvailabilitiesCalendar({ listing }: CalendarProps) {
             ))}
           </ul>
           <button
-            className="btn btn-primary"
+            className="btn btn-error bg-primary text-white  mt-4"
             onClick={() => setShowModal(true)}
           >
             Edit Availability
@@ -158,7 +158,7 @@ export default function AvailabilitiesCalendar({ listing }: CalendarProps) {
             ranges={[state.selection1, state.selection2, state.selection3]}
             rangeColors={['#FF385C', '#f7D267', '#3E92CC']}
             className="border"
-            disabledDay={(day)=>isDayBooked(day, listing)}
+            disabledDay={(day) => isDayBooked(day, listing)}
             dayContentRenderer={(day) =>
               customDayContent(day, isDayBooked, listing)
             }
@@ -169,7 +169,7 @@ export default function AvailabilitiesCalendar({ listing }: CalendarProps) {
             ) : (
               <button
                 onClick={handleSubmitChanges}
-                className="btn bg-green-600 hover:bg-green-700 text-white border-none  will-change-transform"
+                className="btn btn-success text-white  will-change-transform"
                 disabled={disabled}
               >
                 Save Changes
@@ -177,7 +177,7 @@ export default function AvailabilitiesCalendar({ listing }: CalendarProps) {
             )}
             <button
               onClick={() => setShowModal(false)}
-              className="btn bg-primary hover:bg-red-500 text-white border-none  will-change-transform"
+              className="btn btn-error text-white  will-change-transform"
               disabled={disabled}
             >
               Cancel
