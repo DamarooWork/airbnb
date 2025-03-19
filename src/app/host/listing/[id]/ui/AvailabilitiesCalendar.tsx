@@ -1,5 +1,10 @@
 'use client'
 import actionSubmitBookingDates from '@/lib/actions/submitBookingDates'
+import {
+  calculateDisabledDay,
+  customDayContent,
+  isDayBooked,
+} from '@/lib/utils/disabledDaysForCalendar'
 import Loader from '@/ui/Loader'
 import { Prisma } from '@prisma/client'
 import { addDays } from 'date-fns'
@@ -12,6 +17,7 @@ import 'react-date-range/dist/theme/default.css'
 const listingSelect = {
   id: true,
   availabilities: true,
+  bookings: true,
 } satisfies Prisma.ListingSelect
 /* eslint-enable */
 type ListingPayload = Prisma.ListingGetPayload<{ select: typeof listingSelect }>
@@ -152,6 +158,10 @@ export default function AvailabilitiesCalendar({ listing }: CalendarProps) {
             ranges={[state.selection1, state.selection2, state.selection3]}
             rangeColors={['#FF385C', '#f7D267', '#3E92CC']}
             className="border"
+            disabledDay={(day)=>isDayBooked(day, listing)}
+            dayContentRenderer={(day) =>
+              customDayContent(day, isDayBooked, listing)
+            }
           />
           <footer className="flex items-center justify-between mt-4 w-full px-2">
             {disabled ? (

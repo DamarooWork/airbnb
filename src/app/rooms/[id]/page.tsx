@@ -15,7 +15,7 @@ export default async function RoomPage({
     where: {
       id: parseInt(id),
     },
-    include: { availabilities: true },
+    include: { availabilities: true, bookings: true },
   })
   if (!userId || !listing) {
     notFound()

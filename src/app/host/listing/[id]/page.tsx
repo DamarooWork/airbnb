@@ -15,7 +15,7 @@ export default async function ListingPage({
     where: {
       id: parseInt(id),
     },
-    include: { availabilities: true },
+    include: { availabilities: true, bookings: true },
   })
   if (listing?.ownerId !== userId) {
     notFound()
