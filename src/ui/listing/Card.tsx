@@ -1,8 +1,10 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { HeartIcon } from '@heroicons/react/24/outline'
-import { HeartIcon as FilledHeartIcon } from '@heroicons/react/24/solid'
-import { StarIcon } from '@heroicons/react/24/solid'
+import {
+  HeartIcon as FilledHeartIcon,
+  StarIcon,
+} from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import { useAnimate } from 'framer-motion'
 import { useReward } from 'react-rewards'
@@ -65,12 +67,12 @@ export default function Card({ listing }: { listing: Listing }) {
     setIsFav((prev) => !prev)
   }
   return (
-    <li className="w-full shadow-md rounded-md overflow-hidden group relative">
-      <section className="relative w-full h-80 overflow-hidden">
+    <li className="w-full  overflow-hidden group relative">
+      <section className="relative w-full aspect-square overflow-hidden rounded-md">
         {imageStatus === 'Loading' && <Loader />}
         <Image
           onClick={() => router.push(`/rooms/${listing.id}`)}
-          className="object-cover transition-transform duration-300 transform group-hover:scale-110 will-change-transform cursor-pointer"
+          className="object-cover transition-transform duration-300 transform group-hover:scale-105 will-change-transform cursor-pointer"
           onLoad={() => setImageStatus('Loaded')}
           onError={() => setImage(imagePlaceholder)}
           src={image}
@@ -82,7 +84,7 @@ export default function Card({ listing }: { listing: Listing }) {
       </section>
       <section
         onClick={() => router.push(`/rooms/${listing.id}`)}
-        className="p-4 cursor-pointer min-h-20"
+        className="py-4 cursor-pointer min-h-20"
       >
         <header className="flex items-center justify-between mb-2 text-xl leading-5">
           <h3 className="font-semibold max-w-[90%] overflow-hidden whitespace-nowrap overflow-ellipsis">
@@ -102,13 +104,13 @@ export default function Card({ listing }: { listing: Listing }) {
       </section>
       <button
         onClick={handleHeartClick}
-        className="absolute bottom-4 right-4 z-30"
+        className="absolute bottom-4 right-0 z-30"
       >
         <span id={`reward_${listing.id}`}>
           <HeartIcon className="text-primary w-5 h-5" />
         </span>
       </button>
-      <div ref={scope} className="absolute bottom-4 right-4  z-20">
+      <div ref={scope} className="absolute bottom-4 right-0  z-20">
         <FilledHeartIcon className="text-primary w-5 h-5 scale-0" />
       </div>
     </li>

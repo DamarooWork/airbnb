@@ -35,8 +35,9 @@ export default function Header() {
     hidden: {
       opacity: 0,
       height: 0,
-      y: 100,
+      y: 125,
       scale: 2,
+      display: 'none',
     },
     enter: {
       opacity: 1,
@@ -51,12 +52,14 @@ export default function Header() {
       height: 0,
       y: -100,
       scale: 0,
+      display: 'none',
     },
     enter: {
       opacity: 1,
       height: 'auto',
-      y: 25,
+      y: 0,
       scale: 1,
+      display: 'flex',
     },
     exit: {
       opacity: 0,
@@ -69,17 +72,17 @@ export default function Header() {
     <>
       <header
         ref={headerRef}
-        className={`border-b bg-white z-50 sticky top-0 left-0 w-full`}
+        className={`border-b bg-white z-50 sticky top-0 left-0 w-full `}
       >
         <section
-          className={`h-[7.5rem] flex justify-between items-center  px-4 sm:px-10 w-full gap-2`}
+          className={`h-[7.5rem] flex justify-between items-center  px-4 sm:px-10 w-full gap-2 `}
         >
           <div className="hidden md:flex">
             <HeaderLogo />
           </div>
-          <section className="hidden md:flex flex-col justify-center h-[8.5rem] flex-1">
+          <section className="hidden md:flex flex-col justify-center items-center h-[8.5rem] flex-1">
             <motion.section
-              className="flex justify-center items-center mx-auto max-w-[1000px]"
+              className="flex justify-center items-center mx-auto   transition-transform duration-150 ease-in-out"
               initial="hidden"
               animate={isExpanded ? 'enter' : 'exit'}
               exit="exit"
@@ -100,7 +103,7 @@ export default function Header() {
                 isExpanded ? 'border-b-8' : 'border-b-0'
               } `}
             >
-              <div className="flex justify-center items-center border-r px-4">
+              <div className="flex justify-center items-center border-r px-4 ">
                 <p>
                   {location ? (
                     <span className="font-bold"> {location}</span>
@@ -131,7 +134,7 @@ export default function Header() {
             </motion.button>
           </section>
           <MobileNav />
-          <CreateBookingBtn/>
+          <CreateBookingBtn />
           <Auth />
         </section>
       </header>

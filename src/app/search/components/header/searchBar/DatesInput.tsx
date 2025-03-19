@@ -11,7 +11,7 @@ export default function DatesInput() {
       </label>
       <div
         tabIndex={1}
-        className="dropdown-content menu rounded-box z-[1]  w-52 p-2 shadow"
+        className="dropdown-content menu rounded-box  z-[100]  w-52 p-2 shadow"
       >
         <SearchCalendar definedRange={true} />
       </div>

@@ -18,7 +18,7 @@ export default function ImageUploader({
             if (fileUrl) {
               await updateListingImageUrl(fileUrl)
             }
-            toast('Upload Completed!')
+            toast.success('Upload Completed!')
           } catch (e) {
             console.log(e)
 
