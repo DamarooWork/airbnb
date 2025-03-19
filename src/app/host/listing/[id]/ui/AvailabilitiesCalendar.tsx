@@ -107,6 +107,7 @@ export default function AvailabilitiesCalendar({ listing }: CalendarProps) {
         <>
           <p className="text-gray-600">No Available Dates</p>
           <button
+            title="Add dates"
             className="btn btn-error bg-primary text-white  mt-2"
             onClick={() => setShowModal(true)}
           >
@@ -132,6 +133,7 @@ export default function AvailabilitiesCalendar({ listing }: CalendarProps) {
             ))}
           </ul>
           <button
+            title="Edit dates"
             className="btn btn-error bg-primary text-white  mt-4"
             onClick={() => setShowModal(true)}
           >
@@ -148,8 +150,8 @@ export default function AvailabilitiesCalendar({ listing }: CalendarProps) {
       )}
       <section className="modal">
         <div className="modal-box bg-white  flex flex-col items-center ">
-          <h3 className="text-xl font-bold">Please, select the dates</h3>
-          <p className="text-primary py-2">
+          <h3 className="text-2xl font-bold">Please, select the dates</h3>
+          <p className="text-primary py-2 italic">
             Please note you can select up to 3 ranges
           </p>
           <DateRangePicker
@@ -157,7 +159,6 @@ export default function AvailabilitiesCalendar({ listing }: CalendarProps) {
             onChange={(item) => setState({ ...state, ...item })}
             ranges={[state.selection1, state.selection2, state.selection3]}
             rangeColors={['#FF385C', '#f7D267', '#3E92CC']}
-            className="border"
             disabledDay={(day) => isDayBooked(day, listing)}
             dayContentRenderer={(day) =>
               customDayContent(day, isDayBooked, listing)
@@ -168,6 +169,7 @@ export default function AvailabilitiesCalendar({ listing }: CalendarProps) {
               <Loader size={30} />
             ) : (
               <button
+                title="Save availabilities"
                 onClick={handleSubmitChanges}
                 className="btn btn-success text-white  will-change-transform"
                 disabled={disabled}
@@ -176,6 +178,7 @@ export default function AvailabilitiesCalendar({ listing }: CalendarProps) {
               </button>
             )}
             <button
+              title="Close"
               onClick={() => setShowModal(false)}
               className="btn btn-error text-white  will-change-transform"
               disabled={disabled}
@@ -184,7 +187,11 @@ export default function AvailabilitiesCalendar({ listing }: CalendarProps) {
             </button>
           </footer>
         </div>
-        <label className="modal-backdrop" htmlFor="calendar-modal">
+        <label
+          title="Close"
+          className="modal-backdrop cursor-pointer"
+          htmlFor="calendar-modal"
+        >
           Close
         </label>
       </section>
