@@ -47,11 +47,6 @@ export default function BookingCalendar({ listing, userId }: CalendarProps) {
     endDate,
     key: 'selection',
   }
-  const isBooked = (day: Date) => {
-    return listing.bookings.some((booking) => {
-      return day >= booking.startDate && day <= booking.endDate
-    })
-  }
 
   const handleSubmitBooking = () => {
     startTransition(() =>

@@ -1,7 +1,6 @@
 'use client'
 import actionSubmitBookingDates from '@/lib/actions/submitBookingDates'
 import {
-  calculateDisabledDay,
   customDayContent,
   isDayBooked,
 } from '@/lib/utils/disabledDaysForCalendar'

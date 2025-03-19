@@ -14,12 +14,11 @@ export default function ImageUploader({
         endpoint="imageUploader"
         onClientUploadComplete={async (res) => {
           try {
-            let fileUrl = res[0].ufsUrl
+            const fileUrl = res[0].ufsUrl
             if (fileUrl) {
               await updateListingImageUrl(fileUrl)
             }
             toast('Upload Completed!')
-            
           } catch (e) {
             console.log(e)
 
