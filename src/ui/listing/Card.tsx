@@ -10,8 +10,8 @@ import { useAnimate } from 'framer-motion'
 import { useReward } from 'react-rewards'
 import Loader from '@/ui/Loader'
 import { imagePlaceholder } from '@/lib/constants/imagePlaceholder'
-import { Listing } from '@/hooks/fetch/useGetListings'
 import { useRouter } from 'next/navigation'
+import { Listing } from '@prisma/client'
 
 const rewardConfigs = {
   lifetime: 100,
@@ -68,7 +68,11 @@ export default function Card({ listing }: { listing: Listing }) {
   }
   return (
     <li className="w-full  overflow-hidden group relative">
-      <section className="relative w-full aspect-square overflow-hidden rounded-md">
+      <section
+        title={listing.title}
+        aria-label={listing.title}
+        className="relative w-full aspect-square overflow-hidden rounded-md"
+      >
         {imageStatus === 'Loading' && <Loader />}
         <Image
           onClick={() => router.push(`/rooms/${listing.id}`)}
@@ -83,36 +87,51 @@ export default function Card({ listing }: { listing: Listing }) {
         />
       </section>
       <section
+        title={listing.title}
+        aria-label={listing.title}
         onClick={() => router.push(`/rooms/${listing.id}`)}
-        className="py-4 cursor-pointer min-h-20"
+        className="pt-4 cursor-pointer  "
       >
-        <header className="flex items-center justify-between mb-2 text-xl leading-5">
+        <header className="flex items-center justify-between text-xl leading-5">
           <h3 className="font-semibold max-w-[90%] overflow-hidden whitespace-nowrap overflow-ellipsis">
             {listing.title}
           </h3>
           <section className="flex justify-center gap-1 items-center ">
-            <StarIcon className="h-5 w-5 text-yellow-500" />
+            <StarIcon className="h-5 w-5 text-primary" />
             <span className=" text-gray-800">
               {listing.rating ? listing.rating : 0}
             </span>
           </section>
         </header>
 
-        <footer>
-          <p className="text-gray-600 mb-4">{listing.description}</p>
+        <footer className="flex flex-col justify-between mt-1">
+          <p className="text-gray-600 overflow-hidden whitespace-nowrap overflow-ellipsis">
+            {listing.description}
+          </p>
+          <p className="font-semibold">{listing.location}</p>
+          <p className="">
+            <span className="font-semibold underline">{listing.price}$</span>
+            <span className="text-gray-500"> for 1 night</span>
+          </p>
         </footer>
       </section>
       <button
+        title="Add to favorites"
         onClick={handleHeartClick}
-        className="absolute bottom-4 right-0 z-30"
+        className="absolute bottom-0  right-0 z-30"
       >
         <span id={`reward_${listing.id}`}>
-          <HeartIcon className="text-primary w-5 h-5" />
+          <HeartIcon className="text-primary hover:scale-110 transition-transform    w-6 h-auto" />
         </span>
       </button>
-      <div ref={scope} className="absolute bottom-4 right-0  z-20">
-        <FilledHeartIcon className="text-primary w-5 h-5 scale-0" />
-      </div>
+      <button
+        title="Delete from favorites"
+        onClick={handleHeartClick}
+        ref={scope}
+        className={`absolute bottom-0  right-0 ${isFav ? 'z-30' : 'z-20'} `}
+      >
+        <FilledHeartIcon className="text-primary w-6 h-auto scale-0 hover:scale-110 transition-transform" />
+      </button>
     </li>
   )
 }
