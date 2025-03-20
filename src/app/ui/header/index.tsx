@@ -10,9 +10,11 @@ import HeaderLogo from '@/app/ui/header/headerLogo'
 import CreateBookingBtn from '@/app/ui/header/CreateBookingBtn'
 import SearchBar from './searchBar'
 import Auth from '@/app/ui/header/auth'
+import { usePathname } from 'next/navigation'
 
 export default function Header() {
   const [isExpanded, setIsExpanded] = useState(false)
+  const pathname = usePathname()
   const headerRef = useRef(null)
   const location = useSearchStore((state) => state.location)
   const count = useSearchStore((state) => state.guests)
@@ -75,7 +77,11 @@ export default function Header() {
         className={`border-b bg-white z-50 sticky top-0 left-0 w-full `}
       >
         <section
-          className={`h-[7.5rem] flex justify-between items-center  px-4 sm:px-10 w-full gap-2 `}
+          className={`h-[7.5rem] flex justify-between items-center w-full gap-2 ${
+            pathname.includes('/search') || pathname.includes('/host/listings')
+              ? 'px-4 sm:px-10'
+              : 'max-w-[1500px] mx-auto'
+          }     `}
         >
           <div className="max-md:hidden flex">
             <HeaderLogo />

@@ -4,7 +4,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 import Header from './ui/header'
 
 import { Montserrat } from 'next/font/google'
-const RalewayFont = Montserrat({
+const MontserratFont = Montserrat({
   subsets: ['latin'],
   display: 'swap',
 })
@@ -27,7 +27,7 @@ export default function RootLayout({
           <title>Airbnb by Damaroo</title>
           <link rel="icon/png" href="icon.png" />
         </head>
-        <body className={`${RalewayFont.className} min-h-screen`}>
+        <body className={`${MontserratFont.className} min-h-screen`}>
           <Header />
           <main className="mx-auto p-4  sm:px-10">
             {children}

@@ -1,6 +1,6 @@
 'use client'
 import '@uploadthing/react/styles.css'
-import { UploadButton } from '@/lib/utils/uploadthing'
+import { UploadDropzone } from '@/lib/utils/uploadthing'
 import { toast } from 'react-toastify'
 interface ImageUploaderProps {
   updateListingImageUrl: (fileUrl: string) => Promise<void>
@@ -9,8 +9,9 @@ export default function ImageUploader({
   updateListingImageUrl,
 }: ImageUploaderProps) {
   return (
-    <section className="flex flex-col h-full items-center justify-center rounded-2xl border-2">
-      <UploadButton
+    <section className="flex flex-col w-full h-full items-center justify-center rounded-2xl  cursor-pointer">
+      <UploadDropzone
+        className={'w-full h-full'}
         endpoint="imageUploader"
         onClientUploadComplete={async (res) => {
           try {
@@ -21,7 +22,6 @@ export default function ImageUploader({
             toast.success('Upload Completed!')
           } catch (e) {
             console.log(e)
-
             alert('Upload failed')
           }
         }}
