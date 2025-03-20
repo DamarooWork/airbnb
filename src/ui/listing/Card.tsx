@@ -10,7 +10,6 @@ import { useAnimate } from 'framer-motion'
 import { useReward } from 'react-rewards'
 import Loader from '@/ui/Loader'
 import { imagePlaceholder } from '@/lib/constants/imagePlaceholder'
-import { useRouter } from 'next/navigation'
 import { Listing } from '@prisma/client'
 import Link from 'next/link'
 
@@ -24,7 +23,6 @@ const rewardConfigs = {
 }
 
 export default function Card({ listing }: { listing: Listing }) {
-  const router = useRouter()
   const [isFav, setIsFav] = useState(false)
   const [image, setImage] = useState<string>(
     listing.image ? listing.image : imagePlaceholder
