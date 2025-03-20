@@ -14,7 +14,7 @@ export default function SearchBar({
     router.push('/search/results')
   }
   return (
-    <section className="flex self-center rounded-full border p-2">
+    <section className="flex self-center rounded-full border p-2 drop-shadow-md  bg-background">
       <SearchInput />
       <DatesInput/>
       <AddGuests/>

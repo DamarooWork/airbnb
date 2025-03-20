@@ -4,6 +4,23 @@ import { MapPinIcon, StarIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import { prisma } from '../../../../db/prisma'
 import BookingCalendar from './ui/BookingCalendar'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}) {
+  const { id } = await params
+  const listing = await prisma.listing.findUnique({
+    where: {
+      id: parseInt(id),
+    },
+  })
+  if (listing)
+    return {
+      title: listing.title,
+    }
+}
 export default async function RoomPage({
   params,
 }: {
@@ -17,7 +34,7 @@ export default async function RoomPage({
     },
     include: { availabilities: true, bookings: true },
   })
-  if (!userId || !listing) {
+  if (!listing) {
     notFound()
   }
   return (
@@ -50,7 +67,7 @@ export default async function RoomPage({
             <p>{listing.location || 'No info about location'}</p>
           </section>
         </section>
-        <BookingCalendar listing={listing} userId={userId} />
+        {userId && <BookingCalendar listing={listing} userId={userId} />}
       </section>
     </section>
   )

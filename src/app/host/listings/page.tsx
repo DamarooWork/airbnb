@@ -7,7 +7,7 @@ export default async function ListingsPage() {
   const { userId } = await auth()
 
   return (
-    <section className="flex flex-col ">
+    <section className="flex flex-col relative">
       <header>
         <h1 className="text-3xl font-extrabold text-primary">Your listings</h1>
       </header>

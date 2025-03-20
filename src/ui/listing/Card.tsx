@@ -12,6 +12,7 @@ import Loader from '@/ui/Loader'
 import { imagePlaceholder } from '@/lib/constants/imagePlaceholder'
 import { useRouter } from 'next/navigation'
 import { Listing } from '@prisma/client'
+import Link from 'next/link'
 
 const rewardConfigs = {
   lifetime: 100,
@@ -67,15 +68,15 @@ export default function Card({ listing }: { listing: Listing }) {
     setIsFav((prev) => !prev)
   }
   return (
-    <li className="w-full  overflow-hidden group relative">
-      <section
+    <li className="w-full overflow-hidden group relative">
+      <Link
         title={listing.title}
         aria-label={listing.title}
-        className="relative w-full aspect-square overflow-hidden rounded-md"
+        className="relative block w-full aspect-square overflow-hidden rounded-3xl"
+        href={`/rooms/${listing.id}`}
       >
         {imageStatus === 'Loading' && <Loader />}
         <Image
-          onClick={() => router.push(`/rooms/${listing.id}`)}
           className="object-cover transition-transform duration-300 transform group-hover:scale-105 will-change-transform cursor-pointer"
           onLoad={() => setImageStatus('Loaded')}
           onError={() => setImage(imagePlaceholder)}
@@ -85,12 +86,12 @@ export default function Card({ listing }: { listing: Listing }) {
           priority
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, (max-width: 1536) 25vw, 20vw"
         />
-      </section>
-      <section
+      </Link>
+      <Link
         title={listing.title}
         aria-label={listing.title}
-        onClick={() => router.push(`/rooms/${listing.id}`)}
-        className="pt-4 cursor-pointer  "
+        href={`/rooms/${listing.id}`}
+        className="pt-4 cursor-pointer block"
       >
         <header className="flex items-center justify-between text-xl leading-5">
           <h3 className="font-semibold max-w-[90%] overflow-hidden whitespace-nowrap overflow-ellipsis">
@@ -104,17 +105,17 @@ export default function Card({ listing }: { listing: Listing }) {
           </section>
         </header>
 
-        <footer className="flex flex-col justify-between mt-1">
+        <footer className="flex flex-col justify-between text-sm">
           <p className="text-gray-600 overflow-hidden whitespace-nowrap overflow-ellipsis">
             {listing.description}
           </p>
           <p className="font-semibold">{listing.location}</p>
-          <p className="">
+          <p className="text-base">
             <span className="font-semibold underline">{listing.price}$</span>
             <span className="text-gray-500"> for 1 night</span>
           </p>
         </footer>
-      </section>
+      </Link>
       <button
         title="Add to favorites"
         onClick={handleHeartClick}

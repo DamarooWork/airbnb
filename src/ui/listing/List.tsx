@@ -18,7 +18,7 @@ export default function List({ data, isLoading, isError }: ListProps) {
       }),
     [data]
   )
-  if (isLoading) return <Loader size={100}/>
+  if (isLoading) return <Loader size={100} />
 
   if (isError) {
     console.error('Error fetching listings:', isError)
@@ -44,7 +44,7 @@ export default function List({ data, isLoading, isError }: ListProps) {
 
   return (
     <ul
-      className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8 mt-4`}
+      className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-8 mt-4`}
     >
       {memoizedCards}
     </ul>

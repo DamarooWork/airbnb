@@ -1,6 +1,7 @@
 import useGetPlaceholderDates from '@/hooks/useGetPlaceholderDates'
 import SearchCalendar from '../searchBar/SearchCalendar'
 
+
 export default function DatesInput() {
   const dates = useGetPlaceholderDates()
   return (

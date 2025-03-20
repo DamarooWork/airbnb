@@ -4,9 +4,9 @@ import { ReactNode, useState } from 'react'
 import DestinationInput from './DestinationInput'
 import { useSearchStore } from '@/store/SearchStore'
 import DatesInput from './DatesInput'
-import Counter from '../searchBar/Counter'
 import { useRouter } from 'next/navigation'
 import useGetPlaceholderDates from '@/hooks/useGetPlaceholderDates'
+import Counter from '../searchBar/Counter'
 
 export default function MobileNav() {
   const [currentTab, setCurrentTab] = useState(0)

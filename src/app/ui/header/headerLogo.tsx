@@ -5,7 +5,8 @@ export default function HeaderLogo() {
   const size = useWindowSize()
   return (
     <Link
-      className="flex relative w-[50px] h-[50px] lg:w-[160px] lg:h-[50px] "
+      aria-label="Airbnb homepage"
+      className="flex relative w-[50px] h-[50px] lg:w-[160px] lg:h-[50px] cursor-pointer"
       href={'/search'}
     >
       {size.width && size.width < 1024 ? (

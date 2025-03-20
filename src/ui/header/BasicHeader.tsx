@@ -1,7 +1,6 @@
-'use client'
-import Auth from '@/ui/header/auth'
-import HeaderLogo from '@/ui/header/headerLogo'
-import CreateBookingBtn from './CreateBookingBtn'
+import Auth from '@/app/ui/header/auth'
+import HeaderLogo from '@/app/ui/header/headerLogo'
+import CreateBookingBtn from '../../app/ui/header/CreateBookingBtn'
 
 export default function BasicHeader() {
   return (

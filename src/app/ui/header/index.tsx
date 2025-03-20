@@ -1,15 +1,15 @@
 'use client'
 import { useRef, useState } from 'react'
-import SearchBar from './searchBar'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 import { motion } from 'framer-motion'
 import { useClickAway } from 'react-use'
 import MobileNav from './mobileNav'
 import { useSearchStore } from '@/store/SearchStore'
 import useGetPlaceholderDates from '@/hooks/useGetPlaceholderDates'
-import Auth from '../../../../ui/header/auth'
-import HeaderLogo from '@/ui/header/headerLogo'
-import CreateBookingBtn from '@/ui/header/CreateBookingBtn'
+import HeaderLogo from '@/app/ui/header/headerLogo'
+import CreateBookingBtn from '@/app/ui/header/CreateBookingBtn'
+import SearchBar from './searchBar'
+import Auth from '@/app/ui/header/auth'
 
 export default function Header() {
   const [isExpanded, setIsExpanded] = useState(false)
@@ -77,12 +77,12 @@ export default function Header() {
         <section
           className={`h-[7.5rem] flex justify-between items-center  px-4 sm:px-10 w-full gap-2 `}
         >
-          <div className="hidden md:flex">
+          <div className="max-md:hidden flex">
             <HeaderLogo />
           </div>
-          <section className="hidden md:flex flex-col justify-center items-center h-[8.5rem] flex-1">
+          <section className="max-md:hidden flex flex-col justify-center items-center h-[8.5rem] flex-1 ">
             <motion.section
-              className="flex justify-center items-center mx-auto   transition-transform duration-150 ease-in-out"
+              className="flex justify-center items-center mx-auto   transition-transform duration-150 ease-in-out "
               initial="hidden"
               animate={isExpanded ? 'enter' : 'exit'}
               exit="exit"
@@ -99,7 +99,7 @@ export default function Header() {
               transition={{ type: 'linear' }}
               onClick={toggleExpanded}
               variants={searchContainerVariants}
-              className={` flex p-4 justify-center items-center rounded-full  border drop-shadow-md max-w-[1000px] mx-auto bg-background ${
+              className={` flex p-4 justify-center items-center rounded-full  border drop-shadow-md  mx-auto bg-background ${
                 isExpanded ? 'border-b-8' : 'border-b-0'
               } `}
             >
