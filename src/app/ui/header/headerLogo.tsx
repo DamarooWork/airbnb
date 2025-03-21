@@ -4,7 +4,7 @@ import { useWindowSize } from '@uidotdev/usehooks'
 export default function HeaderLogo() {
   const size = useWindowSize()
   return (
-    <>
+    <section>
       <Link
         aria-label="Airbnb homepage"
         className="flex relative w-[50px] h-[50px] lg:w-[160px] lg:h-[50px] cursor-pointer"
@@ -29,6 +29,6 @@ export default function HeaderLogo() {
           />
         )}
       </Link>
-    </>
+    </section>
   )
 }
