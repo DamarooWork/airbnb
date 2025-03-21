@@ -3,6 +3,7 @@ import { MapPinIcon, StarIcon } from '@heroicons/react/24/solid'
 import ImageListing from './ImageListing'
 import updateListingImageUrl from '@/lib/actions/updateListingImageUrl'
 import { revalidatePath } from 'next/cache'
+import ListingDelete from './ListingDelete'
 interface CardProps {
   listing: Listing
 }
@@ -13,7 +14,7 @@ export default function Card({ listing }: CardProps) {
     revalidatePath('/host/listing/')
   }
   return (
-    <section className="flex flex-col gap-4">
+    <section className="flex flex-col gap-4 relative">
       <header>
         <h2 className="text-4xl font-bold">{listing?.title}</h2>
       </header>
@@ -40,6 +41,7 @@ export default function Card({ listing }: CardProps) {
           <p>{listing.location || 'No info about location'}</p>
         </section>
       </section>
+      <ListingDelete listingId={listing.id}/>
     </section>
   )
 }

@@ -38,7 +38,7 @@ model Listing {
 model Availability {
   id        Int      @id @default(autoincrement())
   listingId Int
-  listing   Listing  @relation(fields: [listingId], references: [id])
+  listing   Listing  @relation(fields: [listingId], references: [id], onDelete: Cascade)
   startDate DateTime
   endDate   DateTime
   createdAt DateTime @default(now())
@@ -48,7 +48,7 @@ model Availability {
 model Booking {
   id        Int      @id @default(autoincrement())
   listingId Int
-  listing   Listing  @relation(fields: [listingId], references: [id])
+  listing   Listing  @relation(fields: [listingId], references: [id], onDelete: Cascade)
   startDate DateTime
   endDate   DateTime
   createdAt DateTime @default(now())
