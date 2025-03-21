@@ -1,5 +1,4 @@
 'use client'
-import Link from 'next/link'
 import ListingList from '../../../ui/listing/List'
 import useGetListings from '@/hooks/fetch/useGetListings'
 import { useCallback, useEffect, useMemo, useState } from 'react'
