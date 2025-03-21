@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useWindowSize } from '@uidotdev/usehooks'
-export default function HeaderLogo() {
+export default function Logo() {
   const size = useWindowSize()
   return (
     <section>

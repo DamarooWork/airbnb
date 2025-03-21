@@ -10,7 +10,7 @@ import SearchBar from './searchBar'
 import Auth from '@/app/ui/header/auth'
 import MobileNav from './mobileNav'
 import Menu from './Menu'
-import HeaderLogo from './HeaderLogo'
+import Logo from './Logo'
 
 export default function Header() {
   const [isExpanded, setIsExpanded] = useState(false)
@@ -84,7 +84,7 @@ export default function Header() {
           }     `}
         >
           <div className="max-md:hidden flex">
-            <HeaderLogo/>
+            <Logo/>
           </div>
           <section className="max-md:hidden flex flex-col justify-center items-center h-[8.5rem] flex-1 ">
             <motion.section
