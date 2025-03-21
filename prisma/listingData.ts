@@ -1,4 +1,4 @@
-import { Listing } from '@/hooks/fetch/useGetListings'
+import { Listing } from "@prisma/client";
 
 export const data: Listing[] = [
   {
