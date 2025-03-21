@@ -1,8 +1,8 @@
 'use client'
 import { useMemo } from 'react'
 import Card from '@/ui/listing/Card'
-import { Listing } from '@/hooks/fetch/useGetListings'
 import Loader from '@/ui/Loader'
+import { Listing } from '@prisma/client'
 
 interface ListProps {
   data: Listing[]
