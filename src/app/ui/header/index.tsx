@@ -1,14 +1,14 @@
 'use client'
 import { useRef, useState } from 'react'
-import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 import { motion } from 'framer-motion'
 import { useClickAway } from 'react-use'
-import MobileNav from './mobileNav'
+import { usePathname } from 'next/navigation'
+import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 import { useSearchStore } from '@/store/SearchStore'
 import useGetPlaceholderDates from '@/hooks/useGetPlaceholderDates'
 import SearchBar from './searchBar'
 import Auth from '@/app/ui/header/auth'
-import { usePathname } from 'next/navigation'
+import MobileNav from './mobileNav'
 import Menu from './Menu'
 import HeaderLogo from './HeaderLogo'
 
@@ -84,7 +84,7 @@ export default function Header() {
           }     `}
         >
           <div className="max-md:hidden flex">
-            <HeaderLogo />
+            <HeaderLogo/>
           </div>
           <section className="max-md:hidden flex flex-col justify-center items-center h-[8.5rem] flex-1 ">
             <motion.section
