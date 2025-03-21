@@ -6,11 +6,11 @@ import { useClickAway } from 'react-use'
 import MobileNav from './mobileNav'
 import { useSearchStore } from '@/store/SearchStore'
 import useGetPlaceholderDates from '@/hooks/useGetPlaceholderDates'
-import HeaderLogo from '@/app/ui/header/HeaderLogo'
 import SearchBar from './searchBar'
 import Auth from '@/app/ui/header/auth'
 import { usePathname } from 'next/navigation'
 import Menu from './Menu'
+import HeaderLogo from './HeaderLogo'
 
 export default function Header() {
   const [isExpanded, setIsExpanded] = useState(false)
@@ -140,7 +140,7 @@ export default function Header() {
             </motion.button>
           </section>
           <MobileNav />
-          <Menu/>
+          <Menu />
           <Auth />
         </section>
       </header>
