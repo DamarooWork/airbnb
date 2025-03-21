@@ -1,10 +1,11 @@
 'use client'
 import Link from 'next/link'
 import ListingList from '../../../ui/listing/List'
-import useGetListings, { Listing } from '@/hooks/fetch/useGetListings'
+import useGetListings from '@/hooks/fetch/useGetListings'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useSearchStore } from '@/store/SearchStore'
 import { useDebounce } from 'react-use'
+import { Listing } from '@prisma/client'
 
 export default function ResultsPage() {
   const params = useMemo(() => {

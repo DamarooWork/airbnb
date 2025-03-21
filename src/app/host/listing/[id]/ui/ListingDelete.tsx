@@ -3,7 +3,7 @@ import actionDeleteListing from '@/lib/actions/deleteListing'
 import DeleteConfirmationPopUp from '@/ui/DeleteConfirmationPopUp'
 import { TrashIcon } from '@heroicons/react/24/solid'
 import { redirect } from 'next/navigation'
-import { ReactNode, useRef } from 'react'
+import { useRef } from 'react'
 import { toast } from 'react-toastify'
 
 interface ListingDeleteProps {

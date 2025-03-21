@@ -1,5 +1,5 @@
 import useConfirmation from '@/hooks/useConfirmation'
-import { ReactNode, RefObject, useImperativeHandle, type Ref } from 'react'
+import { useImperativeHandle, type Ref } from 'react'
 import Modal from './modals/Modal'
 import { InformationCircleIcon, XCircleIcon } from '@heroicons/react/24/outline'
 type MapRef = {
@@ -52,7 +52,7 @@ export default function DeleteConfirmationPopUp({
           type="button"
           className="text-white bg-primary hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300  font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center transition-colors duration-300 ease-in-out will-change-[color]"
         >
-          Yes, I'm sure
+          Yes, I&apos;m sure
         </button>
         <button
           onClick={handleClose}
