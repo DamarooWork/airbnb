@@ -19,7 +19,7 @@ export default function FormCreateListing() {
   return (
     <>
       <form
-        className="flex flex-col w-[80vw] max-w-[1000px] gap-4 mt-8 border-2 border-red-300 rounded-2xl p-4"
+        className="flex flex-col w-full gap-4 mt-8 border-2 border-red-300 rounded-2xl p-4"
         action={handleSubmitForm}
       >
         <Input placeholder="Place's title" name="title" required />
@@ -36,7 +36,7 @@ export default function FormCreateListing() {
           required
         />
         <Input placeholder="Paste link to the image" name="image" />
-        <BtnSubmit disabled={disabled} />
+        <BtnSubmit disabled={disabled} title={'Create booking'} />
       </form>
     </>
   )

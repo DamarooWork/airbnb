@@ -21,9 +21,13 @@ export default async function ListingPage({
     notFound()
   }
 
-  
   return (
     <section className="max-w-[1500px] mx-auto flex flex-col gap-4">
+      <header className="mt-4">
+        <h1 className="text-4xl font-semibold  text-primary">
+          Edit your listing:
+        </h1>
+      </header>
       <Card listing={listing} />
       <AvailabilitiesCalendar listing={listing} />
     </section>

@@ -1,10 +1,13 @@
-import { Listing } from '@prisma/client'
+import { Prisma } from '@prisma/client'
 import { imagePlaceholder } from '@/lib/constants/imagePlaceholder'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import { listingSelect } from './List'
 interface CardProps {
-  listing: Listing
+  listing: Prisma.ListingGetPayload<{
+    select: typeof listingSelect
+  }>
 }
 export default function Card({ listing }: CardProps) {
   const [image, setImage] = useState<string>(

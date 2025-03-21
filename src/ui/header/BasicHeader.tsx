@@ -1,5 +1,5 @@
 import Auth from '@/app/ui/header/auth'
-import HeaderLogo from '@/app/ui/header/headerLogo'
+import HeaderLogo from '@/app/ui/header/HeaderLogo'
 import CreateBookingBtn from '../../app/ui/header/CreateBookingBtn'
 
 export default function BasicHeader() {

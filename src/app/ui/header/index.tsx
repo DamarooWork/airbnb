@@ -6,11 +6,11 @@ import { useClickAway } from 'react-use'
 import MobileNav from './mobileNav'
 import { useSearchStore } from '@/store/SearchStore'
 import useGetPlaceholderDates from '@/hooks/useGetPlaceholderDates'
-import HeaderLogo from '@/app/ui/header/headerLogo'
-import CreateBookingBtn from '@/app/ui/header/CreateBookingBtn'
+import HeaderLogo from '@/app/ui/header/HeaderLogo'
 import SearchBar from './searchBar'
 import Auth from '@/app/ui/header/auth'
 import { usePathname } from 'next/navigation'
+import Menu from './Menu'
 
 export default function Header() {
   const [isExpanded, setIsExpanded] = useState(false)
@@ -77,7 +77,7 @@ export default function Header() {
         className={`border-b bg-white z-50 sticky top-0 left-0 w-full `}
       >
         <section
-          className={`h-[7.5rem] flex justify-between items-center w-full gap-2 ${
+          className={`h-[7.5rem] flex justify-between items-center w-full gap-2 max-[1540px]:px-4 max-[1540px]:sm:px-10 ${
             pathname.includes('/search') || pathname.includes('/host/listings')
               ? 'px-4 sm:px-10'
               : 'max-w-[1500px] mx-auto'
@@ -140,7 +140,7 @@ export default function Header() {
             </motion.button>
           </section>
           <MobileNav />
-          <CreateBookingBtn />
+          <Menu/>
           <Auth />
         </section>
       </header>

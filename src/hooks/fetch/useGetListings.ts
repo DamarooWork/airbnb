@@ -1,17 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import FetchListings from './FetchListings'
-export interface Listing {
-  id: number
-  title: string
-  description: string | null
-  published: boolean
-  ownerId: string
-  image: string | null
-  price: number
-  rating: number | null
-  location: string | null
-}
+import { Listing } from '@prisma/client'
 export interface FetchProps {
   params: object
 }

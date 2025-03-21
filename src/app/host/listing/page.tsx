@@ -1,4 +1,5 @@
 'use client'
+import Loader from '@/ui/Loader'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 
@@ -7,5 +8,5 @@ export default function NoIdListingPage() {
   useEffect(() => {
     router.push('/host/listings')
   }, [])
-  return <></>
+  return <Loader size={100} />
 }

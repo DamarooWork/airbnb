@@ -36,16 +36,8 @@ export default function ResultsPage() {
 
   return (
     <section>
-      <section
-        className="flex items-center justify-center w-full h-48 bg-cover bg-center 
-      bg-[url(/images/booking-website-hero.png)] "
-      >
-        <Link
-          href={'/search/results'}
-          className="rounded-full text-background bg-[#603775] hover:bg-[#7F3F7F] px-4 py-2"
-        >
-          Reload
-        </Link>
+      <section className="flex items-center justify-start w-full h-24 ">
+        <h1 className="text-4xl font-bold">Результаты поиска:</h1>
       </section>
       <ListingList
         data={location !== '' ? filteredData : data}
