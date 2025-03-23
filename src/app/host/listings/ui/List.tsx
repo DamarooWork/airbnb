@@ -28,16 +28,14 @@ export default async function List({ userId }: ListProps) {
   )
 
   return (
-    <section>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8 mt-4">
-        {listings.map(
-          (
-            listing: Prisma.ListingGetPayload<{ select: typeof listingSelect }>
-          ) => (
-            <Card key={listing.id} listing={listing} maxBookings={maxBookings} />
-          )
-        )}
-      </ul>
-    </section>
+    <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8 mt-4">
+      {listings.map(
+        (
+          listing: Prisma.ListingGetPayload<{ select: typeof listingSelect }>
+        ) => (
+          <Card key={listing.id} listing={listing} maxBookings={maxBookings} />
+        )
+      )}
+    </ul>
   )
 }
