@@ -9,7 +9,7 @@ export default async function TripsPage() {
   return (
     <section className="flex flex-col relative">
       <header>
-        <h1 className="text-3xl font-extrabold text-primary">Your trips</h1>
+        <h1 className="text-4xl font-extrabold text-primary">Your trips</h1>
       </header>
       <Suspense key={userId} fallback={<Loader size={100} />}>
         <List userId={userId} />
