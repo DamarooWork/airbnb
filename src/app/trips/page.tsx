@@ -7,7 +7,7 @@ export default async function TripsPage() {
   const { userId } = await auth()
 
   return (
-    <section className="flex flex-col relative">
+    <section className="flex flex-col relative max-w-[1500px] mx-auto w-full">
       <header>
         <h1 className="text-4xl font-extrabold text-primary">Your trips</h1>
       </header>

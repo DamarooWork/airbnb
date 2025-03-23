@@ -1,9 +1,7 @@
 'use server'
-
 import { auth } from '@clerk/nextjs/server'
-import { redirect } from 'next/navigation'
 import { prisma } from '../../../db/prisma'
-import { toast } from 'react-toastify'
+import { revalidatePath } from 'next/cache'
 
 export default async function actionDeleteBooking(bookingId: number) {
   const { userId } = await auth()
@@ -14,9 +12,9 @@ export default async function actionDeleteBooking(bookingId: number) {
           id: bookingId,
         },
       })
-      toast.success('The booking was successfully deleted!')
-      redirect('/search')
     } catch (e) {
       console.log(e)
+    } finally {
+      revalidatePath('/trips')
     }
 }
