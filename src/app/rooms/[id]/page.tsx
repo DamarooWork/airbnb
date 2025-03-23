@@ -43,7 +43,7 @@ export default async function RoomPage({
         <h1 className="text-4xl font-bold">{listing?.title}</h1>
       </header>
       {listing.image && (
-        <div className="relative w-full max-h-[300px] h-[300px] rounded-2xl ">
+        <div className="relative w-full max-h-[400px] h-[400px] rounded-2xl ">
           <Image
             className="object-cover rounded-2xl  "
             src={listing.image}

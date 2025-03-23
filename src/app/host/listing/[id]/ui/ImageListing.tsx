@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { ArrowDownTrayIcon, XCircleIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import ImageUploader from '@/ui/ImageUploader'
+import { toast } from 'react-toastify'
 interface ImageListingProps {
   imgAlt: string
   imgUrl: string
@@ -17,6 +18,7 @@ export default function ImageListing({
   const handleUpdateListingImageUrl = async (fileUrl: string) => {
     await updateListingImageUrl(fileUrl)
     setIsImageUploaderOpen(false)
+    toast.success('Main image updated!')
   }
   return (
     <div className="relative w-full max-h-[300px] h-[300px] rounded-2xl group ">

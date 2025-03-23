@@ -11,6 +11,7 @@ import { useState } from 'react'
 import { DateRangePicker, Range } from 'react-date-range'
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
+import { toast } from 'react-toastify'
 
 /* eslint-disable */
 const listingSelect = {
@@ -97,6 +98,7 @@ export default function AvailabilitiesCalendar({ listing }: CalendarProps) {
     await actionSubmitBookingDates(listing.id, dateRanges)
     setDisabled(false)
     setShowModal(false)
+    toast.success('Availabilities updated!')
   }
 
   return (

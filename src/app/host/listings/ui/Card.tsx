@@ -18,43 +18,46 @@ export default function Card({ listing, maxBookings }: CardProps) {
   )
   return (
     <li
-      className="card aspect-square justify-between gap-4 shadow-gray-300 shadow-xl p-4 text-xl transition-transform duration-300 ease-in-out group hover:scale-[1.01] will-change-transform "
+      className="card shadow-gray-300 shadow-xl  text-xl transition-transform duration-300 ease-in-out group hover:scale-[1.01] will-change-transform "
       key={listing.id}
     >
-      <Image
-        className="object-cover transition-transform duration-300 transform group-hover:scale-[1.03] will-change-transform cursor-pointer -z-30 rounded-2xl opacity-90"
-        onError={() => setImage(imagePlaceholder)}
-        src={image}
-        alt={listing.title}
-        fill
-        priority
-        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, (max-width: 1536) 25vw, 20vw"
-      />
       <Link
-        className="hover:underline p-1 text-black bg-white/80 w-fit rounded"
-        href={`/rooms/${listing.id}`}
+        href={`/host/listing/${listing.id}`}
+        className="flex flex-col relative justify-between gap-4 p-4 aspect-square"
       >
-        <h2 className="font-bold">{listing.title}</h2>
-        <p className="text-gray-600">{listing.description}</p>
+        <Image
+          className="object-cover transition-transform duration-300 transform group-hover:scale-[1.03] will-change-transform cursor-pointer -z-30 rounded-2xl opacity-90"
+          onError={() => setImage(imagePlaceholder)}
+          src={image}
+          alt={listing.title}
+          fill
+          priority
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, (max-width: 1536) 25vw, 20vw"
+        />
+        <header className="p-1 text-white  w-fit rounded">
+          <h2 className="font-bold drop-shadow-[0_1px_5px_rgba(0,0,0,0.9)]">
+            {listing.title}
+          </h2>
+        </header>
+        <footer className="flex flex-col gap-2">
+          {listing.bookings.length > 0 ? (
+            <section className="flex gap-2 text-white  w-fit p-1 rounded">
+              {listing.bookings.length === maxBookings && (
+                <ArrowTrendingUpIcon className="w-6 h-auto text-green-600 drop-shadow-[0_2px_5px_rgba(255,255,255,0.9)]" />
+              )}
+              <span className="drop-shadow-[0_1px_5px_rgba(0,0,0,0.9)]">
+                Booked{' '}
+                <span className="font-bold">{listing.bookings.length}</span>x
+                times
+              </span>
+            </section>
+          ) : (
+            <p className="text-gray-200 drop-shadow-[0_1px_5px_rgba(0,0,0,0.9)] w-fit ">
+              No bookings yet
+            </p>
+          )}
+        </footer>
       </Link>
-      <footer className="flex flex-col gap-2">
-        {listing.bookings.length > 0 ? (
-          <section className="flex gap-2 text-black bg-white/80 w-fit p-1 rounded">
-            {listing.bookings.length === maxBookings && (
-              <ArrowTrendingUpIcon className="w-6 h-auto text-green-600 " />
-            )}
-            <span>Booked {listing.bookings.length}x times</span>
-          </section>
-        ) : (
-          <p className="text-gray-500 bg-white/80 w-fit p-1">No bookings yet</p>
-        )}
-        <Link
-          className="hover:underline p-1 text-black bg-white/80 w-fit rounded"
-          href={`/host/listing/${listing.id}`}
-        >
-          Edit the listing
-        </Link>
-      </footer>
     </li>
   )
 }

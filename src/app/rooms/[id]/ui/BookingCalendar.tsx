@@ -12,6 +12,7 @@ import { useState, useTransition } from 'react'
 import { DateRangePicker, Range, RangeKeyDict } from 'react-date-range'
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
+import { toast } from 'react-toastify'
 
 /* eslint-disable */
 const listingSelect = {
@@ -55,6 +56,11 @@ export default function BookingCalendar({ listing, userId }: CalendarProps) {
         startDate,
         endDate,
         userId,
+      }).then(() => {
+        setStartDate(new Date())
+        setEndDate(addDays(new Date(), 3))
+        setIsBookingDisabled(true)
+        toast.success('Booking successful!')
       })
     )
   }

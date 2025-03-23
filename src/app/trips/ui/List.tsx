@@ -20,10 +20,19 @@ export default async function List({ userId }: ListProps) {
     include: {
       listing: true,
     },
+    orderBy: {
+      id: 'desc',
+    },
   })
-
+  if (bookings.length === 0) {
+    return (
+      <h3 className="text-3xl text-red-400 mt-4">
+        You have no upcoming trips.
+      </h3>
+    )
+  }
   return (
-    <ul className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
+    <ul className="grid grid-cols-1  gap-4 mt-4">
       {bookings.map(
         (
           booking: Prisma.BookingGetPayload<{ select: typeof bookingSelect }>
