@@ -21,6 +21,7 @@ export default function ImageListing({
     await updateListingImageUrl(fileUrl)
     setIsImageUploaderOpen(false)
     toast.success('Main image updated!')
+    setImage(fileUrl)
   }
   return (
     <div className="relative w-full max-h-[300px] h-[300px] rounded-2xl group ">
