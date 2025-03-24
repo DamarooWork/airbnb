@@ -74,7 +74,7 @@ export default function Header() {
     <>
       <header
         ref={headerRef}
-        className={`border-b bg-white z-50 sticky top-0 left-0 w-full `}
+        className="border-b bg-white z-50 sticky top-0 left-0 w-full"
       >
         <section
           className={`h-[7.5rem] flex justify-between items-center w-full gap-2 max-[1540px]:px-4 max-[1540px]:sm:px-10 ${
@@ -84,7 +84,7 @@ export default function Header() {
           }     `}
         >
           <div className="max-md:hidden flex">
-            <Logo/>
+            <Logo />
           </div>
           <section className="max-md:hidden flex flex-col justify-center items-center h-[8.5rem] flex-1 ">
             <motion.section

@@ -29,12 +29,12 @@ export default function Card({ booking }: CardProps) {
       </div>
       <section className="flex flex-col justify-between  p-4 overflow-hidden ">
         <header className="text-xl">
-          <h2 className="font-semibold text-primary whitespace-nowrap">
+          <h2 className="font-semibold text-primary overflow-hidden whitespace-nowrap overflow-ellipsis">
             <Link href={`/rooms/${booking.listing.id}`}>
               {booking.listing.title}
             </Link>
           </h2>
-          <p className="text-red-400">{booking.listing.description}</p>
+          <p className="text-red-400 overflow-hidden whitespace-nowrap overflow-ellipsis">{booking.listing.description}</p>
         </header>
         <footer className="flex flex-col sm:flex-row sm:text-center sm:items-center sm:gap-2 font-bold text-primary ">
           <span>{booking.startDate.toDateString()}</span>

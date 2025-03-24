@@ -29,7 +29,7 @@ export default function TripCancel({ bookingId }: TripCancelProps) {
     <>
       <TrashIcon
         onClick={openConfirm}
-        className="absolute size-8 bottom-4 right-4 cursor-pointer text-primary  hover:scale-110 transition-transform duration-300 ease-in-out will-change-transform active:scale-95"
+        className="absolute size-8 bottom-2 sm:bottom-4 right-2 sm:right-4 cursor-pointer text-primary  hover:scale-110 transition-transform duration-300 ease-in-out will-change-transform active:scale-95"
       >
         Cancel Reservation
       </TrashIcon>

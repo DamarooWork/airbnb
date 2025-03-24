@@ -4,6 +4,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 import Header from './ui/header'
 
 import { Montserrat } from 'next/font/google'
+import Footer from './ui/footer'
 const MontserratFont = Montserrat({
   subsets: ['latin'],
   display: 'swap',
@@ -27,9 +28,11 @@ export default function RootLayout({
           <title>Airbnb by Damaroo</title>
           <link rel="icon/png" href="icon.png" />
         </head>
-        <body className={`${MontserratFont.className} min-h-screen`}>
+        <body
+          className={`${MontserratFont.className} min-h-screen flex flex-col`}
+        >
           <Header />
-          <main className="mx-auto p-4  sm:px-10">
+          <main className=" p-4  sm:px-10 flex-grow">
             {children}
             <ToastContainer
               position="bottom-right"
@@ -38,6 +41,7 @@ export default function RootLayout({
               transition={Bounce}
             />
           </main>
+          <Footer />
         </body>
       </html>
     </ClerkProvider>
