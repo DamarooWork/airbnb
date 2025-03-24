@@ -1,7 +1,6 @@
 'use client'
 import '@uploadthing/react/styles.css'
 import { UploadDropzone } from '@/lib/utils/uploadthing'
-import { toast } from 'react-toastify'
 interface ImageUploaderProps {
   updateListingImageUrl: (fileUrl: string) => Promise<void>
 }

@@ -13,7 +13,7 @@ export default function Input({
   required = false,
 }: InputProps) {
   return (
-    <div className="flex flex-col gap-1 ">
+    <div className="flex flex-col gap-1">
       <label className="font-semibold text-primary" htmlFor={name}>
         {name.split('')[0].toUpperCase()}
         {name.slice(1, name.length)}

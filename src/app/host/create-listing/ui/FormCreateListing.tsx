@@ -10,18 +10,17 @@ import actionDeleteUploadThingFile from '@/lib/actions/deleteUploadThingFile'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 
 export default function FormCreateListing() {
-  const [disabled, setDisabled] = useState(false)
+  const [disabled, setDisabled] = useState(true)
   const [imageUrl, setImageUrl] = useState<string>('')
   const handleSubmitForm = async (formData: FormData) => {
+    setDisabled(true)
     try {
-      setDisabled(true)
       await actionFormCreateListing(formData, imageUrl)
       toast.success('The listing was created!')
     } catch (e) {
       console.log(e)
-    } finally {
-      setDisabled(false)
     }
+    setDisabled(false)
   }
   const handleImageUrl = async (fileUrl: string) => {
     setDisabled(true)
@@ -29,7 +28,7 @@ export default function FormCreateListing() {
       await actionDeleteUploadThingFile(imageUrl)
     }
     setImageUrl(fileUrl)
-    setDisabled(false)
+    if (fileUrl) setDisabled(false)
   }
   return (
     <>
@@ -62,7 +61,7 @@ export default function FormCreateListing() {
               sizes="144px"
             />
             <XMarkIcon
-              onClick={() => setImageUrl('')}
+              onClick={() => handleImageUrl('')}
               className="absolute top-1 right-1 size-8 text-primary cursor-pointer hover:bg-red-100/70 rounded-lg"
             />
           </div>
