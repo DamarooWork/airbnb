@@ -32,7 +32,7 @@ export default function Card({ listing, maxBookings }: CardProps) {
           alt={listing.title}
           fill
           priority
-          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, (max-width: 1536) 25vw, 20vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, (max-width: 1536px) 25vw, 20vw"
         />
         <header className="p-1 text-white  w-fit rounded">
           <h2 className="font-bold drop-shadow-[0_1px_5px_rgba(0,0,0,0.9)]">

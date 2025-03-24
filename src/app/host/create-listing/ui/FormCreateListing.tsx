@@ -4,6 +4,10 @@ import BtnSubmit from './BtnSubmit'
 import actionFormCreateListing from '@/lib/actions/formCreateListing'
 import { useState } from 'react'
 import ImageUnput from './ImageUnput'
+import { toast } from 'react-toastify'
+import Image from 'next/image'
+import actionDeleteUploadThingFile from '@/lib/actions/deleteUploadThingFile'
+import { XMarkIcon } from '@heroicons/react/24/outline'
 
 export default function FormCreateListing() {
   const [disabled, setDisabled] = useState(false)
@@ -12,14 +16,20 @@ export default function FormCreateListing() {
     try {
       setDisabled(true)
       await actionFormCreateListing(formData, imageUrl)
+      toast.success('The listing was created!')
     } catch (e) {
       console.log(e)
     } finally {
       setDisabled(false)
     }
   }
-  const handleImageUrl = (fileUrl: string) => {
+  const handleImageUrl = async (fileUrl: string) => {
+    setDisabled(true)
+    if (imageUrl) {
+      await actionDeleteUploadThingFile(imageUrl)
+    }
     setImageUrl(fileUrl)
+    setDisabled(false)
   }
   return (
     <>
@@ -41,11 +51,23 @@ export default function FormCreateListing() {
           type="number"
           required
         />
-        {/* <Input
-          placeholder="Paste link to the image (only from unsplash.com)"
-          name="image"
-        /> */}
         <ImageUnput handleImageUrl={handleImageUrl} />
+        {imageUrl && (
+          <div className="relative size-36 -mt-2">
+            <Image
+              className="object-cover rounded "
+              src={imageUrl}
+              alt="Preview listing image"
+              fill
+              sizes="144px"
+            />
+            <XMarkIcon
+              onClick={() => setImageUrl('')}
+              className="absolute top-1 right-1 size-8 text-primary cursor-pointer hover:bg-red-100/70 rounded-lg"
+            />
+          </div>
+        )}
+
         <BtnSubmit disabled={disabled} title={'Create booking'} />
       </form>
     </>

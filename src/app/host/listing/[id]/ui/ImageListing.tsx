@@ -4,10 +4,10 @@ import { ArrowDownTrayIcon, XCircleIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import ImageUploader from '@/ui/ImageUploader'
 import { toast } from 'react-toastify'
-import { UTApi } from 'uploadthing/server'
+import { imagePlaceholder } from '@/lib/constants/imagePlaceholder'
 interface ImageListingProps {
   imgAlt: string
-  imgUrl: string
+  imgUrl: string | null
   updateListingImageUrl: (fileUrl: string) => Promise<void>
 }
 export default function ImageListing({
@@ -16,7 +16,7 @@ export default function ImageListing({
   updateListingImageUrl,
 }: ImageListingProps) {
   const [isImageUploaderOpen, setIsImageUploaderOpen] = useState(false)
-
+  const [image, setImage] = useState<string>(imgUrl ? imgUrl : imagePlaceholder)
   const handleUpdateListingImageUrl = async (fileUrl: string) => {
     await updateListingImageUrl(fileUrl)
     setIsImageUploaderOpen(false)
@@ -36,11 +36,12 @@ export default function ImageListing({
         <>
           <Image
             className="object-cover rounded-2xl"
-            src={imgUrl}
+            onError={() => setImage(imagePlaceholder)}
+            src={image}
             alt={imgAlt}
             priority
             fill
-            sizes="(max-width: 1500) 95vw, 1500px"
+            sizes="(max-width: 1500) 100vw, 1500px"
           />
           <div
             title="Upload new image"

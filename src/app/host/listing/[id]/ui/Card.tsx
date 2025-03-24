@@ -23,13 +23,12 @@ export default function Card({ listing }: CardProps) {
       <header>
         <h2 className="text-4xl font-bold">{listing?.title}</h2>
       </header>
-      {listing.image && (
+      
         <ImageListing
           updateListingImageUrl={handleUpdateListingImageUrl}
           imgUrl={listing.image}
           imgAlt={listing.title}
         />
-      )}
 
       <section className="text-2xl">
         <p>{listing.description}</p>

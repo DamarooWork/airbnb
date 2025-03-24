@@ -82,7 +82,7 @@ export default function Card({ listing }: { listing: Listing }) {
           alt={listing.title}
           fill
           priority
-          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, (max-width: 1536) 25vw, 20vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, (max-width: 1536px) 25vw, (max-width: 1920px) 20vw, 17vw"
         />
       </Link>
       <Link
