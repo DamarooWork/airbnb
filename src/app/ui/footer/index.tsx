@@ -37,12 +37,15 @@ export default function Footer() {
         </section>
         <section className=" border-t-[1px]  w-full flex justify-between items-center mt-8 pt-6">
           <h2>
-            © {date} Airbnb clone by
-            <Link href="https://github.com/DamarooWork"> Damaroo</Link>
+            © {date} Airbnb clone by{' '}
+            <Link className='font-medium hover:underline' href="https://vk.com/damaroo" target="_blank">
+              Damaroo
+            </Link>
           </h2>
           <Link
             className="cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out will-change-transform aspect-square"
-            href={'https://github.com/DamarooWork'}
+            href="https://github.com/DamarooWork"
+            target="_blank"
           >
             <Image
               className="size-10 min-h-10 min-w-10  "

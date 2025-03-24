@@ -4,13 +4,18 @@ import ImageListing from './ImageListing'
 import updateListingImageUrl from '@/lib/actions/updateListingImageUrl'
 import { revalidatePath } from 'next/cache'
 import ListingDelete from './ListingDelete'
+import { UTApi } from 'uploadthing/server'
 interface CardProps {
   listing: Listing
 }
 export default function Card({ listing }: CardProps) {
+  const previousImageKey = listing.image!.slice(28)
+
   const handleUpdateListingImageUrl = async (fileUrl: string) => {
     'use server'
     await updateListingImageUrl(fileUrl, listing.id)
+    const utapi = new UTApi()
+    await utapi.deleteFiles(previousImageKey)
     revalidatePath('/host/listing/')
   }
   return (
@@ -41,7 +46,7 @@ export default function Card({ listing }: CardProps) {
           <p>{listing.location || 'No info about location'}</p>
         </section>
       </section>
-      <ListingDelete listingId={listing.id}/>
+      <ListingDelete listingId={listing.id} />
     </section>
   )
 }

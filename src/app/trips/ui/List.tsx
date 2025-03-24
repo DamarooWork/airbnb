@@ -26,9 +26,11 @@ export default async function List({ userId }: ListProps) {
   })
   if (bookings.length === 0) {
     return (
-      <h3 className="text-3xl text-red-400 mt-4">
-        You have no upcoming trips.
-      </h3>
+      <section className="flex flex-col justify-start gap-4">
+        <h3 className="text-3xl text-red-400 mt-4">
+          You have no upcoming trips.
+        </h3>
+      </section>
     )
   }
   return (

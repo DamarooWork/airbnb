@@ -1,6 +1,7 @@
 import Card from './Card'
 import { Prisma } from '@prisma/client'
 import { prisma } from '../../../../../db/prisma'
+import CreateBookingBtn from '@/ui/CreateBookingBtn'
 
 export const listingSelect = {
   id: true,
@@ -27,6 +28,14 @@ export default async function List({ userId }: ListProps) {
     ...listings.map((listing) => listing.bookings.length)
   )
 
+  if (listings.length === 0) {
+    return (
+      <section className="flex flex-col justify-start gap-4">
+        <h3 className="text-3xl text-red-400 mt-4">You have no listings.</h3>
+        <CreateBookingBtn />
+      </section>
+    )
+  }
   return (
     <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8 mt-4">
       {listings.map(

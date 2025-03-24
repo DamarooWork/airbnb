@@ -27,14 +27,16 @@ export default function Card({ booking }: CardProps) {
           sizes="(max-width: 640px) 192px 192px, 240px 240px"
         />
       </div>
-      <section className="flex flex-col justify-between  p-4 overflow-hidden ">
+      <section className="flex flex-col justify-between  p-3 overflow-hidden ">
         <header className="text-xl">
-          <h2 className="font-semibold text-primary overflow-hidden whitespace-nowrap overflow-ellipsis">
+          <h2 className="font-semibold text-primary  line-clamp-1">
             <Link href={`/rooms/${booking.listing.id}`}>
               {booking.listing.title}
             </Link>
           </h2>
-          <p className="text-red-400 overflow-hidden whitespace-nowrap overflow-ellipsis">{booking.listing.description}</p>
+          <p className="text-red-400 line-clamp-3">
+            {booking.listing.description}
+          </p>
         </header>
         <footer className="flex flex-col sm:flex-row sm:text-center sm:items-center sm:gap-2 font-bold text-primary ">
           <span>{booking.startDate.toDateString()}</span>

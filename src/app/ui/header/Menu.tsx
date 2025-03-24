@@ -26,8 +26,17 @@ const MenuLinks: IMenuLink[] = [
 ]
 export default function Menu() {
   const pathname = usePathname()
+  const handleClick = () => {
+    const elem: HTMLElement | null = document.activeElement as HTMLElement
+    if (elem) {
+      elem?.blur()
+    }
+  }
   return (
-    <div className="dropdown dropdown-end dropdown-hover ">
+    <div
+      onClick={handleClick}
+      className="dropdown dropdown-end dropdown-hover "
+    >
       <div
         tabIndex={0}
         role="button"

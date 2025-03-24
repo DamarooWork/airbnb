@@ -55,7 +55,7 @@ export default async function RoomPage({
         </div>
       )}
       <section className="flex flex-col gap-2">
-        <section className="text-xl">
+        <section className="text-2xl">
           <p>{listing.description}</p>
           <p>
             <span className="font-semibold underline">{listing.price}$</span>

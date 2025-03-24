@@ -3,18 +3,23 @@ import Input from './Input'
 import BtnSubmit from './BtnSubmit'
 import actionFormCreateListing from '@/lib/actions/formCreateListing'
 import { useState } from 'react'
+import ImageUnput from './ImageUnput'
 
 export default function FormCreateListing() {
   const [disabled, setDisabled] = useState(false)
+  const [imageUrl, setImageUrl] = useState<string>('')
   const handleSubmitForm = async (formData: FormData) => {
     try {
       setDisabled(true)
-      await actionFormCreateListing(formData)
+      await actionFormCreateListing(formData, imageUrl)
     } catch (e) {
       console.log(e)
     } finally {
       setDisabled(false)
     }
+  }
+  const handleImageUrl = (fileUrl: string) => {
+    setImageUrl(fileUrl)
   }
   return (
     <>
@@ -27,15 +32,20 @@ export default function FormCreateListing() {
           placeholder="Tell me about your place"
           name="description"
           textarea
+          required
         />
-        <Input placeholder="Place's location" name="location" />
+        <Input placeholder="Place's location" name="location" required />
         <Input
           placeholder="How much it costs for a day?"
           name="price"
           type="number"
           required
         />
-        <Input placeholder="Paste link to the image" name="image" />
+        {/* <Input
+          placeholder="Paste link to the image (only from unsplash.com)"
+          name="image"
+        /> */}
+        <ImageUnput handleImageUrl={handleImageUrl} />
         <BtnSubmit disabled={disabled} title={'Create booking'} />
       </form>
     </>

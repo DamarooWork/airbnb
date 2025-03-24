@@ -37,7 +37,7 @@ export default function ResultsPage() {
   return (
     <section>
       <section className="flex items-center justify-start w-full h-24 ">
-        <h1 className="text-4xl font-bold">Search results:</h1>
+        <h1 className="text-4xl font-bold text-primary">Search results:</h1>
       </section>
       <ListingList
         data={location !== '' ? filteredData : data}

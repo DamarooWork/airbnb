@@ -4,6 +4,7 @@ import { ArrowDownTrayIcon, XCircleIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import ImageUploader from '@/ui/ImageUploader'
 import { toast } from 'react-toastify'
+import { UTApi } from 'uploadthing/server'
 interface ImageListingProps {
   imgAlt: string
   imgUrl: string
@@ -15,6 +16,7 @@ export default function ImageListing({
   updateListingImageUrl,
 }: ImageListingProps) {
   const [isImageUploaderOpen, setIsImageUploaderOpen] = useState(false)
+
   const handleUpdateListingImageUrl = async (fileUrl: string) => {
     await updateListingImageUrl(fileUrl)
     setIsImageUploaderOpen(false)

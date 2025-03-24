@@ -19,14 +19,11 @@ export default function ImageUploader({
             if (fileUrl) {
               await updateListingImageUrl(fileUrl)
             }
-            toast.success('Upload Completed!')
           } catch (e) {
             console.log(e)
-            alert('Upload failed')
           }
         }}
         onUploadError={(error: Error) => {
-          // Do something with the error.
           alert(`ERROR! ${error.message}`)
         }}
       />
