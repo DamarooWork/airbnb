@@ -1,21 +1,17 @@
-'use client'
 import { Prisma } from '@prisma/client'
-import { imagePlaceholder } from '@/lib/constants/imagePlaceholder'
-import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
 import { listingSelect } from './List'
 import { ArrowTrendingUpIcon } from '@heroicons/react/24/outline'
+import ImageForCard from './ImageForCard'
+import blurDataURL from '@/lib/utils/blurDataURL'
 interface CardProps {
   listing: Prisma.ListingGetPayload<{
     select: typeof listingSelect
   }>
   maxBookings: number
 }
-export default function Card({ listing, maxBookings }: CardProps) {
-  const [image, setImage] = useState<string>(
-    listing.image ? listing.image : imagePlaceholder
-  )
+export default async function Card({ listing, maxBookings }: CardProps) {
+  const { base64 } = await blurDataURL(listing.image)
   return (
     <li
       className="card shadow-gray-300 shadow-xl  text-xl transition-transform duration-300 ease-in-out group hover:scale-[1.01] will-change-transform "
@@ -25,14 +21,10 @@ export default function Card({ listing, maxBookings }: CardProps) {
         href={`/host/listing/${listing.id}`}
         className="flex flex-col relative justify-between gap-4 p-4 aspect-square"
       >
-        <Image
-          className="object-cover transition-transform duration-300 transform group-hover:scale-[1.03] will-change-transform cursor-pointer -z-30 rounded-2xl opacity-90"
-          onError={() => setImage(imagePlaceholder)}
-          src={image}
-          alt={listing.title}
-          fill
-          priority
-          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, (max-width: 1536px) 25vw, 20vw"
+        <ImageForCard
+          imgAlt={listing.title}
+          imgUrl={listing.image}
+          base64={base64}
         />
         <header className="p-1 text-white  w-fit rounded">
           <h2 className="font-bold drop-shadow-[0_1px_5px_rgba(0,0,0,0.9)]">

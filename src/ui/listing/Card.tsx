@@ -1,70 +1,12 @@
-'use client'
-import { useEffect, useState } from 'react'
-import { HeartIcon } from '@heroicons/react/24/outline'
-import {
-  HeartIcon as FilledHeartIcon,
-  StarIcon,
-} from '@heroicons/react/24/solid'
-import Image from 'next/image'
-import { useAnimate } from 'framer-motion'
-import { useReward } from 'react-rewards'
-import Loader from '@/ui/Loader'
-import { imagePlaceholder } from '@/lib/constants/imagePlaceholder'
+import { StarIcon } from '@heroicons/react/24/solid'
 import { Listing } from '@prisma/client'
 import Link from 'next/link'
+import ImageForCard from './ImageForCard'
+import HeartBtn from './HeartBtn'
+import blurDataURL from '@/lib/utils/blurDataURL'
 
-const rewardConfigs = {
-  lifetime: 100,
-  spread: 90,
-  decay: 0.8,
-  elementCount: 12,
-  elementSize: 10,
-  emoji: ['❤️', '💖', '💝'],
-}
-
-export default function Card({ listing }: { listing: Listing }) {
-  const [isFav, setIsFav] = useState(false)
-  const [image, setImage] = useState<string>(
-    listing.image ? listing.image : imagePlaceholder
-  )
-  const [scope, animate] = useAnimate()
-  const [imageStatus, setImageStatus] = useState<
-    'Loading' | 'Error' | 'Loaded'
-  >('Loaded')
-  const { reward } = useReward(`reward_${listing.id}`, 'emoji', rewardConfigs)
-  useEffect(() => {
-    let timeoutId: NodeJS.Timeout
-    if (isFav) {
-      animate(
-        'svg',
-        {
-          scale: [0, 1],
-        },
-        {
-          duration: 0.5,
-          type: 'spring',
-        }
-      )
-      timeoutId = setTimeout(() => reward(), 200)
-    } else {
-      animate(
-        'svg',
-        {
-          scale: [1, 0],
-        },
-        {
-          duration: 0.5,
-          type: 'spring',
-        }
-      )
-    }
-    return () => {
-      clearTimeout(timeoutId)
-    }
-  }, [isFav, animate, reward])
-  const handleHeartClick = () => {
-    setIsFav((prev) => !prev)
-  }
+export default async function Card({ listing }: { listing: Listing }) {
+  const { base64 } = await blurDataURL(listing.image)
   return (
     <li className="w-full overflow-hidden group relative">
       <Link
@@ -73,16 +15,10 @@ export default function Card({ listing }: { listing: Listing }) {
         className="relative block w-full aspect-square overflow-hidden rounded-3xl"
         href={`/rooms/${listing.id}`}
       >
-        {imageStatus === 'Loading' && <Loader />}
-        <Image
-          className="object-cover transition-transform duration-300 transform group-hover:scale-105 will-change-transform cursor-pointer"
-          onLoad={() => setImageStatus('Loaded')}
-          onError={() => setImage(imagePlaceholder)}
-          src={image}
-          alt={listing.title}
-          fill
-          priority
-          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, (max-width: 1536px) 25vw, (max-width: 1920px) 20vw, 17vw"
+        <ImageForCard
+          imgAlt={listing.title}
+          imgUrl={listing.image}
+          base64={base64}
         />
       </Link>
       <Link
@@ -114,23 +50,7 @@ export default function Card({ listing }: { listing: Listing }) {
           </p>
         </footer>
       </Link>
-      <button
-        title="Add to favorites"
-        onClick={handleHeartClick}
-        className="absolute bottom-0  right-0 z-30"
-      >
-        <span id={`reward_${listing.id}`}>
-          <HeartIcon className="text-primary hover:scale-110 transition-transform    w-6 h-auto" />
-        </span>
-      </button>
-      <button
-        title="Delete from favorites"
-        onClick={handleHeartClick}
-        ref={scope}
-        className={`absolute bottom-0  right-0 ${isFav ? 'z-30' : 'z-20'} `}
-      >
-        <FilledHeartIcon className="text-primary w-6 h-auto scale-0 hover:scale-110 transition-transform" />
-      </button>
+      <HeartBtn listingId={listing.id} />
     </li>
   )
 }

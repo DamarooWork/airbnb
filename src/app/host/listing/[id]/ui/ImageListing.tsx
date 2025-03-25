@@ -8,11 +8,13 @@ import { imagePlaceholder } from '@/lib/constants/imagePlaceholder'
 interface ImageListingProps {
   imgAlt: string
   imgUrl: string | null
+  base64: string
   updateListingImageUrl: (fileUrl: string) => Promise<void>
 }
 export default function ImageListing({
   imgAlt,
   imgUrl,
+  base64,
   updateListingImageUrl,
 }: ImageListingProps) {
   const [isImageUploaderOpen, setIsImageUploaderOpen] = useState(false)
@@ -23,6 +25,7 @@ export default function ImageListing({
     toast.success('Main image updated!')
     setImage(fileUrl)
   }
+
   return (
     <div className="relative w-full max-h-[300px] h-[300px] rounded-2xl group ">
       {isImageUploaderOpen ? (
@@ -42,6 +45,8 @@ export default function ImageListing({
             alt={imgAlt}
             priority
             fill
+            placeholder="blur"
+            blurDataURL={base64}
             sizes="(max-width: 1500) 100vw, 1500px"
           />
           <div

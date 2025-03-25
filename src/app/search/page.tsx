@@ -1,16 +1,11 @@
-'use client'
-import { useMemo } from 'react'
+import { prisma } from '../../../db/prisma'
 import ListingList from '../../ui/listing/List'
-import useGetListings from '@/hooks/fetch/useGetListings'
 
-export default function SearchPage() {
-  const params = useMemo(() => {
-    return {
-      orderBy: {
-        id: 'desc',
-      },
-    }
-  }, [])
-  const { data, isLoading, isError } = useGetListings({ params })
-  return <ListingList data={data} isLoading={isLoading} isError={isError} />
+export default async function SearchPage() {
+  const listings = await prisma.listing.findMany({
+    orderBy: {
+      id: 'desc',
+    },
+  })
+  return <ListingList data={listings} />
 }

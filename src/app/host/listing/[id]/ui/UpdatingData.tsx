@@ -1,7 +1,5 @@
 'use client'
-import actionUpdateListingTitle from '@/lib/actions/updateListingTitle'
 import { PaperAirplaneIcon, PencilIcon } from '@heroicons/react/24/outline'
-import { revalidatePath } from 'next/cache'
 import { useRef, useState } from 'react'
 import { toast } from 'react-toastify'
 import { useClickAway } from 'react-use'

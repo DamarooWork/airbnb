@@ -1,30 +1,22 @@
-'use client'
 import { Prisma } from '@prisma/client'
 import { bookingSelect } from './List'
-import Image from 'next/image'
-import { useState } from 'react'
-import { imagePlaceholder } from '@/lib/constants/imagePlaceholder'
 import TripCancel from './TripCancel'
 import Link from 'next/link'
+import ImageForCard from './ImageForCard'
+import blurDataURL from '@/lib/utils/blurDataURL'
 
 interface CardProps {
   booking: Prisma.BookingGetPayload<{ select: typeof bookingSelect }>
 }
-export default function Card({ booking }: CardProps) {
-  const [image, setImage] = useState<string>(
-    booking.listing.image ? booking.listing.image : imagePlaceholder
-  )
+export default async function Card({ booking }: CardProps) {
+  const { base64 } = await blurDataURL(booking.listing.image)
   return (
     <li className="card h-48 sm:h-60 shadow-md hover:shadow-xl flex-row transition-shadow duration-300 ease-in-out">
       <div className="relative w-48 min-w-48 sm:w-60 sm:min-w-60 aspect-square">
-        <Image
-          className="object-cover rounded-l-2xl"
-          onError={() => setImage(imagePlaceholder)}
-          src={image}
-          alt={booking.listing.title}
-          fill
-          priority
-          sizes="(max-width: 640px) 192px 192px, 240px 240px"
+        <ImageForCard
+          imgAlt={booking.listing.title}
+          imgUrl={booking.listing.image}
+          base64={base64}
         />
       </div>
       <section className="flex flex-col justify-between  p-3 overflow-hidden ">

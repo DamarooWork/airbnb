@@ -10,10 +10,12 @@ import actionUpdateListingTitle from '@/lib/actions/updateListingTitle'
 import actionUpdateListingDescription from '@/lib/actions/updateListingDescription'
 import actionUpdateListingPrice from '@/lib/actions/updateListingPrice'
 import actionUpdateListingLocation from '@/lib/actions/updateListingLocation'
+import blurDataURL from '@/lib/utils/blurDataURL'
 interface CardProps {
   listing: Listing
 }
-export default function Card({ listing }: CardProps) {
+export default async function Card({ listing }: CardProps) {
+  const { base64 } = await blurDataURL(listing.image)
   const previousImageKey = listing.image!.slice(28)
   const handleUpdateListingImageUrl = async (fileUrl: string) => {
     'use server'
@@ -58,6 +60,7 @@ export default function Card({ listing }: CardProps) {
         </UpdatingData>
       </header>
       <ImageListing
+        base64={base64}
         updateListingImageUrl={handleUpdateListingImageUrl}
         imgUrl={listing.image}
         imgAlt={listing.title}

@@ -28,14 +28,14 @@ export default function Menu() {
   const pathname = usePathname()
   const handleClick = () => {
     const elem: HTMLElement | null = document.activeElement as HTMLElement
-    if (elem) {
+    if (elem && matchMedia('(pointer:fine)').matches) {
       elem?.blur()
     }
   }
   return (
     <div
       onClick={handleClick}
-      className="dropdown dropdown-end dropdown-hover "
+      className="dropdown dropdown-end [@media(pointer:fine)]:dropdown-hover "
     >
       <div
         tabIndex={0}
