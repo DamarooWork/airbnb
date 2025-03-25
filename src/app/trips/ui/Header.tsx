@@ -2,8 +2,7 @@
 
 import { useWindowScroll } from '@uidotdev/usehooks'
 
-interface HeaderProps {}
-export default function Header({}: HeaderProps) {
+export default function Header() {
   const [{ y }] = useWindowScroll()
   return (
     <header
