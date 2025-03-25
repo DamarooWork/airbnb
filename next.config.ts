@@ -28,6 +28,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'developers.elementor.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'dummyimage.com',
+      },
     ],
   },
 }

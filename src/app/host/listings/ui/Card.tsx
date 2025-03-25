@@ -29,7 +29,7 @@ export default async function Card({ listing, maxBookings }: CardProps) {
           {listing.bookings.length > 0 ? (
             <section className="flex gap-2 text-white  w-fit p-1 rounded">
               {listing.bookings.length === maxBookings && (
-                <ArrowTrendingUpIcon className="w-6 h-auto text-green-600 drop-shadow-xl" />
+                <ArrowTrendingUpIcon className="size-7 " />
               )}
               <span className="drop-shadow-[0_1px_5px_rgba(0,0,0,0.9)]">
                 Booked{' '}

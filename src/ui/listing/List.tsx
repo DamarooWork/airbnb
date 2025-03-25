@@ -14,7 +14,7 @@ export default function List({ data, isLoading, isError }: ListProps) {
     console.error('Error fetching listings:', isError)
     return (
       <div className="flex justify-center items-center py-10">
-        <p className="text-4xl italic text-center">
+        <p className="text-4xl text-red-300 italic text-center">
           Oops, an error occurred: {isError.message}. Please try again later.
         </p>
       </div>
@@ -23,7 +23,7 @@ export default function List({ data, isLoading, isError }: ListProps) {
   if (!data || data.length === 0) {
     return (
       <div className="flex justify-center items-center py-10">
-        <p className="text-4xl italic text-center">
+        <p className="text-4xl text-red-300  ">
           Oops, there are no such places! Try to find another one or come back
           later!
         </p>

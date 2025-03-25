@@ -5,6 +5,7 @@ import Image from 'next/image'
 import ImageUploader from '@/ui/ImageUploader'
 import { toast } from 'react-toastify'
 import { imagePlaceholder } from '@/lib/constants/imagePlaceholder'
+import { useWindowSize } from '@uidotdev/usehooks'
 interface ImageListingProps {
   imgAlt: string
   imgUrl: string | null
@@ -18,7 +19,10 @@ export default function ImageListing({
   updateListingImageUrl,
 }: ImageListingProps) {
   const [isImageUploaderOpen, setIsImageUploaderOpen] = useState(false)
-  const [image, setImage] = useState<string>(imgUrl ? imgUrl : imagePlaceholder)
+  const { width } = useWindowSize()
+  const [image, setImage] = useState<string>(
+    imgUrl ? imgUrl : imagePlaceholder(`${width}x300`, imgAlt)
+  )
   const handleUpdateListingImageUrl = async (fileUrl: string) => {
     await updateListingImageUrl(fileUrl)
     setIsImageUploaderOpen(false)
@@ -40,7 +44,7 @@ export default function ImageListing({
         <>
           <Image
             className="object-cover rounded-2xl"
-            onError={() => setImage(imagePlaceholder)}
+            onError={() => setImage(imagePlaceholder(`${width}x300`, imgAlt))}
             src={image}
             alt={imgAlt}
             fill

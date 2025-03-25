@@ -1,5 +1,6 @@
 'use client'
 import { imagePlaceholder } from '@/lib/constants/imagePlaceholder'
+import { useWindowSize } from '@uidotdev/usehooks'
 import Image from 'next/image'
 import { useState } from 'react'
 interface ImageForCardProps {
@@ -12,11 +13,14 @@ export default function ImageForCard({
   imgUrl,
   base64,
 }: ImageForCardProps) {
-  const [image, setImage] = useState<string>(imgUrl ? imgUrl : imagePlaceholder)
+  const { width } = useWindowSize()
+  const [image, setImage] = useState<string>(
+    imgUrl ? imgUrl : imagePlaceholder(`${width}x400`, imgAlt)
+  )
   return (
     <Image
       className="object-cover rounded-2xl  "
-      onError={() => setImage(imagePlaceholder)}
+      onError={() => setImage(imagePlaceholder(`${width}x400`, imgAlt))}
       src={image}
       alt={imgAlt}
       fill
