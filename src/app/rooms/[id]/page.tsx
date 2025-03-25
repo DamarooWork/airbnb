@@ -1,7 +1,6 @@
 import { auth } from '@clerk/nextjs/server'
 import { notFound } from 'next/navigation'
 import { MapPinIcon, StarIcon } from '@heroicons/react/24/solid'
-import Image from 'next/image'
 import { prisma } from '../../../../db/prisma'
 import BookingCalendar from './ui/BookingCalendar'
 import blurDataURL from '@/lib/utils/blurDataURL'
