@@ -1,5 +1,6 @@
 'use client'
 import { imagePlaceholder } from '@/lib/constants/imagePlaceholder'
+import blurDataURL from '@/lib/utils/blurDataURL'
 import Image from 'next/image'
 import { useState } from 'react'
 interface ImageForCardProps {
@@ -11,6 +12,7 @@ export default function ImageForCard({
   imgUrl,
 }: ImageForCardProps) {
   const [image, setImage] = useState<string>(imgUrl ? imgUrl : imagePlaceholder)
+  const { base64 } = blurDataURL()
   return (
     <Image
       className="object-cover rounded-l-2xl"
@@ -18,6 +20,8 @@ export default function ImageForCard({
       src={image}
       alt={imgAlt}
       fill
+      placeholder='blur'
+      blurDataURL={base64}
       sizes="(max-width: 640px) 192px 192px, 240px 240px"
     />
   )

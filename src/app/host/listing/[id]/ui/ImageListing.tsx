@@ -6,19 +6,19 @@ import ImageUploader from '@/ui/ImageUploader'
 import { toast } from 'react-toastify'
 import { imagePlaceholder } from '@/lib/constants/imagePlaceholder'
 import { useWindowSize } from '@uidotdev/usehooks'
+import blurDataURL from '@/lib/utils/blurDataURL'
 interface ImageListingProps {
   imgAlt: string
   imgUrl: string | null
-  base64: string
   updateListingImageUrl: (fileUrl: string) => Promise<void>
 }
 export default function ImageListing({
   imgAlt,
   imgUrl,
-  base64,
   updateListingImageUrl,
 }: ImageListingProps) {
   const [isImageUploaderOpen, setIsImageUploaderOpen] = useState(false)
+  const { base64 } = blurDataURL()
   const { width } = useWindowSize()
   const [image, setImage] = useState<string>(
     imgUrl ? imgUrl : imagePlaceholder(`${width}x300`, imgAlt)

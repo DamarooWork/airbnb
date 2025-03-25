@@ -1,22 +1,22 @@
 'use client'
 import { imagePlaceholder } from '@/lib/constants/imagePlaceholder'
+import blurDataURL from '@/lib/utils/blurDataURL'
 import { useWindowSize } from '@uidotdev/usehooks'
 import Image from 'next/image'
 import { useState } from 'react'
 interface ImageForCardProps {
   imgAlt: string
   imgUrl: string | null
-  base64?: string
 }
 export default function ImageForCard({
   imgAlt,
   imgUrl,
-  base64,
 }: ImageForCardProps) {
   const { width } = useWindowSize()
   const [image, setImage] = useState<string>(
     imgUrl ? imgUrl : imagePlaceholder(`${width}x400`, imgAlt)
   )
+  const { base64 } = blurDataURL()
   return (
     <Image
       className="object-cover rounded-2xl  "

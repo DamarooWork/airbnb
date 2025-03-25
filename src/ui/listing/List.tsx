@@ -15,7 +15,7 @@ export default function List({ data, isLoading, isError }: ListProps) {
     return (
       <div className="flex justify-center items-center py-10">
         <p className="text-4xl text-red-300 italic text-center">
-          Oops, an error occurred: {isError.message}. Please try again later.
+          Oops, an error occurred. Please try again later.
         </p>
       </div>
     )

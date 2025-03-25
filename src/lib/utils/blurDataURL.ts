@@ -1,10 +1,4 @@
-export default async function blurDataURL(src: string | null) {
-  let buffer: string | undefined
-  if (src) {
-    buffer = await fetch(src).then(async (res) => {
-      return Buffer.from(await res.arrayBuffer()).toString('base64')
-    })
-  }
-  const base64 = `data:image/png;base64,${buffer}`
+export default function blurDataURL() {
+  const base64 = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQBAMAAABykSv/AAAAG1BMVEX+ysr////+0ND+8fH++Pj+5OT+19f+6+v+3d1+SsnjAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAD70lEQVR4nO3ZsW/bRhTA4QNtURp7EeN0lAUh6Gh1KDqKRpJ2tIAayWgVGTJGaLtLRVL4zy7v3juST3YhdvDJLX7fYJEK3+M93pF3YpwDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOD/oZilrU+3H9ptV369/XNYgvnjISZbDsuVbvziva9udGdUN3tvh8SfVY+GmGw5jPxKNj76t/fv62oWd8q6+vD1d389IMFaC7EhJlsWGy2k9O+av5NaGrKp7pq/XwY0pPRaiAmx2bKodWgtpvIRm1XUV/KxOhp/PpVCbIjJlsV4uolndlu5eIUP43qsXXH58miC7Q/SWBtismWxv5ZCCr+TL9Zh9/Jb2RkdvaKT6rUcY0JsthyK+k4KaZscG5TO3zboHy0uSok0ITZbDmcvnRRyngbROIzuOo2I7dWRBMsbLcSE2Gw5rK+0kMsX+s3Eh6s60739N+nIdrCP+vGjqZNCbIjJlkPZnF4K2a/0q9CiSXtrtC3qLq3ppM0LLcSGmGw5nDdDWApZt82rd+E69w6QFtV6wNjf9RI0B0shNsRky2H7ORUStsTyxo1fpZ2z9vmrM4PbXvTiw4FSiA0x2TKI40EK6U7YNKJrftc+7RLbIWEISSE2xGTL4DJcXSmkGwLNqdsB1StEu8R0SBGqkkJsiMmWQbxwh4U047trVTf0pUtsh8RuOCwkhJhsT09aObSQ2CWmQ6SVz6CQTVwQDS6k6RLbIWVcXp2+kGZ5Ej4GF9J0ie2QRdw7fSFnciPrU6s9dXhqPXazh8pNh7hlvJH1qWVCTLYnp9PvwMdv/CezctLJ/OSP37R6GDghuvDIqvsDRZcvJ58Q06getkQJtheLfpfojXDyJcq+ehPVzefno4tGF+eQotclEy/xb5rPn065aNz7zpVM8rF9lc7YctCqCwiPrF6XTHrx04MQk+2pFXOxv57P+z+FwmDvfiV192qcQ/pdovHfVfP57CDEZstk6E9dmUMWD37yPY+fui4VcvTlg07qRX04w5XP4uWDS4W4tbzAKWMTRvpuZ9Nd0DSpP+gSLcSGmGyZaCHn0pCP0k55RVh2l79dZT3oEi3EhthseWghRf2zC2+C5VIuqp0Lr3Vn6ajyXdpa7Gx8KsSE2Gx5aCFu4V/d/uansR1hWfXH+6X/fkB8KsSGmGx5pELclzAh7HRnEv6P4Mch8amQgxCTLbPX93/N2p3i0/2v/zLehphsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD89/0NPHe3p6X0QroAAAAASUVORK5CYII=`
   return { base64 }
 }

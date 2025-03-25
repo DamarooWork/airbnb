@@ -40,7 +40,7 @@ export default async function List({ userId }: ListProps) {
     )
   }
   return (
-    <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8 mt-4">
+    <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
       {listings.map(
         (
           listing: Prisma.ListingGetPayload<{ select: typeof listingSelect }>

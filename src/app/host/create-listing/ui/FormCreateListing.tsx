@@ -8,10 +8,12 @@ import { toast } from 'react-toastify'
 import Image from 'next/image'
 import actionDeleteUploadThingFile from '@/lib/actions/deleteUploadThingFile'
 import { XMarkIcon } from '@heroicons/react/24/outline'
+import blurDataURL from '@/lib/utils/blurDataURL'
 
 export default function FormCreateListing() {
   const [disabled, setDisabled] = useState(true)
   const [imageUrl, setImageUrl] = useState<string>('')
+  const { base64 } = blurDataURL()
   const handleSubmitForm = async (formData: FormData) => {
     setDisabled(true)
     try {
@@ -59,6 +61,8 @@ export default function FormCreateListing() {
               alt="Preview listing image"
               fill
               sizes="144px"
+              placeholder="blur"
+              blurDataURL={base64}
             />
             <XMarkIcon
               onClick={() => handleImageUrl('')}

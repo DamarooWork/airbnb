@@ -8,6 +8,7 @@ import { useSearchParams } from 'next/navigation'
 export default function ResultsPage() {
   const params = useSearchParams()
 
+  useSearchStore.setState({ location: params.get('location') as string })
   const fetchParams = useMemo(() => {
     if (params.get('location'))
       return {
@@ -26,6 +27,11 @@ export default function ResultsPage() {
                 search: params.get('location'),
               },
             },
+            {
+              location: {
+                search: params.get('location'),
+              },
+            },
           ],
         },
       }
@@ -38,22 +44,6 @@ export default function ResultsPage() {
   const { data, isLoading, isError } = useGetListings({
     params: fetchParams,
   })
-  const location = useSearchStore((state) => state.location)
-  // const [filteredData, setFilteredData] = useState<Listing[]>([])
-
-  // const filterData = useCallback(() => {
-  //   setFilteredData(
-  //     data.filter((list) =>
-  //       list.title.toLowerCase().includes(location.toLowerCase())
-  //     )
-  //   )
-  // }, [data, location])
-  // const [isReady] = useDebounce(filterData, 800, [location, data])
-  // useEffect(() => {
-  //   if (isReady()) {
-  //     filterData()
-  //   }
-  // }, [isReady, filterData])
 
   return (
     <section>
