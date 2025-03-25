@@ -20,7 +20,6 @@ export default function ImageForCard({
       src={image}
       alt={imgAlt}
       fill
-      priority
       placeholder="blur"
       blurDataURL={base64}
       sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, (max-width: 1536px) 25vw, 20vw"

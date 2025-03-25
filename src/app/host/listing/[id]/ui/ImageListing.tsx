@@ -43,7 +43,6 @@ export default function ImageListing({
             onError={() => setImage(imagePlaceholder)}
             src={image}
             alt={imgAlt}
-            priority
             fill
             placeholder="blur"
             blurDataURL={base64}
