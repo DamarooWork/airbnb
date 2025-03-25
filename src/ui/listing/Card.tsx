@@ -4,7 +4,7 @@ import Link from 'next/link'
 import ImageForCard from './ImageForCard'
 import HeartBtn from './HeartBtn'
 
-export default async function Card({ listing }: { listing: Listing }) {
+export default function Card({ listing }: { listing: Listing }) {
   return (
     <li className="w-full overflow-hidden group relative">
       <Link
@@ -13,10 +13,7 @@ export default async function Card({ listing }: { listing: Listing }) {
         className="relative block w-full aspect-square overflow-hidden rounded-3xl"
         href={`/rooms/${listing.id}`}
       >
-        <ImageForCard
-          imgAlt={listing.title}
-          imgUrl={listing.image}
-        />
+        <ImageForCard imgAlt={listing.title} imgUrl={listing.image} />
       </Link>
       <Link
         title={listing.title}

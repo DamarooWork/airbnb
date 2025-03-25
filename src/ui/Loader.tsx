@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react'
-import { ClipLoader } from 'react-spinners'
+import { CircleLoader } from 'react-spinners'
 const override: CSSProperties = {
   display: 'block',
   margin: '20px auto',
@@ -10,7 +10,7 @@ interface LoaderProps {
 export default function Loader({ size = 50 }: LoaderProps) {
   return (
     <section className="flex justify-center items-center ">
-      <ClipLoader
+      <CircleLoader
         loading
         color="#ff385c"
         cssOverride={override}

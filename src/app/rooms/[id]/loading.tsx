@@ -1,4 +1,4 @@
 import Loader from '@/ui/Loader'
 export default function Loading() {
-  return <Loader size={100} />
+  return <Loader size={200} />
 }

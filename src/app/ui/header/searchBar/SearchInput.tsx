@@ -7,7 +7,7 @@ export default function SearchInput() {
       <section className="flex flex-col justify-center  border-r px-4 text-left">
         <p className="font-bold">Where</p>
         <input
-          className="text-slate-800 bg-transparent border-none outline-none"
+          className="text-slate-600 font-semibold bg-transparent border-none outline-none"
           type="text"
           placeholder="Search destinations"
           value={locationInput}

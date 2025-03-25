@@ -8,11 +8,11 @@ export interface SearchAction {
   increaseGuests: () => void
   decreaseGuests: () => void
   updateDates: (startDate: Date, endDate: Date) => void
-  removeAllFilters: ()=>void
+  removeAllFilters: () => void
 }
 const initialState: SearchState = {
   location: '',
-  dates: [new Date(1), new Date(1)],
+  dates: [new Date(2025, 2, 25), new Date(2026, 3, 25)],
   guests: 0,
 }
 

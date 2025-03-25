@@ -19,10 +19,7 @@ export default async function Card({ listing, maxBookings }: CardProps) {
         href={`/host/listing/${listing.id}`}
         className="flex flex-col relative justify-between gap-4 p-4 aspect-square"
       >
-        <ImageForCard
-          imgAlt={listing.title}
-          imgUrl={listing.image}
-        />
+        <ImageForCard imgAlt={listing.title} imgUrl={listing.image} />
         <header className="p-1 text-white  w-fit rounded">
           <h2 className="font-bold drop-shadow-[0_1px_5px_rgba(0,0,0,0.9)]">
             {listing.title}
@@ -32,12 +29,12 @@ export default async function Card({ listing, maxBookings }: CardProps) {
           {listing.bookings.length > 0 ? (
             <section className="flex gap-2 text-white  w-fit p-1 rounded">
               {listing.bookings.length === maxBookings && (
-                <ArrowTrendingUpIcon className="w-6 h-auto text-green-600 drop-shadow-[0_2px_5px_rgba(255,255,255,0.9)]" />
+                <ArrowTrendingUpIcon className="w-6 h-auto text-green-600 drop-shadow-xl" />
               )}
               <span className="drop-shadow-[0_1px_5px_rgba(0,0,0,0.9)]">
                 Booked{' '}
                 <span className="font-bold">{listing.bookings.length}</span>x
-                times
+                {listing.bookings.length === 1 ? ' time' : ' times'}
               </span>
             </section>
           ) : (

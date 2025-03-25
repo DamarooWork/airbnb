@@ -33,7 +33,11 @@ export default function ListingDelete({ listingId }: ListingDeleteProps) {
   }
   return (
     <>
-      <button onClick={openConfirm} className="absolute top-0 right-0">
+      <button
+        title="Delete your listing"
+        onClick={openConfirm}
+        className="absolute top-0 right-0"
+      >
         <TrashIcon className="size-10 text-primary hover:scale-110 transition-transform duration-300 ease-in-out will-change-transform active:scale-95" />
       </button>
       <DeleteConfirmationPopUp

@@ -11,7 +11,9 @@ import Counter from '../searchBar/Counter'
 export default function MobileNav() {
   const [currentTab, setCurrentTab] = useState(0)
   const location = useSearchStore((state) => state.location)
-  const count = useSearchStore((state) => state.guests)
+  const guests = useSearchStore((state) => state.guests)
+  const startDate = useSearchStore((state) => state.dates[0])
+  const endDate = useSearchStore((state) => state.dates[1])
   const removeAllFilters = useSearchStore((state) => state.removeAllFilters)
   const router = useRouter()
   const MobileMenu: { label: string; content: ReactNode }[] = [
@@ -20,7 +22,7 @@ export default function MobileNav() {
     { label: 'Who?', content: <Counter label={'Adults'} /> },
   ]
   const handleSearchClick = () => {
-    router.push('/search/results')
+    router.push( `/search/results?location=${location}&guests=${guests}&startdate=${startDate.toLocaleDateString()}&enddate=${endDate.toLocaleDateString()}`)
   }
   const dates = useGetPlaceholderDates()
   return (
@@ -37,10 +39,10 @@ export default function MobileNav() {
           <section className="flex gap-2 text-gray-500 font-normal">
             <span className="border-r-2 pr-2">{dates}</span>
             <span>
-              {count && count !== 0
-                ? count === 1
-                  ? `${count} guest`
-                  : `${count} guests`
+              {guests && guests !== 0
+                ? guests === 1
+                  ? `${guests} guest`
+                  : `${guests} guests`
                 : 'Add Guests'}
             </span>
           </section>
