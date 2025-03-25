@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { listingSelect } from './List'
 import { ArrowTrendingUpIcon } from '@heroicons/react/24/outline'
 import ImageForCard from './ImageForCard'
-import blurDataURL from '@/lib/utils/blurDataURL'
 interface CardProps {
   listing: Prisma.ListingGetPayload<{
     select: typeof listingSelect
@@ -11,7 +10,6 @@ interface CardProps {
   maxBookings: number
 }
 export default async function Card({ listing, maxBookings }: CardProps) {
-  const { base64 } = await blurDataURL(listing.image)
   return (
     <li
       className="card shadow-gray-300 shadow-xl  text-xl transition-transform duration-300 ease-in-out group hover:scale-[1.01] will-change-transform "
@@ -24,7 +22,6 @@ export default async function Card({ listing, maxBookings }: CardProps) {
         <ImageForCard
           imgAlt={listing.title}
           imgUrl={listing.image}
-          base64={base64}
         />
         <header className="p-1 text-white  w-fit rounded">
           <h2 className="font-bold drop-shadow-[0_1px_5px_rgba(0,0,0,0.9)]">

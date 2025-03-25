@@ -3,10 +3,8 @@ import { Listing } from '@prisma/client'
 import Link from 'next/link'
 import ImageForCard from './ImageForCard'
 import HeartBtn from './HeartBtn'
-import blurDataURL from '@/lib/utils/blurDataURL'
 
 export default async function Card({ listing }: { listing: Listing }) {
-  const { base64 } = await blurDataURL(listing.image)
   return (
     <li className="w-full overflow-hidden group relative">
       <Link
@@ -18,7 +16,6 @@ export default async function Card({ listing }: { listing: Listing }) {
         <ImageForCard
           imgAlt={listing.title}
           imgUrl={listing.image}
-          base64={base64}
         />
       </Link>
       <Link

@@ -4,6 +4,8 @@ import { MapPinIcon, StarIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import { prisma } from '../../../../db/prisma'
 import BookingCalendar from './ui/BookingCalendar'
+import blurDataURL from '@/lib/utils/blurDataURL'
+import ImageForCard from './ui/ImageForCard'
 
 export async function generateMetadata({
   params,
@@ -37,6 +39,7 @@ export default async function RoomPage({
   if (!listing) {
     notFound()
   }
+  const { base64 } = await blurDataURL(listing.image)
   return (
     <section className="max-w-[1500px] mx-auto flex flex-col gap-4">
       <header>
@@ -44,13 +47,10 @@ export default async function RoomPage({
       </header>
       {listing.image && (
         <div className="relative w-full max-h-[400px] h-[400px] rounded-2xl ">
-          <Image
-            className="object-cover rounded-2xl  "
-            src={listing.image}
-            alt={listing.title}
-            priority
-            fill
-            sizes="100vw"
+          <ImageForCard
+            imgAlt={listing.title}
+            imgUrl={listing.image}
+            base64={base64}
           />
         </div>
       )}

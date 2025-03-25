@@ -46,7 +46,7 @@ export default function ImageListing({
             fill
             placeholder="blur"
             blurDataURL={base64}
-            sizes="(max-width: 1500) 100vw, 1500px"
+            sizes="(max-width: 1500px) 100vw 300px, 1500px 300px"
           />
           <div
             title="Upload new image"
