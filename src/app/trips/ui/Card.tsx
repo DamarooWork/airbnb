@@ -28,9 +28,9 @@ export default async function Card({ booking }: CardProps) {
           </p>
         </header>
         <footer className="flex flex-col sm:flex-row sm:text-center sm:items-center sm:gap-2 font-bold text-primary ">
-          <span>{booking.startDate.toDateString()}</span>
-          <span className="max-sm:hidden">-</span>
-          <span>{booking.endDate.toDateString()}</span>
+          <span>{booking.startDate.toLocaleDateString()}</span>
+          <span className="hidden sm:inline">-</span>
+          <span>{booking.endDate.toLocaleDateString()}</span>
         </footer>
       </section>
       <TripCancel bookingId={booking.id} />
