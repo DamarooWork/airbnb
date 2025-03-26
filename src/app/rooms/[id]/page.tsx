@@ -41,7 +41,7 @@ export default async function RoomPage({
   return (
     <section className="max-w-[1500px]  mx-auto flex flex-col gap-4">
       <header>
-        <h1 className="text-4xl font-bold">{listing?.title}</h1>
+        <h1 className="text-4xl font-bold text-primary">{listing?.title}</h1>
       </header>
       {listing.image && (
         <div className="relative w-full max-h-[400px] h-[400px] rounded-2xl ">

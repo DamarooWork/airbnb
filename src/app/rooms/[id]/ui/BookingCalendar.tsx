@@ -76,9 +76,10 @@ export default function BookingCalendar({ listing, userId }: CalendarProps) {
         dayContentRenderer={(day) =>
           customDayContent(day, isDayBooked, listing)
         }
+        className="border-primary border rounded p-1 self-start"
       />
       {isBookingDisabled && (
-        <p className="text-red-500 my-2">
+        <p className="text-red-500 my-2 font-semibold">
           The date selection is required before proceeding
         </p>
       )}
@@ -87,7 +88,7 @@ export default function BookingCalendar({ listing, userId }: CalendarProps) {
       ) : (
         <button
           disabled={isBookingDisabled}
-          className="btn btn-primary text-black disabled:text-gray-400 self-start"
+          className="bg-red-100 hover:bg-red-200 active:bg-red-300 transition-colors duration-300 ease-in-out text-primary outline-none border-[1px] border-red-300 rounded-lg  disabled:opacity-50 disabled:bg-red-100 font-bold py-2 px-4 self-start"
           onClick={handleSubmitBooking}
         >
           Submit Booking
