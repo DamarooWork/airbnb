@@ -22,7 +22,9 @@ export default function MobileNav() {
     { label: 'Who?', content: <Counter label={'Adults'} /> },
   ]
   const handleSearchClick = () => {
-    router.push( `/search/results?location=${location}&guests=${guests}&startdate=${startDate.toLocaleDateString()}&enddate=${endDate.toLocaleDateString()}`)
+    router.push(
+      `/search/results?location=${location}&guests=${guests}&startdate=${startDate.toLocaleDateString()}&enddate=${endDate.toLocaleDateString()}`
+    )
   }
   const dates = useGetPlaceholderDates()
   return (
@@ -31,14 +33,20 @@ export default function MobileNav() {
         htmlFor="my_modal_7"
         className="cursor-pointer active:scale-95 duration-100  transition-transform will-change-transform w-full flex justify-start  text-left rounded-3xl px-4 py-2 border-gray-100 items-center gap-4 drop-shadow-md bg-background hover:bg-slate-100 "
       >
-        <MagnifyingGlassIcon className="min-w-5 min-h-5 w-5 h-5 text-gray-400" />
+        <MagnifyingGlassIcon className="min-w-5 min-h-5 size-8 text-primary" />
         <section>
-          <h2 className="text-base text-foreground">
+          <h3
+            className={`text-base text-foreground ${location && 'font-bold'}`}
+          >
             {location ? location : 'Anywhere'}
-          </h2>
-          <section className="flex gap-2 text-gray-500 font-normal">
-            <span className="border-r-2 pr-2">{dates}</span>
-            <span>
+          </h3>
+          <section className="flex flex-col  text-gray-500 font-normal">
+            <span className=" line-clamp-1">{dates}</span>
+            <span
+              className={`line-clamp-1 ${
+                guests && guests !== 0 && 'font-bold'
+              }`}
+            >
               {guests && guests !== 0
                 ? guests === 1
                   ? `${guests} guest`

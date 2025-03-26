@@ -32,7 +32,7 @@ export default function RootLayout({
           className={`${MontserratFont.className} min-h-screen flex flex-col`}
         >
           <Header />
-          <main className=" p-4  sm:px-10 flex-grow">
+          <main className=" py-2 px-4 sm:py-4 sm:px-10 flex-grow">
             {children}
             <ToastContainer
               position="bottom-right"

@@ -18,7 +18,7 @@ export async function generateMetadata({
   })
   if (listing)
     return {
-      title: listing.title,
+      title: listing.title + ' - airbnb by Damaroo',
     }
 }
 export default async function RoomPage({

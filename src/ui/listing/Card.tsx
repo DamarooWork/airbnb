@@ -21,13 +21,13 @@ export default function Card({ listing }: { listing: Listing }) {
         href={`/rooms/${listing.id}`}
         className="pt-4 cursor-pointer block"
       >
-        <header className="flex items-center justify-between text-xl leading-5">
+        <header className="flex items-center justify-between text-xl leading-6">
           <h3 className="font-semibold max-w-[90%] overflow-hidden whitespace-nowrap overflow-ellipsis">
             {listing.title}
           </h3>
-          <section className="flex justify-center gap-1 items-center ">
+          <section className="flex gap-1 items-center ">
             <StarIcon className="h-5 w-5 text-primary" />
-            <span className=" text-gray-800">
+            <span className=" text-gray-800 ">
               {listing.rating ? listing.rating : 0}
             </span>
           </section>

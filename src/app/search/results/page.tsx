@@ -47,9 +47,9 @@ export default function ResultsPage() {
 
   return (
     <section>
-      <section className="flex items-center justify-start w-full h-24 ">
+      <header className="flex items-center justify-start w-full py-2 sm:py-4">
         <h1 className="text-4xl font-bold text-primary">Search results:</h1>
-      </section>
+      </header>
       <ListingList data={data} isLoading={isLoading} isError={isError} />
     </section>
   )
