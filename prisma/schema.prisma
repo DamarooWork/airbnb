@@ -5,7 +5,7 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["fullTextSearchPostgres"]
 }
 
@@ -18,22 +18,21 @@ model User {
   id    Int     @id @default(autoincrement())
   email String  @unique
   name  String?
-  // listings Listing[]
 }
 
 model Listing {
-  id             Int            @id @default(autoincrement())
-  title          String
-  description    String?
-  published      Boolean        @default(false)
-  // owner User @relation(fields: [ownerId], references: [id])
-  ownerId        String
-  image          String?
-  price          Float          @default(0)
-  rating         Float?
-  location       String?
-  availabilities Availability[]
-  bookings       Booking[]
+  id               Int               @id @default(autoincrement())
+  title            String
+  description      String?
+  published        Boolean           @default(false)
+  ownerId          String
+  image            String?
+  price            Float             @default(0)
+  rating           Float?
+  location         String?
+  availabilities   Availability[]
+  bookings         Booking[]
+  favoriteListings FavoriteListing[]
 }
 
 model Availability {
@@ -54,5 +53,13 @@ model Booking {
   endDate   DateTime
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  userId    String
+}
+
+model FavoriteListing {
+  id        Int      @id @default(autoincrement())
+  listingId Int
+  listing   Listing  @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
   userId    String
 }

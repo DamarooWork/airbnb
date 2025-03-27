@@ -1,10 +1,23 @@
 import { StarIcon } from '@heroicons/react/24/solid'
-import { Listing } from '@prisma/client'
+import { FavoriteListing, Listing } from '@prisma/client'
 import Link from 'next/link'
 import ImageForCard from './ImageForCard'
 import HeartBtn from './HeartBtn'
+import { prisma } from '../../../db/prisma'
+import { auth } from '@clerk/nextjs/server'
 
-export default function Card({ listing }: { listing: Listing }) {
+export default async function Card({ listing }: { listing: Listing }) {
+  const { userId } = await auth()
+  let isFav: FavoriteListing | null = null
+  if (userId) {
+    isFav = await prisma.favoriteListing.findFirst({
+      where: {
+        userId,
+        listingId: listing.id,
+      },
+    })
+  }
+
   return (
     <li className="w-full overflow-hidden group relative">
       <Link
@@ -44,7 +57,7 @@ export default function Card({ listing }: { listing: Listing }) {
           </p>
         </footer>
       </Link>
-      <HeartBtn listingId={listing.id} />
+      <HeartBtn isFavorite={isFav} listingId={listing.id} />
     </li>
   )
 }

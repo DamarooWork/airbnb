@@ -1,4 +1,3 @@
-'use server'
 import { Listing } from '@prisma/client'
 import { prisma } from '../../../db/prisma'
 import { FetchProps } from './useGetListings'

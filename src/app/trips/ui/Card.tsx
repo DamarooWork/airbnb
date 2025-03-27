@@ -19,12 +19,12 @@ export default async function Card({ booking }: CardProps) {
       </div>
       <section className="flex flex-col justify-between  p-3 overflow-hidden ">
         <header>
-          <h2 className="text-2xl font-semibold text-primary  line-clamp-1 group">
+          <h2 className="text-2xl font-semibold text-primary   group">
             <Link
-              className="flex flex-row gap-1 items-center w-fit"
+              className="flex gap-1 items-center w-fit "
               href={`/rooms/${booking.listing.id}`}
             >
-              {booking.listing.title}
+              <span className="line-clamp-1">{booking.listing.title}</span>
               <ArrowUpRightIcon className="size-6 min-w-6 min-h-6 group-hover:scale-110" />
             </Link>
           </h2>

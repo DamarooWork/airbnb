@@ -10,18 +10,23 @@ interface IMenuLink {
 const MenuLinks: IMenuLink[] = [
   {
     id: 1,
+    href: '/host/create-listing',
+    title: 'Airbnb your home',
+  },
+  {
+    id: 2,
     href: '/trips',
     title: 'My trips',
   },
   {
-    id: 2,
+    id: 3,
     href: '/host/listings',
     title: 'My listings',
   },
   {
-    id: 3,
-    href: '/host/create-listing',
-    title: 'Airbnb your home',
+    id: 4,
+    href: '/rooms/favorites',
+    title: 'My favorites listings',
   },
 ]
 export default function Menu() {

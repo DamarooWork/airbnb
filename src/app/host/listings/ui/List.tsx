@@ -21,6 +21,7 @@ export default async function List({ userId }: ListProps) {
     },
     include: {
       bookings: true,
+      
     },
     orderBy: {
       id: 'desc',

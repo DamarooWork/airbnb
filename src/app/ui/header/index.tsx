@@ -78,7 +78,9 @@ export default function Header() {
       >
         <section
           className={`h-[7.5rem] flex justify-between items-center w-full gap-2 max-[1540px]:px-4 max-[1540px]:sm:px-10 ${
-            pathname.includes('/search') || pathname.includes('/host/listings')
+            pathname.includes('/search') ||
+            pathname.includes('/host/listings') ||
+            pathname.includes('/rooms/favorites')
               ? 'px-4 sm:px-10'
               : 'max-w-[1500px] mx-auto'
           }     `}
