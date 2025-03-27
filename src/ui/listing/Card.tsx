@@ -5,6 +5,8 @@ import ImageForCard from './ImageForCard'
 import HeartBtn from './HeartBtn'
 import { prisma } from '../../../db/prisma'
 import { auth } from '@clerk/nextjs/server'
+import actionDeleteFavoriteListing from '@/lib/actions/deleteFavoriteListing'
+import actionCreateFavoriteListing from '@/lib/actions/createFavoriteListing'
 
 export default async function Card({ listing }: { listing: Listing }) {
   const { userId } = await auth()
@@ -17,7 +19,14 @@ export default async function Card({ listing }: { listing: Listing }) {
       },
     })
   }
-
+  const handleAddFavoriteListing = async () => {
+    'use server'
+    await actionCreateFavoriteListing(listing.id)
+  }
+  const handleDeleteFavoriteListing = async () => {
+    'use server'
+    await actionDeleteFavoriteListing(listing.id)
+  }
   return (
     <li className="w-full overflow-hidden group relative">
       <Link
@@ -57,7 +66,12 @@ export default async function Card({ listing }: { listing: Listing }) {
           </p>
         </footer>
       </Link>
-      <HeartBtn isFavorite={isFav} listingId={listing.id} />
+      <HeartBtn
+        handleAddFavoriteListing={handleAddFavoriteListing}
+        handleDeleteFavoriteListing={handleDeleteFavoriteListing}
+        isFavorite={isFav}
+        listingId={listing.id}
+      />
     </li>
   )
 }

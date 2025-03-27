@@ -26,7 +26,7 @@ const MenuLinks: IMenuLink[] = [
   {
     id: 4,
     href: '/rooms/favorites',
-    title: 'My favorites listings',
+    title: 'My favorite listings',
   },
 ]
 export default function Menu() {

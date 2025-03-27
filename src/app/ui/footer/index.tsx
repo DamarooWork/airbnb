@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default function Footer() {
   const date = new Date().getFullYear()
   return (
-    <footer className=" border-t  w-full bg-gray-50 mt-8">
+    <footer className=" border-t  w-full bg-gray-50">
       <section className="h-full max-w-[1500px] mx-auto px-4 max-[1540px]:sm:px-10 py-8">
         <section className="grid grid-cols-2 sm:grid-cols-3 gap-2">
           <section className="flex flex-col gap-4">
@@ -38,7 +38,11 @@ export default function Footer() {
         <section className=" border-t-[1px]  w-full flex justify-between items-center mt-8 pt-6">
           <h2>
             © {date} Airbnb clone by{' '}
-            <Link className='font-medium hover:underline' href="https://vk.com/damaroo" target="_blank">
+            <Link
+              className="font-medium hover:underline"
+              href="https://vk.com/damaroo"
+              target="_blank"
+            >
               Damaroo
             </Link>
           </h2>

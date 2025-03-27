@@ -7,5 +7,5 @@ export default async function SearchPage() {
       id: 'desc',
     },
   })
-  return <ListingList data={listings} />
+  return <ListingList listings={listings} />
 }

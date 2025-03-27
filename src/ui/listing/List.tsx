@@ -3,12 +3,12 @@ import Loader from '@/ui/Loader'
 import { Listing } from '@prisma/client'
 
 interface ListProps {
-  data: Listing[]
+  listings: Listing[]
   isLoading?: boolean
   isError?: Error | null
 }
 
-export default function List({ data, isLoading, isError }: ListProps) {
+export default function List({ listings, isLoading, isError }: ListProps) {
   if (isLoading) return <Loader size={200} />
   if (isError) {
     console.error('Error fetching listings:', isError)
@@ -20,7 +20,7 @@ export default function List({ data, isLoading, isError }: ListProps) {
       </div>
     )
   }
-  if (!data || data.length === 0) {
+  if (!listings || listings.length === 0) {
     return (
       <div className="flex justify-center items-center py-10">
         <p className="text-4xl text-red-300  ">
@@ -32,8 +32,8 @@ export default function List({ data, isLoading, isError }: ListProps) {
   }
 
   return (
-    <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-8 mt-4">
-      {data.map((listing: Listing) => {
+    <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-8">
+      {listings.map((listing: Listing) => {
         return <Card key={listing.id} listing={listing} />
       })}
     </ul>

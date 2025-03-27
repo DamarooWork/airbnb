@@ -1,11 +1,15 @@
 'use client'
+import { useSearchStore } from '@/store/SearchStore'
 import { useWindowScroll } from '@uidotdev/usehooks'
+import { useParams } from 'next/navigation'
+import { useEffect } from 'react'
 interface HeaderH1Props {
   title: string
   container?: boolean
 }
 export default function HeaderH1({ title, container = false }: HeaderH1Props) {
   const [{ y }] = useWindowScroll()
+  
   return (
     <header
       className={`sticky top-[7.5rem] left-0 -mt-4 -mx-4 sm:-mx-10 py-4 z-30 mb-[10px] bg-white ${

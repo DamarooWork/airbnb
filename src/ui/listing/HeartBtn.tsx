@@ -4,15 +4,14 @@ import { HeartIcon } from '@heroicons/react/24/outline'
 import { useAnimate } from 'framer-motion'
 import { useState, useEffect, useTransition } from 'react'
 import { useReward } from 'react-rewards'
-import actionCreateFavoriteListing from '@/lib/actions/createFavoriteListing'
-import actionDeleteFavoriteListing from '@/lib/actions/deleteFavoriteListing'
 import { FavoriteListing } from '@prisma/client'
 import { usePathname } from 'next/navigation'
-import { revalidatePath } from 'next/cache'
 
 interface HeartBtnProps {
   listingId: number
   isFavorite: FavoriteListing | null
+  handleDeleteFavoriteListing: () => Promise<void>
+  handleAddFavoriteListing: () => Promise<void>
 }
 const rewardConfigs = {
   lifetime: 100,
@@ -22,7 +21,12 @@ const rewardConfigs = {
   elementSize: 10,
   emoji: ['❤️', '💖', '💝'],
 }
-export default function HeartBtn({ listingId, isFavorite }: HeartBtnProps) {
+export default function HeartBtn({
+  listingId,
+  isFavorite,
+  handleDeleteFavoriteListing,
+  handleAddFavoriteListing,
+}: HeartBtnProps) {
   const [isFav, setIsFav] = useState<FavoriteListing | null | boolean>(
     isFavorite
   )
@@ -43,7 +47,7 @@ export default function HeartBtn({ listingId, isFavorite }: HeartBtnProps) {
           type: 'spring',
         }
       )
-      timeoutId = setTimeout(() => reward(), 200)
+      if (isFav === true) timeoutId = setTimeout(() => reward(), 200)
     } else {
       animate(
         'svg',
@@ -61,10 +65,10 @@ export default function HeartBtn({ listingId, isFavorite }: HeartBtnProps) {
     }
   }, [isFav, animate, reward])
 
-  const handleAddFavoriteListing = async () => {
+  const handleClickAddFavoriteListing = async () => {
     if (isFav) return
     startTransition(async () => {
-      await actionCreateFavoriteListing(listingId)
+      await handleAddFavoriteListing()
         .then(() => {
           setIsFav(true)
         })
@@ -73,10 +77,10 @@ export default function HeartBtn({ listingId, isFavorite }: HeartBtnProps) {
         })
     })
   }
-  const handleDeleteFavoriteListing = () => {
+  const handleClickDeleteFavoriteListing = () => {
     if (!isFav) return
     startTransition(async () => {
-      await actionDeleteFavoriteListing(listingId)
+      await handleDeleteFavoriteListing()
         .then(() => {
           setIsFav(false)
         })
@@ -90,7 +94,7 @@ export default function HeartBtn({ listingId, isFavorite }: HeartBtnProps) {
       <button
         title="Add to favorites"
         disabled={isPending}
-        onClick={handleAddFavoriteListing}
+        onClick={handleClickAddFavoriteListing}
         className="absolute bottom-0  right-0 z-30"
       >
         <span id={`reward_${listingId}`}>
@@ -104,7 +108,7 @@ export default function HeartBtn({ listingId, isFavorite }: HeartBtnProps) {
       <button
         title="Delete from favorites"
         disabled={isPending}
-        onClick={handleDeleteFavoriteListing}
+        onClick={handleClickDeleteFavoriteListing}
         ref={scope}
         className={`absolute bottom-0  right-0 ${isFav ? 'z-30' : 'z-20'} `}
       >

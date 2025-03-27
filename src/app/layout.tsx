@@ -32,16 +32,16 @@ export default function RootLayout({
           className={`${MontserratFont.className} min-h-screen flex flex-col`}
         >
           <Header />
-          <main className=" py-2 px-4 sm:py-4 sm:px-10 flex-grow">
+          <main className="flex flex-col py-2 px-4 sm:py-4 sm:px-10 flex-grow">
             {children}
-            <ToastContainer
-              position="bottom-right"
-              autoClose={5000}
-              draggable
-              transition={Bounce}
-            />
           </main>
           <Footer />
+          <ToastContainer
+            position="bottom-right"
+            autoClose={5000}
+            draggable
+            transition={Bounce}
+          />
         </body>
       </html>
     </ClerkProvider>

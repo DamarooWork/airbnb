@@ -8,9 +8,9 @@ const isPublicRoute = createRouteMatcher([
   '/',
   '/api/uploadthing',
 ])
-
+const isProtectedRoute = createRouteMatcher(['/rooms/favorites'])
 export default clerkMiddleware(async (auth, request) => {
-  if (!isPublicRoute(request)) {
+  if (!isPublicRoute(request) || isProtectedRoute(request)) {
     await auth.protect()
   }
 })

@@ -1,56 +1,57 @@
-'use client'
 import ListingList from '../../../ui/listing/List'
-import useGetListings from '@/hooks/fetch/useGetListings'
-import { useMemo } from 'react'
-import { useSearchStore } from '@/store/SearchStore'
-import { useSearchParams } from 'next/navigation'
+import { Suspense } from 'react'
+import HeaderH1 from '@/ui/header/HeaderH1'
+import Loader from '@/ui/Loader'
+import { prisma } from '../../../../db/prisma'
+import { Listing } from '@prisma/client'
+import HandleSearchParams from './ui/HandleSearchParams'
 
-export default function ResultsPage() {
-  const params = useSearchParams()
-
-  useSearchStore.setState({ location: params.get('location') as string })
-  const fetchParams = useMemo(() => {
-    if (params.get('location'))
-      return {
+interface ResultsPageProps {
+  searchParams: Promise<{ [key: string]: string | undefined }>
+}
+export default async function ResultsPage({ searchParams }: ResultsPageProps) {
+  const { location } = await searchParams
+  const loc = location?.toLowerCase()
+  let listings: Listing[] = []
+  let isError: Error | null = null
+  try {
+    if (location) {
+      listings = await prisma.listing.findMany({
         orderBy: {
           id: 'desc',
         },
         where: {
           OR: [
-            {
-              title: {
-                search: params.get('location'),
-              },
-            },
-            {
-              description: {
-                search: params.get('location'),
-              },
-            },
-            {
-              location: {
-                search: params.get('location'),
-              },
-            },
+            { title: { search: loc } },
+            { description: { search: loc } },
+            { location: { search: loc } },
+            { title: { contains: loc } },
+            { description: { contains: loc } },
+            { location: { contains: loc } },
           ],
         },
-      }
-    return {
-      orderBy: {
-        id: 'desc',
-      },
+      })
+    } else {
+      listings = await prisma.listing.findMany({
+        orderBy: {
+          id: 'desc',
+        },
+      })
     }
-  }, [params])
-  const { data, isLoading, isError } = useGetListings({
-    params: fetchParams,
-  })
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      isError = error
+      console.error('Error fetching listings:', error)
+    }
+  }
 
   return (
-    <section>
-      <header className="flex items-center justify-start w-full py-2 sm:py-4">
-        <h1 className="text-4xl font-bold text-primary">Search results:</h1>
-      </header>
-      <ListingList data={data} isLoading={isLoading} isError={isError} />
-    </section>
+    <>
+      <HeaderH1 title="Search results:" />
+      <HandleSearchParams />
+      <Suspense fallback={<Loader size={200} />}>
+        <ListingList listings={listings} isError={isError} />
+      </Suspense>
+    </>
   )
 }

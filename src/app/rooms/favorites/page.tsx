@@ -23,7 +23,7 @@ export default async function FavoritesPage() {
   return (
     <section className="flex flex-col relative ">
       <HeaderH1 title={'My favorite listings'} />
-      {listings.length === 0 ? <Empty/> :  <List data={listings} />}
+      {listings.length === 0 ? <Empty/> :  <List listings={listings} />}
      
     </section>
   )

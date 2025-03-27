@@ -10,7 +10,7 @@ export default async function ListingsPage() {
   return (
     <section className="flex flex-col relative">
       <HeaderH1 title={'My listings'} />
-      <Suspense key={userId} fallback={<Loader size={100} />}>
+      <Suspense key={userId} fallback={<Loader size={200} />}>
         <List userId={userId} />
       </Suspense>
     </section>

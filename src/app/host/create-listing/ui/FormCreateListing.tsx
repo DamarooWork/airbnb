@@ -35,7 +35,7 @@ export default function FormCreateListing() {
   return (
     <>
       <form
-        className="flex flex-col w-full gap-4 mt-8 border-2 border-red-300 rounded-2xl p-4"
+        className="flex flex-col w-full gap-4 border-2 border-red-300 rounded-2xl p-4 max-w-[1500px] mx-auto"
         action={handleSubmitForm}
       >
         <Input placeholder="Place's title" name="title" required />
