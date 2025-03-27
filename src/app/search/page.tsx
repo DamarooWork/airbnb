@@ -7,5 +7,9 @@ export default async function SearchPage() {
       id: 'desc',
     },
   })
-  return <ListingList listings={listings} />
+  return (
+    <section className="my-2 sm:my-6">
+      <ListingList listings={listings} />
+    </section>
+  )
 }

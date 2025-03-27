@@ -9,7 +9,7 @@ import Loader from '@/ui/Loader'
 import { Prisma } from '@prisma/client'
 import { addDays } from 'date-fns'
 import { useState, useTransition } from 'react'
-import { DateRangePicker, Range, RangeKeyDict } from 'react-date-range'
+import { DateRange, Range, RangeKeyDict } from 'react-date-range'
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import { toast } from 'react-toastify'
@@ -67,7 +67,7 @@ export default function BookingCalendar({ listing, userId }: CalendarProps) {
   return (
     <section className="flex flex-col gap-2 mt-4">
       <h3 className="text-3xl text-slate-800">Select dates for booking now!</h3>
-      <DateRangePicker
+      <DateRange
         minDate={new Date()}
         onChange={handleSelect}
         ranges={[selectionRange]}
@@ -76,7 +76,7 @@ export default function BookingCalendar({ listing, userId }: CalendarProps) {
         dayContentRenderer={(day) =>
           customDayContent(day, isDayBooked, listing)
         }
-        className="border-primary border rounded p-1 self-start"
+        className="max-w-[450px]"
       />
       {isBookingDisabled && (
         <p className="text-red-500 my-2 font-semibold">
