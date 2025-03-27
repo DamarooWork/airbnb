@@ -12,7 +12,7 @@ export default async function actionDeleteFavoriteListing(listingId: number) {
       },
     })
   } else {
-    auth.protect()
+    await auth.protect()
     return new Error('Auth error')
   }
 }
