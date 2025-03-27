@@ -3,6 +3,7 @@ import { bookingSelect } from './List'
 import TripCancel from './TripCancel'
 import Link from 'next/link'
 import ImageForCard from './ImageForCard'
+import { ArrowUpRightIcon } from '@heroicons/react/24/outline'
 
 interface CardProps {
   booking: Prisma.BookingGetPayload<{ select: typeof bookingSelect }>
@@ -17,13 +18,17 @@ export default async function Card({ booking }: CardProps) {
         />
       </div>
       <section className="flex flex-col justify-between  p-3 overflow-hidden ">
-        <header className="text-xl">
-          <h2 className="font-semibold text-primary  line-clamp-1">
-            <Link href={`/rooms/${booking.listing.id}`}>
+        <header>
+          <h2 className="text-2xl font-semibold text-primary  line-clamp-1 group">
+            <Link
+              className="flex flex-row gap-1 items-center w-fit"
+              href={`/rooms/${booking.listing.id}`}
+            >
               {booking.listing.title}
+              <ArrowUpRightIcon className="size-6 min-w-6 min-h-6 group-hover:scale-110" />
             </Link>
           </h2>
-          <p className="text-red-400 line-clamp-3">
+          <p className="text-red-400 text-xl line-clamp-3">
             {booking.listing.description}
           </p>
         </header>

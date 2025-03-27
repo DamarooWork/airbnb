@@ -34,7 +34,7 @@ export default async function List({ userId }: ListProps) {
     )
   }
   return (
-    <ul className="grid grid-cols-1  gap-4 mt-4 max-w-[1500px] mx-auto">
+    <ul className="grid grid-cols-1  gap-4 max-w-[1500px] mx-auto">
       {bookings.map(
         (
           booking: Prisma.BookingGetPayload<{ select: typeof bookingSelect }>
