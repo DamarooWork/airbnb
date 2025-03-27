@@ -12,4 +12,5 @@ export default function HandleSearchParams() {
       useSearchStore.setState({ location: location as string })
     }
   }, [location])
+  return <></>
 }
