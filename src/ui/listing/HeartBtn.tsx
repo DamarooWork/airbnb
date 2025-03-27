@@ -5,7 +5,6 @@ import { useAnimate } from 'framer-motion'
 import { useState, useEffect, useTransition } from 'react'
 import { useReward } from 'react-rewards'
 import { FavoriteListing } from '@prisma/client'
-import { usePathname } from 'next/navigation'
 
 interface HeartBtnProps {
   listingId: number
@@ -32,7 +31,6 @@ export default function HeartBtn({
   )
   const [isPending, startTransition] = useTransition()
   const [scope, animate] = useAnimate()
-  const pathname = usePathname()
   const { reward } = useReward(`reward_${listingId}`, 'emoji', rewardConfigs)
   useEffect(() => {
     let timeoutId: NodeJS.Timeout

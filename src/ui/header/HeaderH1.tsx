@@ -1,8 +1,5 @@
 'use client'
-import { useSearchStore } from '@/store/SearchStore'
 import { useWindowScroll } from '@uidotdev/usehooks'
-import { useParams } from 'next/navigation'
-import { useEffect } from 'react'
 interface HeaderH1Props {
   title: string
   container?: boolean

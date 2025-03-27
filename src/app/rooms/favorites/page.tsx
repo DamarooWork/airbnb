@@ -18,7 +18,7 @@ export default async function FavoritesPage() {
       listing: true,
     },
   })
-  let listings: Listing[] = []
+  const listings: Listing[] = []
   favoriteListings.map((fav) => listings.push(fav.listing))
   return (
     <section className="flex flex-col relative ">

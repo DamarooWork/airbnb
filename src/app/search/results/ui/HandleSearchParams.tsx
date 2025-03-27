@@ -4,8 +4,7 @@ import { useSearchStore } from '@/store/SearchStore'
 import { useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
 
-interface HandleSearchParamsProps {}
-export default function HandleSearchParams({}: HandleSearchParamsProps) {
+export default function HandleSearchParams() {
   const searchParams = useSearchParams()
   const location = searchParams.get('location')
   useEffect(() => {
@@ -13,5 +12,4 @@ export default function HandleSearchParams({}: HandleSearchParamsProps) {
       useSearchStore.setState({ location: location as string })
     }
   }, [location])
-  return <></>
 }
