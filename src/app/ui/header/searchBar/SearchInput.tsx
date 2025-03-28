@@ -5,9 +5,9 @@ export default function SearchInput() {
   return (
     <>
       <section className="flex flex-col justify-center  border-r px-4 text-left">
-        <p className="font-bold">Where</p>
+        <p className="font-bold w-fit">Where</p>
         <input
-          className="text-slate-600 font-semibold bg-transparent border-none outline-none"
+          className="text-slate-600 font-semibold bg-transparent border-none outline-none  w-32 lg:w-44"
           type="text"
           placeholder="Search destinations"
           value={locationInput}

@@ -17,7 +17,9 @@ export default function SearchBar({
   const handleSearchClick = () => {
     toggleExpanded()
     router.push(
-      `/search/results?location=${location}&guests=${guests}&startdate=${startDate.toLocaleDateString()}&enddate=${endDate.toLocaleDateString()}`
+      `/search/results?location=${location}&guests=${
+        guests !== 0 ? guests : ''
+      }&startdate=${startDate.toLocaleDateString()}&enddate=${endDate.toLocaleDateString()}`
     )
   }
   return (

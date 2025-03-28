@@ -4,6 +4,8 @@ import { prisma } from '../../../../db/prisma'
 import List from '@/ui/listing/List'
 import { Listing } from '@prisma/client'
 import Empty from './ui/Empty'
+import { Suspense } from 'react'
+import LoadingSkeletonListingList from '@/ui/loaders/LoadingSkeletonListingList'
 
 export default async function FavoritesPage() {
   const { userId } = await auth()
@@ -23,8 +25,9 @@ export default async function FavoritesPage() {
   return (
     <section className="flex flex-col relative ">
       <HeaderH1 title={'My favorite listings'} />
-      {listings.length === 0 ? <Empty/> :  <List listings={listings} />}
-     
+      <Suspense fallback={<LoadingSkeletonListingList />}>
+        {listings.length === 0 ? <Empty /> : <List listings={listings} />}
+      </Suspense>
     </section>
   )
 }

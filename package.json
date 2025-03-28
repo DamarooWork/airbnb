@@ -20,6 +20,7 @@
     "react": "^19.0.0",
     "react-date-range": "^2.0.1",
     "react-dom": "^19.0.0",
+    "react-loading-skeleton": "^3.5.0",
     "react-rewards": "^2.1.0",
     "react-spinners": "^0.15.0",
     "react-toastify": "^11.0.5",

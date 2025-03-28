@@ -5,7 +5,7 @@ import {
   calculateDisabledDay,
   customDayContent,
 } from '@/lib/utils/disabledDaysForCalendar'
-import Loader from '@/ui/Loader'
+import Loader from '@/ui/loaders/Loader'
 import { Prisma } from '@prisma/client'
 import { addDays } from 'date-fns'
 import { useState, useTransition } from 'react'
@@ -76,7 +76,7 @@ export default function BookingCalendar({ listing, userId }: CalendarProps) {
         dayContentRenderer={(day) =>
           customDayContent(day, isDayBooked, listing)
         }
-        className="max-w-[450px]"
+        className="lg:max-w-[325px]"
       />
       {isBookingDisabled && (
         <p className="text-red-500 my-2 font-semibold">

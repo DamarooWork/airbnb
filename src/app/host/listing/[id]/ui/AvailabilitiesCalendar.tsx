@@ -4,11 +4,12 @@ import {
   customDayContent,
   isDayBooked,
 } from '@/lib/utils/disabledDaysForCalendar'
-import Loader from '@/ui/Loader'
+import Loader from '@/ui/loaders/Loader'
 import { Prisma } from '@prisma/client'
+import { useWindowSize } from '@uidotdev/usehooks'
 import { addDays } from 'date-fns'
 import { useState } from 'react'
-import { DateRangePicker, Range } from 'react-date-range'
+import { DateRange, DateRangePicker, Range } from 'react-date-range'
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import { toast } from 'react-toastify'
@@ -52,6 +53,7 @@ const defaultDateRange = {
 export default function AvailabilitiesCalendar({ listing }: CalendarProps) {
   const [showModal, setShowModal] = useState(false)
   const [disabled, setDisabled] = useState(false)
+  const { width } = useWindowSize()
   const initialDateRange =
     listing.availabilities && listing.availabilities.length > 0
       ? {
@@ -150,12 +152,13 @@ export default function AvailabilitiesCalendar({ listing }: CalendarProps) {
         </>
       )}
       <section className="modal">
-        <div className="modal-box bg-white  flex flex-col items-center ">
+        <div className="modal-box bg-white max-w-lg  flex flex-col items-center ">
           <h3 className="text-2xl font-bold">Please, select the dates</h3>
           <p className="text-primary py-2 italic">
             Please note you can select up to 3 ranges
           </p>
-          <DateRangePicker
+
+          <DateRange
             minDate={new Date()}
             onChange={(item) => setState({ ...state, ...item })}
             ranges={[state.selection1, state.selection2, state.selection3]}
@@ -165,6 +168,7 @@ export default function AvailabilitiesCalendar({ listing }: CalendarProps) {
               customDayContent(day, isDayBooked, listing)
             }
           />
+
           <footer className="flex items-center justify-between mt-4 w-full px-2">
             {disabled ? (
               <Loader size={30} />

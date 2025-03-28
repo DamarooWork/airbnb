@@ -15,13 +15,15 @@ body {
   overflow-x: hidden;
 }
 
-.rdrCalendarWrapper .rdrMonth {
-  width: 100%;
-}
-.rdrCalendarWrapper .rdrNextPrevButton {
-  margin: 0;
-}
-.rdrCalendarWrapper .rdrMonthPicker,
-.rdrCalendarWrapper .rdrYearPicker {
-  margin: 0;
+@media (max-width: 1080px) {
+  .rdrCalendarWrapper .rdrMonth {
+    width: 100%;
+  }
+  .rdrCalendarWrapper .rdrNextPrevButton {
+    margin: 0;
+  }
+  .rdrCalendarWrapper .rdrMonthPicker,
+  .rdrCalendarWrapper .rdrYearPicker {
+    margin: 0;
+  }
 }

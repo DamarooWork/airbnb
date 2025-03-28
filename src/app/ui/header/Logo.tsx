@@ -1,14 +1,17 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useWindowSize } from '@uidotdev/usehooks'
+import { useSearchStore } from '@/store/SearchStore'
 export default function Logo() {
   const size = useWindowSize()
+  const removeAllFilters = useSearchStore((state) => state.removeAllFilters)
   return (
     <section>
       <Link
         aria-label="Airbnb homepage"
         className="flex relative w-[50px] h-[50px] lg:w-[160px] lg:h-[50px] cursor-pointer"
         href={'/search'}
+        onClick={removeAllFilters}
       >
         {size.width && size.width < 1024 ? (
           <Image

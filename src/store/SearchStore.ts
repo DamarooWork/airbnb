@@ -13,7 +13,7 @@ export interface SearchAction {
 const initialState: SearchState = {
   location: '',
   dates: [new Date(2025, 2, 25), new Date(2026, 3, 25)],
-  guests: 0,
+  guests: 0,                                                        
 }
 
 export const useSearchStore = create<SearchState & SearchAction>((set) => ({

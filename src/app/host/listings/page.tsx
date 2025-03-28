@@ -1,7 +1,7 @@
 import { auth } from '@clerk/nextjs/server'
 import List from './ui/List'
 import { Suspense } from 'react'
-import Loader from '@/ui/Loader'
+import Loader from '@/ui/loaders/Loader'
 import HeaderH1 from '@/ui/header/HeaderH1'
 
 export default async function ListingsPage() {

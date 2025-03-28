@@ -1,5 +1,5 @@
 import Card from '@/ui/listing/Card'
-import Loader from '@/ui/Loader'
+import Loader from '@/ui/loaders/Loader'
 import { Listing } from '@prisma/client'
 
 interface ListProps {
@@ -9,7 +9,6 @@ interface ListProps {
 }
 
 export default function List({ listings, isLoading, isError }: ListProps) {
-  if (isLoading) return <Loader size={200} />
   if (isError) {
     console.error('Error fetching listings:', isError)
     return (

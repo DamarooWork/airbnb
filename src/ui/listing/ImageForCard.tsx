@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import { useState } from 'react'
-import Loader from '../Loader'
+import Loader from '../loaders/Loader'
 import { imagePlaceholder } from '@/lib/constants/imagePlaceholder'
 import blurDataURL from '@/lib/utils/blurDataURL'
 interface ImageForCardProps {
@@ -24,7 +24,7 @@ export default function ImageForCard({ imgAlt, imgUrl }: ImageForCardProps) {
         onLoad={() => setImageStatus('Loaded')}
         onError={() => setImage(imagePlaceholder('500', imgAlt))}
         src={image}
-        alt={imgAlt}
+        alt={imgAlt}            
         fill
         placeholder="blur"
         blurDataURL={base64}

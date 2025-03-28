@@ -1,4 +1,4 @@
-import Loader from '@/ui/Loader'
+import Loader from '@/ui/loaders/Loader'
 import { useAuth, UserButton, SignInButton, SignUpButton } from '@clerk/nextjs'
 
 export default function AuthButton() {
