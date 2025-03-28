@@ -5,6 +5,7 @@ import Loader from '@/ui/loaders/Loader'
 import { prisma } from '../../../../db/prisma'
 import { Listing } from '@prisma/client'
 import HandleSearchParams from './ui/HandleSearchParams'
+import LoadingSkeletonListingList from '@/ui/loaders/LoadingSkeletonListingList'
 
 interface ResultsPageProps {
   searchParams: Promise<{ [key: string]: string | undefined }>
@@ -97,7 +98,7 @@ export default async function ResultsPage({ searchParams }: ResultsPageProps) {
     <>
       <HeaderH1 title="Search results" />
       <HandleSearchParams />
-      <Suspense fallback={<Loader size={200} />}>
+      <Suspense fallback={<LoadingSkeletonListingList />}>
         <ListingList
           listings={listings}
           isError={isError}
