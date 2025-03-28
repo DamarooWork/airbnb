@@ -6,10 +6,9 @@ import {
 } from '@/lib/utils/disabledDaysForCalendar'
 import Loader from '@/ui/loaders/Loader'
 import { Prisma } from '@prisma/client'
-import { useWindowSize } from '@uidotdev/usehooks'
 import { addDays } from 'date-fns'
 import { useState } from 'react'
-import { DateRange, DateRangePicker, Range } from 'react-date-range'
+import { DateRange, Range } from 'react-date-range'
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import { toast } from 'react-toastify'
@@ -53,7 +52,6 @@ const defaultDateRange = {
 export default function AvailabilitiesCalendar({ listing }: CalendarProps) {
   const [showModal, setShowModal] = useState(false)
   const [disabled, setDisabled] = useState(false)
-  const { width } = useWindowSize()
   const initialDateRange =
     listing.availabilities && listing.availabilities.length > 0
       ? {

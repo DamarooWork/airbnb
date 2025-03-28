@@ -27,13 +27,13 @@ export default function HandleSearchParams() {
         dates: [start, endDate],
       })
     }
-  }, [startdateParam])
+  }, [startdateParam, endDate])
   useEffect(() => {
     if (enddateParam) {
       useSearchStore.setState({
         dates: [startDate, end],
       })
     }
-  }, [enddateParam])
+  }, [enddateParam, startDate])
   return <></>
 }

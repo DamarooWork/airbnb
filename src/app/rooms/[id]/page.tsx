@@ -5,7 +5,6 @@ import { prisma } from '../../../../db/prisma'
 import BookingCalendar from './ui/BookingCalendar'
 import ImageForCard from './ui/ImageForCard'
 import HeaderH1 from '@/ui/header/HeaderH1'
-import { HandThumbUpIcon } from '@heroicons/react/24/solid'
 import { SVGChosenLeft, SVGChosenRight } from './ui/SVGChosen'
 
 export async function generateMetadata({
