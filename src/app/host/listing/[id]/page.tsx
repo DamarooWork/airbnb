@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 
 import Card from './ui/Card'
 import AvailabilitiesCalendar from './ui/AvailabilitiesCalendar'
+import HeaderH1 from '@/ui/header/HeaderH1'
 export default async function ListingPage({
   params,
 }: {
@@ -22,14 +23,12 @@ export default async function ListingPage({
   }
 
   return (
-    <section className="max-w-[1500px] mx-auto flex flex-col gap-4">
-      <header className="mt-4">
-        <h1 className="text-4xl font-semibold  text-primary">
-          Edit your listing:
-        </h1>
-      </header>
-      <Card listing={listing} />
-      <AvailabilitiesCalendar listing={listing} />
-    </section>
+    <>
+      <HeaderH1 title="Edit your listing" container />
+      <section className="max-w-[1500px] mx-auto w-full">
+        <Card listing={listing} />
+        <AvailabilitiesCalendar listing={listing} />
+      </section>
+    </>
   )
 }
