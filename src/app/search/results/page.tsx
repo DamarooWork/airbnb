@@ -1,7 +1,6 @@
 import ListingList from '../../../ui/listing/List'
 import { Suspense } from 'react'
 import HeaderH1 from '@/ui/header/HeaderH1'
-import Loader from '@/ui/loaders/Loader'
 import { prisma } from '../../../../db/prisma'
 import { Listing } from '@prisma/client'
 import HandleSearchParams from './ui/HandleSearchParams'
