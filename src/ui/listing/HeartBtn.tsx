@@ -5,12 +5,12 @@ import { useAnimate } from 'framer-motion'
 import { useState, useEffect, useTransition } from 'react'
 import { useReward } from 'react-rewards'
 import { FavoriteListing } from '@prisma/client'
+import actionDeleteFavoriteListing from '@/lib/actions/deleteFavoriteListing'
+import actionCreateFavoriteListing from '@/lib/actions/createFavoriteListing'
 
 interface HeartBtnProps {
   listingId: number
   isFavorite: FavoriteListing | null
-  handleDeleteFavoriteListing: () => Promise<void>
-  handleAddFavoriteListing: () => Promise<void>
 }
 const rewardConfigs = {
   lifetime: 100,
@@ -20,12 +20,7 @@ const rewardConfigs = {
   elementSize: 10,
   emoji: ['❤️', '💖', '💝'],
 }
-export default function HeartBtn({
-  listingId,
-  isFavorite,
-  handleDeleteFavoriteListing,
-  handleAddFavoriteListing,
-}: HeartBtnProps) {
+export default function HeartBtn({ listingId, isFavorite }: HeartBtnProps) {
   const [isFav, setIsFav] = useState<FavoriteListing | null | boolean>(
     isFavorite
   )
@@ -66,7 +61,7 @@ export default function HeartBtn({
   const handleClickAddFavoriteListing = async () => {
     if (isFav) return
     startTransition(async () => {
-      await handleAddFavoriteListing()
+      await actionCreateFavoriteListing(listingId)
         .then(() => {
           setIsFav(true)
         })
@@ -75,10 +70,10 @@ export default function HeartBtn({
         })
     })
   }
-  const handleClickDeleteFavoriteListing = () => {
+  const handleClickDeleteFavoriteListing = async () => {
     if (!isFav) return
     startTransition(async () => {
-      await handleDeleteFavoriteListing()
+      await actionDeleteFavoriteListing(listingId)
         .then(() => {
           setIsFav(false)
         })
