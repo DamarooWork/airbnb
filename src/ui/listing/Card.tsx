@@ -16,13 +16,13 @@ export default function Card({
   i: number
 }) {
   const item = {
-    hidden: { opacity: 0, y: -10 },
+    hidden: { opacity: 0, y: -5 },
     show: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.4,
-        delay: 0.1 * i,
+        duration: 0.8,
+        delay: i === 0 ? 0 : 0.5 + 0.1 * i,
       },
     },
   }
