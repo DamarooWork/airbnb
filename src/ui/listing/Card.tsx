@@ -4,7 +4,7 @@ import { FavoriteListing, Listing } from '@prisma/client'
 import Link from 'next/link'
 import ImageForCard from './ImageForCard'
 import HeartBtn from './HeartBtn'
-import { delay, motion, stagger } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 export default function Card({
   listing,
