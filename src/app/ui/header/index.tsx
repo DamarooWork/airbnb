@@ -94,7 +94,7 @@ export default function Header() {
               initial="hidden"
               animate={isExpanded ? 'enter' : 'exit'}
               exit="exit"
-              transition={{ type: 'linear' }}
+              transition={{ type: 'tween', ease: 'linear' }}
               variants={tabVariants}
             >
               <SearchBar toggleExpanded={toggleExpanded} />
@@ -104,7 +104,7 @@ export default function Header() {
               initial="initial"
               animate={isExpanded ? 'hidden' : 'enter'}
               exit="exit"
-              transition={{ type: 'linear' }}
+              transition={{ type: 'tween', ease: 'linear' }}
               onClick={toggleExpanded}
               variants={searchContainerVariants}
               className={` flex p-4 justify-center items-center rounded-full  border drop-shadow-md  mx-auto bg-background ${
